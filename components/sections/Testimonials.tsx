@@ -28,11 +28,11 @@ export default function Testimonials({ dict }: { dict: any }) {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ y: -5 }}
             >
-              <div className="text-4xl text-purple-500 mb-4">"</div>
+              <div className="text-4xl text-emerald-500 mb-4">"</div>
               <p className="text-gray-300 mb-6 italic">{testimonial.content}</p>
               <div>
                 <div className="font-semibold text-white">{testimonial.author}</div>
-                <div className="text-sm text-purple-400">{testimonial.role}</div>
+                <div className="text-sm text-emerald-400">{testimonial.role}</div>
                 <div className="text-sm text-gray-500">{testimonial.company}</div>
               </div>
             </motion.div>

@@ -7,7 +7,8 @@ export default function CTA({ dict }: { dict: any }) {
 
   return (
     <section ref={ref} className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-cyan-600/20" />
+      {/* Mavi/cyan qradiyent zümrüd/yaşıl ilə əvəzləndi */}
+      <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/20 to-green-600/20" />
       <div className="absolute inset-0 bg-[url('/noise.png')] opacity-5 mix-blend-overlay" />
       
       <div className="max-w-4xl mx-auto relative z-10 text-center">

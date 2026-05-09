@@ -19,134 +19,73 @@
 
 /* Animations */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); /* Mavi kölgə */
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3); /* Yaşıl kölgə */
   }
   50% {
-    box-shadow: 0 0 40px rgba(59, 130, 246, 0.6); /* Mavi kölgə */
+    box-shadow: 0 0 40px rgba(16, 185, 129, 0.6); /* Yaşıl kölgə */
   }
 }
 
 @keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
 }
 
 @keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 @layer utilities {
-  .animate-fade-in-up {
-    animation: fadeInUp 0.6s ease-out;
-  }
-
-  .animate-fade-in-down {
-    animation: fadeInDown 0.6s ease-out;
-  }
-
-  .animate-slide-in-left {
-    animation: slideInLeft 0.6s ease-out;
-  }
-
-  .animate-slide-in-right {
-    animation: slideInRight 0.6s ease-out;
-  }
-
-  .animate-scale-in {
-    animation: scaleIn 0.6s ease-out;
-  }
-
-  .animate-pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
-  }
-
-  .animate-float {
-    animation: float 3s ease-in-out infinite;
-  }
-
+  .animate-fade-in-up { animation: fadeInUp 0.6s ease-out; }
+  .animate-fade-in-down { animation: fadeInDown 0.6s ease-out; }
+  .animate-slide-in-left { animation: slideInLeft 0.6s ease-out; }
+  .animate-slide-in-right { animation: slideInRight 0.6s ease-out; }
+  .animate-scale-in { animation: scaleIn 0.6s ease-out; }
+  .animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+  .animate-float { animation: float 3s ease-in-out infinite; }
   .animate-gradient-shift {
     animation: gradient-shift 3s ease infinite;
     background-size: 200% 200%;
   }
 
   .bg-gradient-primary {
-    background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%); /* Mavi-Firuzəyi qradiyent */
+    background: linear-gradient(135deg, #059669 0%, #10b981 100%); /* Tünd yaşıl qradiyent */
   }
 
   .bg-gradient-dark {
-    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    background: linear-gradient(135deg, #064e3b 0%, #022c22 100%); /* Çox tünd arxa plan yaşıl */
   }
 
   .text-gradient {
-    background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%); /* Mavi-Firuzəyi qradiyent yazılar üçün */
+    background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -161,7 +100,7 @@
   .glass-dark {
     background: rgba(15, 23, 42, 0.7);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(59, 130, 246, 0.2); /* Çərçivələr mavi rəngdə */
+    border: 1px solid rgba(16, 185, 129, 0.2); /* Yaşıl çərçivə xətti */
   }
 
   .transition-smooth {
@@ -171,25 +110,25 @@
   }
 
   .btn-primary {
-    @apply px-6 py-3 rounded-lg font-semibold bg-gradient-to-r from-blue-600 to-cyan-600 hover:shadow-lg;
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    @apply px-6 py-3 rounded-lg font-semibold bg-gradient-to-r from-emerald-600 to-green-500 hover:shadow-lg;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
     cursor: pointer;
   }
 
   .btn-secondary {
-    @apply px-6 py-3 rounded-lg font-semibold border-2 border-blue-500 text-blue-400;
+    @apply px-6 py-3 rounded-lg font-semibold border-2 border-emerald-500 text-emerald-400;
     cursor: pointer;
   }
 
   .btn-secondary:hover {
-    background-color: rgba(59, 130, 246, 0.1);
+    background-color: rgba(16, 185, 129, 0.1);
   }
 
   .card {
     @apply p-6 rounded-xl;
     background: rgba(15, 23, 42, 0.7);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    border: 1px solid rgba(16, 185, 129, 0.2);
   }
 
   .card:hover {
@@ -222,10 +161,10 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3b82f6; /* Sürüşdürmə çubuğu mavi rəngdə */
+  background: #10b981; /* Sürüşdürmə çubuğu yaşıl rəngdə */
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2563eb;
+  background: #059669; /* Üzərinə gələndə daha tünd yaşıl */
 }

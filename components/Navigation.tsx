@@ -24,7 +24,7 @@ export default function Navigation({ dict, currentLang }: { dict: any, currentLa
 
   return (
     <motion.nav
-      className="fixed top-0 w-full z-50 glass-dark border-b border-blue-500/20 bg-slate-900/80 backdrop-blur-md"
+      className="fixed top-0 w-full z-50 glass-dark border-b border-emerald-500/20 bg-slate-900/80 backdrop-blur-md"
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -36,7 +36,6 @@ export default function Navigation({ dict, currentLang }: { dict: any, currentLa
             whileHover={{ scale: 1.05 }}
             onClick={() => router.push(`/${currentLang}`)}
           >
-            {/* Sənin loqon bura əlavə edildi */}
             <Image 
               src="/gx_2.png" 
               alt="GX Global Logo" 
@@ -50,7 +49,7 @@ export default function Navigation({ dict, currentLang }: { dict: any, currentLa
           {/* Desktop Menu */}
           <div className="hidden md:flex gap-8 items-center">
             {navItems.map((item) => (
-              <a key={item.label} href={item.href} className="text-gray-300 hover:text-blue-400 transition-colors">
+              <a key={item.label} href={item.href} className="text-gray-300 hover:text-emerald-400 transition-colors">
                 {item.label}
               </a>
             ))}
@@ -61,14 +60,14 @@ export default function Navigation({ dict, currentLang }: { dict: any, currentLa
                 <button
                   key={lang}
                   onClick={() => switchLanguage(lang)}
-                  className={`uppercase font-semibold transition-colors ${currentLang === lang ? 'text-blue-400' : 'text-gray-400 hover:text-white'}`}
+                  className={`uppercase font-semibold transition-colors ${currentLang === lang ? 'text-emerald-400' : 'text-gray-400 hover:text-white'}`}
                 >
                   {lang}
                 </button>
               ))}
             </div>
 
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors">
+            <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors">
               {dict.contact}
             </button>
           </div>
@@ -84,13 +83,13 @@ export default function Navigation({ dict, currentLang }: { dict: any, currentLa
         {isOpen && (
           <div className="md:hidden pb-4">
             {navItems.map((item) => (
-              <a key={item.label} href={item.href} className="block py-2 text-gray-300 hover:text-blue-400">
+              <a key={item.label} href={item.href} className="block py-2 text-gray-300 hover:text-emerald-400">
                 {item.label}
               </a>
             ))}
             <div className="flex gap-4 py-4 border-t border-gray-700 mt-2">
                {['az', 'en', 'ru'].map((lang) => (
-                <button key={lang} onClick={() => switchLanguage(lang)} className={`uppercase font-semibold ${currentLang === lang ? 'text-blue-400' : 'text-gray-400'}`}>
+                <button key={lang} onClick={() => switchLanguage(lang)} className={`uppercase font-semibold ${currentLang === lang ? 'text-emerald-400' : 'text-gray-400'}`}>
                   {lang}
                 </button>
               ))}

@@ -10,7 +10,7 @@ export default function Hero({ dict }: { dict: any }) {
           <div className="z-10">
             <h1 className="heading-lg text-white mb-6">
               {dict.title} <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-400">
                 {dict.subtitle}
               </span>
             </h1>
@@ -20,10 +20,10 @@ export default function Hero({ dict }: { dict: any }) {
             </p>
 
             <div className="flex gap-4 flex-wrap">
-              <button className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white px-8 py-3 rounded-lg font-semibold transition-colors shadow-lg shadow-blue-500/30">
+              <button className="bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white px-8 py-3 rounded-lg font-semibold transition-colors shadow-lg shadow-emerald-500/30">
                 {dict.btn_products}
               </button>
-              <button className="border border-blue-500/50 hover:border-blue-400 text-blue-100 hover:text-white px-8 py-3 rounded-lg font-semibold transition-colors bg-blue-500/5 hover:bg-blue-500/10">
+              <button className="border border-emerald-500/50 hover:border-emerald-400 text-emerald-100 hover:text-white px-8 py-3 rounded-lg font-semibold transition-colors bg-emerald-500/5 hover:bg-emerald-500/10">
                 {dict.btn_contact}
               </button>
             </div>
@@ -45,7 +45,7 @@ export default function Hero({ dict }: { dict: any }) {
           </div>
 
           {/* Supplier Image */}
-          <div className="relative h-[400px] lg:h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/40 border border-blue-500/10">
+          <div className="relative h-[400px] lg:h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl shadow-emerald-900/40 border border-emerald-500/10">
             <img 
               src="https://images.unsplash.com/photo-1586528116311-ad8ed7c50a95?q=80&w=1470&auto=format&fit=crop" 
               alt="Global Logistics and Supply" 
