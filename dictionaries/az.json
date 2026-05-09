@@ -17,6 +17,58 @@
       "support": "Dəstək"
     }
   },
+  "features": {
+    "title": "Niyə GX-GLOBAL Seçməlisiniz",
+    "subtitle": "Qlobal təchizat ehtiyaclarınız üçün premium məhsullar və etibarlı xidmət",
+    "items": [
+      { "icon": "📦", "title": "Geniş Məhsul Çeşidi", "description": "Dünya üzrə etibarlı təchizatçılardan 10,000-dən çox keyfiyyətli məhsula çıxış." },
+      { "icon": "🚚", "title": "Qlobal Çatdırılma", "description": "Real vaxt izləmə imkanları ilə sürətli və etibarlı beynəlxalq çatdırılma." },
+      { "icon": "💰", "title": "Rəqabətli Qiymətlər", "description": "Daimi müştərilər üçün xüsusi təkliflər və toplu endirimlərlə topdansatış qiymətləri." },
+      { "icon": "✅", "title": "Keyfiyyət Zəmanəti", "description": "Bütün məhsullar keyfiyyət və davamlılıq üçün sertifikatlaşdırılıb və test edilib." },
+      { "icon": "🤝", "title": "24/7 Dəstək", "description": "İstənilən sorğularla bağlı kömək etməyə hazır olan xüsusi müştəri xidmətləri komandası." },
+      { "icon": "🔐", "title": "Təhlükəsiz Əməliyyatlar", "description": "Biznes məlumatlarınızı qorumaq üçün təhlükəsiz və şifrələnmiş ödəniş sistemləri." }
+    ]
+  },
+  "services": {
+    "title": "Məhsul Kateqoriyaları",
+    "subtitle": "Biznesiniz üçün lazım olan bütün təchizat həlləri",
+    "items": [
+      { "title": "Sənaye Avadanlıqları" },
+      { "title": "Xammal və Materiallar" },
+      { "title": "Ofis və Elektronika" },
+      { "title": "Qablaşdırma və Logistika" }
+    ]
+  },
+  "testimonials": {
+    "title": "Müştəri Rəyləri",
+    "subtitle": "Bizneslərin GX-GLOBAL haqqında dedikləri",
+    "items": [
+      {
+        "content": "GX-GLOBAL təchizat zəncirimizi tamamilə dəyişdirdi. Onların etibarlılığı və məhsul keyfiyyəti bənzərsizdir.",
+        "author": "Sarah Johnson",
+        "role": "Əməliyyatlar Direktoru",
+        "company": "TechCorp"
+      },
+      {
+        "content": "Biz iki ildir onlarla tərəfdaşıq. Müştəri xidmətləri hər zaman hər hansı bir problemi dərhal həll etməyə hazırdır.",
+        "author": "Michael Chen",
+        "role": "Satınalma Meneceri",
+        "company": "Global Build"
+      },
+      {
+        "content": "Təklif etdikləri qiymətlər və sürətli çatdırılma bizə xərcləri xeyli azaltmağa kömək etdi.",
+        "author": "Emma Davis",
+        "role": "CEO",
+        "company": "Retail Solutions"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Təchizat Zəncirinizi Optimallaşdırmağa Hazırsınız?",
+    "subtitle": "Gündəlik əməliyyatları üçün GX-GLOBAL-a etibar edən minlərlə biznesə qoşulun.",
+    "btn_start": "İndi Başla",
+    "btn_contact": "Satış Şöbəsi ilə Əlaqə"
+  },
   "footer": {
     "desc": "Qlobal təchizat zənciri, yüksək keyfiyyətli məhsullar və logistika həlləri üçün etibarlı partnyorunuz.",
     "rights": "Bütün hüquqlar qorunur."

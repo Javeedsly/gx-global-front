@@ -7,22 +7,18 @@ import CTA from '@/components/sections/CTA';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
-// params tipini Promise olaraq təyin etdik
 export default async function Home({ params }: { params: Promise<{ lang: Locale }> }) {
-  // params-ı await edirik
   const resolvedParams = await params;
-  
-  // İndi resolvedParams.lang istifadə edə bilərik
   const dict = await getDictionary(resolvedParams.lang);
 
   return (
     <main className="min-h-screen bg-slate-950">
       <Navigation dict={dict.nav} currentLang={resolvedParams.lang} />
       <Hero dict={dict.hero} />
-      <Features /> 
-      <Services />
-      <Testimonials />
-      <CTA />
+      <Features dict={dict.features} /> 
+      <Services dict={dict.services} />
+      <Testimonials dict={dict.testimonials} />
+      <CTA dict={dict.cta} />
       <Footer dict={dict.footer} />
     </main>
   );

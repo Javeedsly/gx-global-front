@@ -17,6 +17,58 @@
       "support": "Support"
     }
   },
+  "features": {
+    "title": "Why Choose GX-GLOBAL",
+    "subtitle": "Premium products and reliable service for your global supply needs",
+    "items": [
+      { "icon": "📦", "title": "Diverse Product Range", "description": "Access over 10,000 quality products from trusted suppliers worldwide." },
+      { "icon": "🚚", "title": "Global Delivery", "description": "Quick and reliable international shipping with real-time tracking capabilities." },
+      { "icon": "💰", "title": "Competitive Pricing", "description": "Wholesale prices with bulk discounts and special offers for regular customers." },
+      { "icon": "✅", "title": "Quality Guarantee", "description": "All products certified and tested for quality and durability." },
+      { "icon": "🤝", "title": "24/7 Support", "description": "Dedicated customer service team ready to assist with any inquiries globally." },
+      { "icon": "🔐", "title": "Secure Transactions", "description": "Safe and encrypted payment systems to protect your business information." }
+    ]
+  },
+  "services": {
+    "title": "Product Categories",
+    "subtitle": "Complete supply chain solutions for your business success",
+    "items": [
+      { "title": "Industrial Equipment" },
+      { "title": "Raw Materials" },
+      { "title": "Office & Electronics" },
+      { "title": "Packaging & Logistics" }
+    ]
+  },
+  "testimonials": {
+    "title": "Client Testimonials",
+    "subtitle": "What businesses say about GX-GLOBAL",
+    "items": [
+      {
+        "content": "GX-GLOBAL has transformed our supply chain. Their reliability and product quality are unmatched.",
+        "author": "Sarah Johnson",
+        "role": "Operations Director",
+        "company": "TechCorp"
+      },
+      {
+        "content": "We've been partnering with them for two years. Customer service is always ready to resolve any issue instantly.",
+        "author": "Michael Chen",
+        "role": "Procurement Manager",
+        "company": "Global Build"
+      },
+      {
+        "content": "The competitive pricing and fast delivery helped us significantly reduce our costs.",
+        "author": "Emma Davis",
+        "role": "CEO",
+        "company": "Retail Solutions"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Streamline Your Supply Chain?",
+    "subtitle": "Join thousands of businesses that trust GX-GLOBAL for their daily operations.",
+    "btn_start": "Get Started Now",
+    "btn_contact": "Contact Sales"
+  },
   "footer": {
     "desc": "Your trusted partner for global supply chain, premium quality products, and logistics solutions.",
     "rights": "All rights reserved."
