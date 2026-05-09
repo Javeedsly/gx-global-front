@@ -23,145 +23,68 @@ export default function Hero() {
     },
   };
 
-  const floatingVariants = {
-    initial: { y: 0 },
-    animate: {
-      y: [-20, 20, -20],
-      transition: {
-        duration: 4,
-        repeat: Infinity,
-      },
-    },
-  };
-
   return (
-    <section className="min-h-screen pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-950 via-purple-950/20 to-slate-950 relative overflow-hidden">
-      {/* Animated background blobs */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <motion.div
-          className="absolute w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
-          animate={{ x: [0, 100, 0], y: [0, 50, 0] }}
-          transition={{ duration: 8, ease: 'easeInOut', repeat: Infinity }}
-        />
-        <motion.div
-          className="absolute -bottom-32 right-20 w-96 h-96 bg-pink-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
-          animate={{ x: [0, -100, 0], y: [0, -50, 0] }}
-          transition={{ duration: 8, ease: 'easeInOut', repeat: Infinity, delay: 1 }}
-        />
-      </div>
-
+    <section className="min-h-screen pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-slate-950 relative overflow-hidden flex items-center">
       <motion.div
-        className="max-w-7xl mx-auto"
+        className="max-w-7xl mx-auto w-full"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
-          <motion.div variants={itemVariants}>
-            <motion.h1
-              className="heading-lg text-white mb-6"
-              animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
-            >
-              Your Global Supply{' '}
-              <span className="text-gradient">Solution Partner</span>
-            </motion.h1>
+          <motion.div variants={itemVariants} className="z-10">
+            <h1 className="heading-lg text-white mb-6">
+              Your Global Supply <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
+                Solution Partner
+              </span>
+            </h1>
 
-            <motion.p
-              className="text-lg text-gray-300 mb-8"
-              variants={itemVariants}
-            >
-              Access premium quality products and reliable logistics services all in one place.
-              GX-GLOBAL delivers excellence from warehouse to your doorstep worldwide.
-            </motion.p>
+            <p className="text-lg text-gray-300 mb-8 max-w-xl">
+              Dünyanın dörd bir yanından yüksək keyfiyyətli məhsullar və etibarlı logistika xidmətləri. GX-GLOBAL ilə ehtiyacınız olan hər şey bir yerdə.
+            </p>
 
-            <motion.div
-              className="flex gap-4 flex-wrap"
-              variants={itemVariants}
-            >
-              <motion.button
-                className="btn-primary"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Get Started
-              </motion.button>
-              <motion.button
-                className="btn-secondary"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Learn More
-              </motion.button>
+            <motion.div className="flex gap-4 flex-wrap">
+              <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+                Məhsullara Bax
+              </button>
+              <button className="border border-gray-600 hover:border-gray-400 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+                Bizimlə Əlaqə
+              </button>
             </motion.div>
 
             {/* Stats */}
-            <motion.div
-              className="grid grid-cols-3 gap-4 mt-12"
-              variants={itemVariants}
-            >
-              {[
-                { number: '10K+', label: 'Products' },
-                { number: '5K+', label: 'Partners' },
-                { number: '24/7', label: 'Support' },
-              ].map((stat, i) => (
-                <motion.div
-                  key={i}
-                  className="glass-dark p-4 rounded-lg"
-                  whileHover={{ y: -5 }}
-                >
-                  <div className="text-2xl font-bold text-gradient">{stat.number}</div>
-                  <div className="text-sm text-gray-400">{stat.label}</div>
-                </motion.div>
-              ))}
-            </motion.div>
+            <div className="grid grid-cols-3 gap-6 mt-12 border-t border-gray-800 pt-8">
+              <div>
+                <div className="text-3xl font-bold text-white">10K+</div>
+                <div className="text-sm text-gray-400 mt-1">Məhsul Çeşidi</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-white">50+</div>
+                <div className="text-sm text-gray-400 mt-1">Ölkəyə Çatdırılma</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-white">24/7</div>
+                <div className="text-sm text-gray-400 mt-1">Dəstək</div>
+              </div>
+            </div>
           </motion.div>
 
-          {/* Visual Element */}
+          {/* Visual Element - Supplier Image */}
           <motion.div
-            className="relative h-96 md:h-full"
+            className="relative h-[400px] lg:h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/20"
             variants={itemVariants}
           >
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl opacity-20 blur-2xl"
-              animate={{ scale: [1, 1.1, 1] }}
-              transition={{ duration: 3, repeat: Infinity }}
+            {/* QEYD: Buradakı şəklin linkini öz real şəklinizlə əvəz edə bilərsiniz */}
+            <img 
+              src="https://images.unsplash.com/photo-1586528116311-ad8ed7c50a95?q=80&w=1470&auto=format&fit=crop" 
+              alt="Global Logistics and Supply" 
+              className="object-cover w-full h-full"
             />
-            <motion.div
-              className="relative h-full bg-gradient-to-br from-purple-500/30 to-pink-500/30 rounded-2xl border border-purple-400/30 glass-dark flex items-center justify-center"
-              variants={floatingVariants}
-              initial="initial"
-              animate="animate"
-            >
-              <motion.div
-                className="w-48 h-48 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full blur-2xl opacity-40"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 8, ease: 'linear', repeat: Infinity }}
-              />
-            </motion.div>
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
           </motion.div>
         </div>
-      </motion.div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-      >
-        <svg
-          className="w-6 h-6 text-purple-400"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 14l-7 7m0 0l-7-7m7 7V3"
-          />
-        </svg>
       </motion.div>
     </section>
   );

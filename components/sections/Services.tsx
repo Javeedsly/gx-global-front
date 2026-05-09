@@ -10,53 +10,40 @@ export default function Services() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
+      transition: { staggerChildren: 0.15 },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, x: -50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.6 },
-    },
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
-  const services = [
+  // Supplier Kateqoriyaları və təmsili şəkillər
+  const categories = [
     {
-      number: '01',
-      title: 'Wholesale Products',
-      description: 'Wide range of quality products at competitive prices. From office supplies to industrial equipment.',
-      color: 'from-blue-600 to-cyan-600',
+      title: 'Sənaye Avadanlıqları',
+      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop',
     },
     {
-      number: '02',
-      title: 'Global Logistics',
-      description: 'Reliable and speedy delivery services worldwide. Real-time tracking available.',
-      color: 'from-purple-600 to-pink-600',
+      title: 'Xammal və Materiallar',
+      image: 'https://images.unsplash.com/photo-1518349619113-03114f06ac3a?q=80&w=800&auto=format&fit=crop',
     },
     {
-      number: '03',
-      title: 'Inventory Management',
-      description: 'Smart stock management solutions to optimize your global supply chain and reduce costs.',
-      color: 'from-green-600 to-emerald-600',
+      title: 'Ofis və Elektronika',
+      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop',
     },
     {
-      number: '04',
-      title: 'Dedicated Support',
-      description: 'Expert customer service team available 24/7 for all your international supply needs and inquiries.',
-      color: 'from-orange-600 to-red-600',
+      title: 'Qablaşdırma və Logistika',
+      image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=800&auto=format&fit=crop',
     },
   ];
 
   return (
     <section
       ref={ref}
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-950 to-slate-900"
-      id="services"
+      className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900"
+      id="categories"
     >
       <div className="max-w-7xl mx-auto">
         <motion.div
@@ -65,45 +52,40 @@ export default function Services() {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="heading-md text-white mb-4">Our Services</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Məhsul Kateqoriyaları</h2>
           <p className="text-gray-400 text-lg">
-            Complete global supply chain solutions for your business success
+            Biznesiniz üçün lazım olan bütün təchizat həlləri
           </p>
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
           variants={containerVariants}
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
         >
-          {services.map((service, index) => (
+          {categories.map((category, index) => (
             <motion.div
               key={index}
-              className="relative group"
               variants={itemVariants}
+              className="relative h-80 rounded-2xl overflow-hidden group cursor-pointer"
             >
-              <motion.div
-                className={`absolute inset-0 bg-gradient-to-r ${service.color} rounded-xl opacity-0 blur-lg group-hover:opacity-50 transition-all duration-300`}
+              {/* Arxa plan şəkli */}
+              <img 
+                src={category.image} 
+                alt={category.title}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="relative glass-dark p-8 rounded-xl h-full">
-                <motion.div
-                  className={`text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${service.color} mb-4`}
-                  whileHover={{ scale: 1.2 }}
-                >
-                  {service.number}
-                </motion.div>
-
-                <h3 className="heading-sm text-white mb-3">{service.title}</h3>
-                <p className="text-gray-400 mb-4">{service.description}</p>
-
-                <motion.button
-                  className="text-purple-400 font-semibold flex items-center gap-2 group/btn"
-                  whileHover={{ x: 5 }}
-                >
-                  Learn More
-                  <span className="group-hover/btn:translate-x-1 transition-transform">→</span>
-                </motion.button>
+              
+              {/* Qaranlıq overlay (Hover olanda biraz açılır) */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-opacity duration-300 group-hover:opacity-80" />
+              
+              {/* Mətn */}
+              <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                <h3 className="text-xl font-bold text-white mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                  {category.title}
+                </h3>
+                <div className="h-1 w-12 bg-blue-500 rounded mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             </motion.div>
           ))}
