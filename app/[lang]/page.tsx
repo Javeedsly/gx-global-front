@@ -7,13 +7,17 @@ import CTA from '@/components/sections/CTA';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
-export default async function Home({ params }: { params: Promise<{ lang: Locale }> }) {
+// params tipini standart 'string' edirik ki, Next.js type error verməsin
+export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
   const resolvedParams = await params;
-  const dict = await getDictionary(resolvedParams.lang);
+  
+  // Burada string-i Locale tipinə cast edirik ('az' | 'en' | 'ru')
+  const lang = resolvedParams.lang as Locale;
+  const dict = await getDictionary(lang);
 
   return (
     <main className="min-h-screen bg-slate-950">
-      <Navigation dict={dict.nav} currentLang={resolvedParams.lang} />
+      <Navigation dict={dict.nav} currentLang={lang} />
       <Hero dict={dict.hero} />
       <Features dict={dict.features} /> 
       <Services dict={dict.services} />

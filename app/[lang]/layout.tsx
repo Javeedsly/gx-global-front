@@ -18,7 +18,6 @@ export async function generateStaticParams() {
   return [{ lang: 'az' }, { lang: 'en' }, { lang: 'ru' }];
 }
 
-// params tipini Promise olaraq dəyişdik və funksiyanı async etdik
 export default async function RootLayout({
   children,
   params
@@ -26,7 +25,6 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: Promise<{ lang: string }>; 
 }>) {
-  // params-ı await ilə açırıq
   const { lang } = await params;
 
   return (

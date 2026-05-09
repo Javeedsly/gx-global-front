@@ -4,7 +4,7 @@ import type { NextRequest } from 'next/server';
 const locales = ['az', 'en', 'ru'];
 const defaultLocale = 'az';
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Əgər path-də artıq dil varsa toxunma
