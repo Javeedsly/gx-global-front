@@ -27,34 +27,34 @@ export default function Features() {
 
   const features = [
     {
-      icon: '⚡',
-      title: 'Lightning Fast',
-      description: 'Optimized performance that keeps your users engaged and satisfied.',
+      icon: '📦',
+      title: 'Diverse Product Range',
+      description: 'Access over 10,000 quality products from trusted suppliers worldwide.',
     },
     {
-      icon: '🔒',
-      title: 'Secure & Reliable',
-      description: 'Enterprise-grade security to protect your data and users.',
+      icon: '🚚',
+      title: 'Fast Delivery',
+      description: 'Quick and reliable shipping with real-time tracking capabilities.',
     },
     {
-      icon: '📈',
-      title: 'Scalable Solutions',
-      description: 'Grow your business without worrying about infrastructure limits.',
+      icon: '💰',
+      title: 'Competitive Pricing',
+      description: 'Wholesale prices with bulk discounts and special offers for regular customers.',
     },
     {
-      icon: '🎨',
-      title: 'Beautiful Design',
-      description: 'Modern, responsive interfaces that delight your users.',
+      icon: '✅',
+      title: 'Quality Guarantee',
+      description: 'All products certified and tested for quality and durability.',
     },
     {
       icon: '🤝',
       title: '24/7 Support',
-      description: 'Dedicated support team ready to help whenever you need.',
+      description: 'Dedicated customer service team ready to assist with any inquiries.',
     },
     {
-      icon: '🚀',
-      title: 'Easy Integration',
-      description: 'Seamless integration with your existing tools and services.',
+      icon: '🔐',
+      title: 'Secure Transactions',
+      description: 'Safe and encrypted payment systems to protect your business information.',
     },
   ];
 
@@ -71,9 +71,9 @@ export default function Features() {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="heading-md text-white mb-4">Why Choose Us</h2>
+          <h2 className="heading-md text-white mb-4">Why Choose Full Supplies</h2>
           <p className="text-gray-400 text-lg">
-            Experience the difference with our powerful features
+            Premium products and reliable service for your supply needs
           </p>
         </motion.div>
 

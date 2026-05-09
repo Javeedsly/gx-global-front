@@ -41,7 +41,7 @@ export default function Navigation() {
             className="text-2xl font-bold text-gradient"
             whileHover={{ scale: 1.05 }}
           >
-            GX Global
+            Full Supplies
           </motion.div>
 
           {/* Desktop Menu */}

@@ -63,16 +63,16 @@ export default function Hero() {
               className="heading-lg text-white mb-6"
               animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
             >
-              Transform Your{' '}
-              <span className="text-gradient">Business Today</span>
+              Your Complete Supply{' '}
+              <span className="text-gradient">Solution Partner</span>
             </motion.h1>
 
             <motion.p
               className="text-lg text-gray-300 mb-8"
               variants={itemVariants}
             >
-              Unlock the power of innovation with our cutting-edge digital solutions.
-              We help businesses scale, innovate, and thrive in the digital age.
+              Access premium quality products and reliable logistics services all in one place.
+              Full Supplies delivers excellence from warehouse to your doorstep.
             </motion.p>
 
             <motion.div
@@ -101,9 +101,9 @@ export default function Hero() {
               variants={itemVariants}
             >
               {[
-                { number: '500+', label: 'Clients' },
-                { number: '1000+', label: 'Projects' },
-                { number: '50+', label: 'Awards' },
+                { number: '10K+', label: 'Products' },
+                { number: '5K+', label: 'Customers' },
+                { number: '24/7', label: 'Support' },
               ].map((stat, i) => (
                 <motion.div
                   key={i}

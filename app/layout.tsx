@@ -10,8 +10,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "GX Global - Digital Solutions",
-  description: "Transform your business with cutting-edge digital solutions",
+  title: 'Full Supplies - Premium Quality Products & Logistics',
+  description: 'Your trusted partner for wholesale supplies, fast delivery, and reliable logistics solutions. Access 10,000+ quality products.',
 };
 
 export default function RootLayout({

@@ -27,26 +27,26 @@ export default function Testimonials() {
 
   const testimonials = [
     {
-      name: 'Alex Johnson',
-      role: 'CEO, Tech Startup',
+      name: 'Ahmad Rashid',
+      role: 'General Manager, RetailCo',
       content:
-        'GX Global transformed our business. Their team delivered beyond expectations and helped us scale 10x in just 6 months.',
+        'Full Supplies transformed our procurement process. Quality products, reliable delivery, and excellent support. We save 30% on supply costs!',
       avatar: '👨‍💼',
       rating: 5,
     },
     {
-      name: 'Sarah Chen',
-      role: 'Product Manager, Enterprise Co',
+      name: 'Leyla Mirza',
+      role: 'Supply Manager, Industrial Solutions',
       content:
-        'The attention to detail and professionalism was outstanding. We now have the best platform in our industry.',
+        'The product range and logistics efficiency are unmatched. Our inventory management became so much easier with their platform.',
       avatar: '👩‍💼',
       rating: 5,
     },
     {
-      name: 'Michael Rodriguez',
-      role: 'Founder, E-commerce Brand',
+      name: 'Karim Hasanov',
+      role: 'Business Owner, Distribution Hub',
       content:
-        'Working with GX Global was the best decision we made. They understood our vision and executed perfectly.',
+        'Partnering with Full Supplies was the best decision for our business. Professional team, quality assurance, and competitive pricing!',
       avatar: '👨‍🔬',
       rating: 5,
     },
@@ -76,9 +76,9 @@ export default function Testimonials() {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="heading-md text-white mb-4">What Our Clients Say</h2>
+          <h2 className="heading-md text-white mb-4">What Our Customers Say</h2>
           <p className="text-gray-400 text-lg">
-            Join hundreds of satisfied clients who have transformed their business
+            Join thousands of satisfied businesses who trust Full Supplies
           </p>
         </motion.div>
 

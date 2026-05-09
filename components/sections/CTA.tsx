@@ -36,7 +36,7 @@ export default function CTA() {
         animate={inView ? 'visible' : 'hidden'}
       >
         <motion.h2 className="heading-md text-white mb-6">
-          Ready to Transform Your Business?
+          Ready to Streamline Your Supply Chain?
         </motion.h2>
 
         <motion.p
@@ -45,8 +45,8 @@ export default function CTA() {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ delay: 0.2 }}
         >
-          Join thousands of companies already using GX Global to scale their business.
-          Let's discuss your project and find the perfect solution for you.
+          Join thousands of businesses already using Full Supplies to optimize their procurement.
+          Let's discuss your supply needs and deliver the perfect solution for your business.
         </motion.p>
 
         <motion.div
@@ -79,9 +79,9 @@ export default function CTA() {
           transition={{ delay: 0.5 }}
         >
           {[
-            { icon: '✓', text: 'No credit card required' },
-            { icon: '⚡', text: 'Setup in minutes' },
-            { icon: '🎯', text: 'Free 14-day trial' },
+            { icon: '✓', text: '10,000+ Products In Stock' },
+            { icon: '🚚', text: 'Express Delivery Available' },
+            { icon: '💯', text: 'Quality Guaranteed' },
           ].map((badge, i) => (
             <motion.div
               key={i}

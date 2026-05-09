@@ -28,26 +28,26 @@ export default function Services() {
   const services = [
     {
       number: '01',
-      title: 'Web Development',
-      description: 'Create stunning, responsive websites that drive conversions and engage users.',
+      title: 'Wholesale Products',
+      description: 'Wide range of quality products at competitive prices. From office supplies to industrial equipment.',
       color: 'from-blue-600 to-cyan-600',
     },
     {
       number: '02',
-      title: 'Mobile Applications',
-      description: 'Build native and cross-platform mobile apps with exceptional user experience.',
+      title: 'Fast Logistics',
+      description: 'Reliable and speedy delivery services across the region. Real-time tracking available.',
       color: 'from-purple-600 to-pink-600',
     },
     {
       number: '03',
-      title: 'Cloud Solutions',
-      description: 'Scale your infrastructure with secure, reliable cloud-based solutions.',
+      title: 'Inventory Management',
+      description: 'Smart stock management solutions to optimize your supply chain and reduce costs.',
       color: 'from-green-600 to-emerald-600',
     },
     {
       number: '04',
-      title: 'AI & Machine Learning',
-      description: 'Leverage AI to automate processes and gain intelligent insights from your data.',
+      title: 'Dedicated Support',
+      description: 'Expert customer service team available 24/7 for all your supply needs and inquiries.',
       color: 'from-orange-600 to-red-600',
     },
   ];
@@ -67,7 +67,7 @@ export default function Services() {
         >
           <h2 className="heading-md text-white mb-4">Our Services</h2>
           <p className="text-gray-400 text-lg">
-            Comprehensive solutions tailored to your business needs
+            Complete supply chain solutions for your business success
           </p>
         </motion.div>
 
