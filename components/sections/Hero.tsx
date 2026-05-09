@@ -57,9 +57,15 @@ export default function Hero({ dict }: { dict: any }) {
                 { number: "50+", label: dict.stats.countries },
                 { number: "24/7", label: dict.stats.support }
               ].map((stat, i) => (
-                <motion.div key={i} variants={itemVariants} whileHover={{ y: -5, color: "#065f46" }} transition={{ type: "spring" }}>
-                  <div className="text-2xl sm:text-3xl font-bold text-emerald-900">{stat.number}</div>
-                  <div className="text-xs sm:text-sm text-gray-500 mt-1 font-medium">{stat.label}</div>
+                <motion.div 
+                  key={i} 
+                  variants={itemVariants} 
+                  whileHover={{ y: -5 }} 
+                  transition={{ type: "spring" }}
+                  className="group cursor-pointer"
+                >
+                  <div className="text-2xl sm:text-3xl font-bold text-emerald-900 group-hover:text-emerald-600 transition-colors duration-300">{stat.number}</div>
+                  <div className="text-xs sm:text-sm text-gray-500 mt-1 font-medium group-hover:text-emerald-700 transition-colors duration-300">{stat.label}</div>
                 </motion.div>
               ))}
             </motion.div>

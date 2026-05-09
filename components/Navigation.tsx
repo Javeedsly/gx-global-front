@@ -20,7 +20,7 @@ export default function Navigation({ dict, currentLang }: { dict: any, currentLa
     if (!pathname) return;
     const newPath = pathname.replace(`/${currentLang}`, `/${locale}`);
     router.push(newPath || `/${locale}`);
-    setIsOpen(false); // Dil seçəndə menyunu bağla
+    setIsOpen(false);
   };
 
   return (
@@ -35,7 +35,10 @@ export default function Navigation({ dict, currentLang }: { dict: any, currentLa
           <motion.div
             className="flex items-center cursor-pointer"
             whileHover={{ scale: 1.05 }}
-            onClick={() => router.push(`/${currentLang}`)}
+            onClick={() => {
+              router.push(`/${currentLang}`);
+              setIsOpen(false);
+            }}
           >
             <Image 
               src="/gx_2.png" 
@@ -67,9 +70,13 @@ export default function Navigation({ dict, currentLang }: { dict: any, currentLa
               ))}
             </div>
 
-            <button className="bg-emerald-800 hover:bg-emerald-900 text-white px-6 py-2.5 rounded-lg font-semibold transition-colors shadow-md shadow-emerald-900/20">
+            <motion.button 
+              whileHover={{ scale: 1.05 }} 
+              whileTap={{ scale: 0.95 }}
+              className="bg-emerald-800 hover:bg-emerald-900 text-white px-6 py-2.5 rounded-lg font-semibold transition-colors shadow-md shadow-emerald-900/20"
+            >
               {dict.contact}
-            </button>
+            </motion.button>
           </div>
 
           {/* Mobile Hamburger Button */}
@@ -107,7 +114,11 @@ export default function Navigation({ dict, currentLang }: { dict: any, currentLa
               ))}
               <div className="flex gap-4 py-4 px-4 border-t border-gray-100 mt-4 justify-center">
                  {['az', 'en', 'ru'].map((lang) => (
-                  <button key={lang} onClick={() => switchLanguage(lang)} className={`uppercase font-bold px-4 py-2 rounded-md ${currentLang === lang ? 'bg-emerald-50 text-emerald-800' : 'text-gray-500'}`}>
+                  <button 
+                    key={lang} 
+                    onClick={() => switchLanguage(lang)} 
+                    className={`uppercase font-bold px-4 py-2 rounded-md transition-colors ${currentLang === lang ? 'bg-emerald-50 text-emerald-800' : 'text-gray-500'}`}
+                  >
                     {lang}
                   </button>
                 ))}
