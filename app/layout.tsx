@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${poppins.variable}`}>
-      <body className={`${inter.className} bg-slate-950 text-white`}>
+      <body className={`${inter.className} bg-slate-950 text-white`} suppressHydrationWarning>
         {children}
       </body>
     </html>
