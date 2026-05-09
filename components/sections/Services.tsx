@@ -37,12 +37,12 @@ export default function Services({ dict }: { dict: any }) {
 
         <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" variants={containerVariants} initial="hidden" animate={inView ? 'visible' : 'hidden'}>
           {dict.items.map((category: any, index: number) => (
-            <motion.div key={index} variants={itemVariants} className="relative h-80 rounded-2xl overflow-hidden group cursor-pointer">
+            <motion.div key={index} variants={itemVariants} className="relative h-80 rounded-2xl overflow-hidden group cursor-pointer border border-transparent hover:border-blue-500/30 transition-all">
               <img src={images[index]} alt={category.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-opacity duration-300 group-hover:opacity-80" />
               <div className="absolute inset-0 p-6 flex flex-col justify-end">
                 <h3 className="text-xl font-bold text-white mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">{category.title}</h3>
-                <div className="h-1 w-12 bg-blue-500 rounded mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="h-1 w-12 bg-gradient-to-r from-blue-400 to-cyan-400 rounded mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_10px_rgba(59,130,246,0.5)]" />
               </div>
             </motion.div>
           ))}
