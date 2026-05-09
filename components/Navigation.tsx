@@ -24,7 +24,7 @@ export default function Navigation({ dict, currentLang }: { dict: any, currentLa
 
   return (
     <motion.nav
-      className="fixed top-0 w-full z-50 glass-dark border-b border-emerald-500/20 bg-slate-900/80 backdrop-blur-md"
+      className="fixed top-0 w-full z-50 bg-white/95 border-b border-emerald-900/10 backdrop-blur-md shadow-sm"
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -49,30 +49,30 @@ export default function Navigation({ dict, currentLang }: { dict: any, currentLa
           {/* Desktop Menu */}
           <div className="hidden md:flex gap-8 items-center">
             {navItems.map((item) => (
-              <a key={item.label} href={item.href} className="text-gray-300 hover:text-emerald-400 transition-colors">
+              <a key={item.label} href={item.href} className="text-gray-600 hover:text-emerald-800 font-medium transition-colors">
                 {item.label}
               </a>
             ))}
 
             {/* Language Switcher */}
-            <div className="flex gap-2 text-sm border-l border-gray-600 pl-6 ml-2">
+            <div className="flex gap-2 text-sm border-l border-gray-300 pl-6 ml-2">
               {['az', 'en', 'ru'].map((lang) => (
                 <button
                   key={lang}
                   onClick={() => switchLanguage(lang)}
-                  className={`uppercase font-semibold transition-colors ${currentLang === lang ? 'text-emerald-400' : 'text-gray-400 hover:text-white'}`}
+                  className={`uppercase font-bold transition-colors ${currentLang === lang ? 'text-emerald-800' : 'text-gray-400 hover:text-emerald-600'}`}
                 >
                   {lang}
                 </button>
               ))}
             </div>
 
-            <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors">
+            <button className="bg-emerald-800 hover:bg-emerald-900 text-white px-6 py-2 rounded-lg font-semibold transition-colors shadow-md shadow-emerald-900/20">
               {dict.contact}
             </button>
           </div>
 
-          <button className="md:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
+          <button className="md:hidden text-emerald-900" onClick={() => setIsOpen(!isOpen)}>
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
@@ -81,15 +81,15 @@ export default function Navigation({ dict, currentLang }: { dict: any, currentLa
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden pb-4">
+          <div className="md:hidden pb-4 bg-white border-t border-gray-100">
             {navItems.map((item) => (
-              <a key={item.label} href={item.href} className="block py-2 text-gray-300 hover:text-emerald-400">
+              <a key={item.label} href={item.href} className="block py-3 px-4 text-gray-700 hover:bg-emerald-50 hover:text-emerald-800 font-medium">
                 {item.label}
               </a>
             ))}
-            <div className="flex gap-4 py-4 border-t border-gray-700 mt-2">
+            <div className="flex gap-4 py-4 px-4 border-t border-gray-100 mt-2">
                {['az', 'en', 'ru'].map((lang) => (
-                <button key={lang} onClick={() => switchLanguage(lang)} className={`uppercase font-semibold ${currentLang === lang ? 'text-emerald-400' : 'text-gray-400'}`}>
+                <button key={lang} onClick={() => switchLanguage(lang)} className={`uppercase font-bold ${currentLang === lang ? 'text-emerald-800' : 'text-gray-500'}`}>
                   {lang}
                 </button>
               ))}
