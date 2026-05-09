@@ -63,7 +63,7 @@ export default function Hero() {
               className="heading-lg text-white mb-6"
               animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
             >
-              Your Complete Supply{' '}
+              Your Global Supply{' '}
               <span className="text-gradient">Solution Partner</span>
             </motion.h1>
 
@@ -72,7 +72,7 @@ export default function Hero() {
               variants={itemVariants}
             >
               Access premium quality products and reliable logistics services all in one place.
-              Full Supplies delivers excellence from warehouse to your doorstep.
+              GX-GLOBAL delivers excellence from warehouse to your doorstep worldwide.
             </motion.p>
 
             <motion.div
@@ -102,7 +102,7 @@ export default function Hero() {
             >
               {[
                 { number: '10K+', label: 'Products' },
-                { number: '5K+', label: 'Customers' },
+                { number: '5K+', label: 'Partners' },
                 { number: '24/7', label: 'Support' },
               ].map((stat, i) => (
                 <motion.div

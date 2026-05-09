@@ -33,8 +33,8 @@ export default function Features() {
     },
     {
       icon: '🚚',
-      title: 'Fast Delivery',
-      description: 'Quick and reliable shipping with real-time tracking capabilities.',
+      title: 'Global Delivery',
+      description: 'Quick and reliable international shipping with real-time tracking capabilities.',
     },
     {
       icon: '💰',
@@ -49,7 +49,7 @@ export default function Features() {
     {
       icon: '🤝',
       title: '24/7 Support',
-      description: 'Dedicated customer service team ready to assist with any inquiries.',
+      description: 'Dedicated customer service team ready to assist with any inquiries globally.',
     },
     {
       icon: '🔐',
@@ -71,9 +71,9 @@ export default function Features() {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="heading-md text-white mb-4">Why Choose Full Supplies</h2>
+          <h2 className="heading-md text-white mb-4">Why Choose GX-GLOBAL</h2>
           <p className="text-gray-400 text-lg">
-            Premium products and reliable service for your supply needs
+            Premium products and reliable service for your global supply needs
           </p>
         </motion.div>
 

@@ -34,20 +34,20 @@ export default function Services() {
     },
     {
       number: '02',
-      title: 'Fast Logistics',
-      description: 'Reliable and speedy delivery services across the region. Real-time tracking available.',
+      title: 'Global Logistics',
+      description: 'Reliable and speedy delivery services worldwide. Real-time tracking available.',
       color: 'from-purple-600 to-pink-600',
     },
     {
       number: '03',
       title: 'Inventory Management',
-      description: 'Smart stock management solutions to optimize your supply chain and reduce costs.',
+      description: 'Smart stock management solutions to optimize your global supply chain and reduce costs.',
       color: 'from-green-600 to-emerald-600',
     },
     {
       number: '04',
       title: 'Dedicated Support',
-      description: 'Expert customer service team available 24/7 for all your supply needs and inquiries.',
+      description: 'Expert customer service team available 24/7 for all your international supply needs and inquiries.',
       color: 'from-orange-600 to-red-600',
     },
   ];
@@ -67,7 +67,7 @@ export default function Services() {
         >
           <h2 className="heading-md text-white mb-4">Our Services</h2>
           <p className="text-gray-400 text-lg">
-            Complete supply chain solutions for your business success
+            Complete global supply chain solutions for your business success
           </p>
         </motion.div>
 
