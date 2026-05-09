@@ -1,0 +1,24 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "features": "Features",
+    "contact": "Contact Us"
+  },
+  "hero": {
+    "title": "Your Global Supply",
+    "subtitle": "Solution Partner",
+    "desc": "Access premium quality products and reliable logistics services all in one place. GX-GLOBAL delivers excellence worldwide.",
+    "btn_products": "View Products",
+    "btn_contact": "Contact Us",
+    "stats": {
+      "products": "Products",
+      "countries": "Countries",
+      "support": "Support"
+    }
+  },
+  "footer": {
+    "desc": "Your trusted partner for global supply chain, premium quality products, and logistics solutions.",
+    "rights": "All rights reserved."
+  }
+}

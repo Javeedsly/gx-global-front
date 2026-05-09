@@ -1,0 +1,24 @@
+{
+  "nav": {
+    "home": "Ana Səhifə",
+    "services": "Xidmətlər",
+    "features": "Xüsusiyyətlər",
+    "contact": "Bizimlə Əlaqə"
+  },
+  "hero": {
+    "title": "Sizin Qlobal Təchizat",
+    "subtitle": "Həll Partnyorunuz",
+    "desc": "Dünyanın dörd bir yanından yüksək keyfiyyətli məhsullar və etibarlı logistika xidmətləri. GX-GLOBAL ilə ehtiyacınız olan hər şey bir yerdə.",
+    "btn_products": "Məhsullara Bax",
+    "btn_contact": "Bizimlə Əlaqə",
+    "stats": {
+      "products": "Məhsul Çeşidi",
+      "countries": "Ölkəyə Çatdırılma",
+      "support": "Dəstək"
+    }
+  },
+  "footer": {
+    "desc": "Qlobal təchizat zənciri, yüksək keyfiyyətli məhsullar və logistika həlləri üçün etibarlı partnyorunuz.",
+    "rights": "Bütün hüquqlar qorunur."
+  }
+}
