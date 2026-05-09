@@ -30,18 +30,27 @@ export default function Navigation() {
 
   return (
     <motion.nav
-      className="fixed top-0 w-full z-50 glass-dark border-b border-purple-500/20"
+      className="fixed top-0 w-full z-50 glass-dark border-b border-blue-500/20"
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
+          {/* Logo Section */}
           <motion.div
-            className="text-2xl font-bold text-gradient"
+            className="flex items-center gap-2 text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 cursor-pointer"
             whileHover={{ scale: 1.05 }}
           >
-            Full Supplies
+            <svg 
+              className="w-8 h-8 text-blue-500" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            GX-GLOBAL
           </motion.div>
 
           {/* Desktop Menu */}
@@ -50,7 +59,7 @@ export default function Navigation() {
               <motion.a
                 key={item.label}
                 href={item.href}
-                className="text-gray-300 hover:text-purple-400 transition-smooth"
+                className="text-gray-300 hover:text-blue-400 transition-smooth"
                 whileHover={{ y: -2 }}
               >
                 {item.label}
@@ -60,11 +69,11 @@ export default function Navigation() {
 
           {/* CTA Button */}
           <motion.button
-            className="btn-primary hidden md:block"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors hidden md:block"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Get Started
+            Bizimlə Əlaqə
           </motion.button>
 
           {/* Mobile Menu Button */}
@@ -101,7 +110,7 @@ export default function Navigation() {
               <motion.a
                 key={item.label}
                 href={item.href}
-                className="block py-2 text-gray-300 hover:text-purple-400"
+                className="block py-2 text-gray-300 hover:text-blue-400"
                 variants={itemVariants}
               >
                 {item.label}

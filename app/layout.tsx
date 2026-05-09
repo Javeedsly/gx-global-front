@@ -10,8 +10,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'Full Supplies - Premium Quality Products & Logistics',
-  description: 'Your trusted partner for wholesale supplies, fast delivery, and reliable logistics solutions. Access 10,000+ quality products.',
+  title: 'GX-GLOBAL - Global Supply & Logistics Partner',
+  description: 'Your trusted partner for wholesale supplies, fast global delivery, and reliable logistics solutions. Access thousands of quality products worldwide.',
 };
 
 export default function RootLayout({
