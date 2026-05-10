@@ -2,17 +2,16 @@
 import { motion, Variants } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
-// Loqistika və Qlobal Təchizat mövzusunda YENİ şəkillər
+// Sənin öz lokal şəkillərin (public qovluğundakılar)
 const sliderImages = [
-  "https://images.pexels.com/photos/1117210/pexels-photo-1117210.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Karqo gəmisi
-  "https://images.pexels.com/photos/1790856/pexels-photo-1790856.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Böyük anbar / Təchizat
-  "https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  // Logistika maşınları
+  "/slide1.jpg", 
+  "/slide2.avif"
 ];
 
 export default function Hero({ dict }: { dict: any }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Avtomatik slider üçün timer
+  // Avtomatik slider
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % sliderImages.length);
@@ -32,7 +31,6 @@ export default function Hero({ dict }: { dict: any }) {
 
   return (
     <section className="min-h-[100svh] pt-28 pb-16 lg:pt-32 lg:pb-20 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden flex items-center">
-      {/* Animated Background Element */}
       <motion.div 
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
@@ -89,26 +87,25 @@ export default function Hero({ dict }: { dict: any }) {
             </motion.div>
           </motion.div>
 
-          {/* Slider Animation Section */}
           <div className="w-full relative">
-            <div className="relative h-[300px] sm:h-[400px] lg:h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl shadow-emerald-900/15 border border-emerald-100 group bg-slate-200">
+            <div className="relative h-[300px] sm:h-[400px] lg:h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl shadow-emerald-900/15 border border-emerald-100 bg-slate-100">
               
               {sliderImages.map((src, index) => (
                 <img
                   key={index}
                   src={src}
-                  alt={`GX Global Logistics Slide ${index + 1}`}
+                  alt={`GX Global Slide ${index + 1}`}
+                  loading={index === 0 ? "eager" : "lazy"}
                   className={`absolute inset-0 object-cover w-full h-full transition-opacity duration-1000 ease-in-out ${
                     index === currentIndex 
                       ? 'opacity-100 z-10' 
-                      : 'opacity-0 z-0 pointer-events-none'
+                      : 'opacity-0 z-0'
                   }`}
                 />
               ))}
 
               <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/60 via-transparent to-transparent z-20 pointer-events-none"></div>
               
-              {/* Slider nöqtələri (Indicators) */}
               <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-30">
                 {sliderImages.map((_, i) => (
                   <button
