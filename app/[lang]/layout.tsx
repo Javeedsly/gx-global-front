@@ -12,6 +12,9 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: 'GX-GLOBAL - Global Supply & Logistics Partner',
   description: 'Your trusted partner for wholesale supplies, fast global delivery, and reliable logistics solutions.',
+  icons: {
+    icon: '/gx_2.png', // Public qovluğundakı loqonun yolu. İkon başqadırsa adını dəyişərsən
+  },
 };
 
 export async function generateStaticParams() {

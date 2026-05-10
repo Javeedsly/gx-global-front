@@ -1,7 +1,25 @@
 'use client';
-import { motion, Variants } from 'framer-motion';
+import { motion, Variants, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
+
+// Slider üçün şəkillər massivi (istədiyin şəkillərlə əvəz edə bilərsən)
+const sliderImages = [
+  "https://images.unsplash.com/photo-1586528116311-ad8ed7c50a95?q=80&w=1470&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1551516594-56cb78394645?q=80&w=1470&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=1470&auto=format&fit=crop"
+];
 
 export default function Hero({ dict }: { dict: any }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Avtomatik slider üçün timer
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % sliderImages.length);
+    }, 5000); // Hər 5 saniyədən bir dəyişir
+    return () => clearInterval(timer);
+  }, []);
+
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { staggerChildren: 0.2, delayChildren: 0.1 } }
@@ -71,25 +89,44 @@ export default function Hero({ dict }: { dict: any }) {
             </motion.div>
           </motion.div>
 
-          {/* Floating Image Animation */}
+          {/* Slider Animation Section */}
           <motion.div 
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="w-full"
+            className="w-full relative"
           >
-            <motion.div 
-              animate={{ y: [0, -20, 0] }}
-              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-              className="relative h-[300px] sm:h-[400px] lg:h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl shadow-emerald-900/15 border border-emerald-100"
-            >
-              <img 
-                src="https://images.unsplash.com/photo-1586528116311-ad8ed7c50a95?q=80&w=1470&auto=format&fit=crop" 
-                alt="Global Logistics and Supply" 
-                className="object-cover w-full h-full"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/40 to-transparent"></div>
-            </motion.div>
+            <div className="relative h-[300px] sm:h-[400px] lg:h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl shadow-emerald-900/15 border border-emerald-100 group">
+              
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={currentIndex}
+                  src={sliderImages[currentIndex]}
+                  initial={{ opacity: 0, scale: 1.05 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.8, ease: "easeInOut" }}
+                  className="absolute inset-0 object-cover w-full h-full"
+                  alt={`Logistics and Supply Slide ${currentIndex + 1}`}
+                />
+              </AnimatePresence>
+
+              <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/60 via-transparent to-transparent z-10 pointer-events-none"></div>
+              
+              {/* Slider nöqtələri (Indicators) */}
+              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+                {sliderImages.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrentIndex(i)}
+                    className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                      i === currentIndex ? 'bg-emerald-500 w-6' : 'bg-white/60 hover:bg-white'
+                    }`}
+                    aria-label={`Slayda keç ${i + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
           </motion.div>
 
         </div>
