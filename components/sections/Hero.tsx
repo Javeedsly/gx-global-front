@@ -1,12 +1,12 @@
 'use client';
-import { motion, Variants, AnimatePresence } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
-// Slider üçün şəkillər massivi (istədiyin şəkillərlə əvəz edə bilərsən)
+// Loqistika və Qlobal Təchizat mövzusunda YENİ şəkillər
 const sliderImages = [
-  "https://images.unsplash.com/photo-1586528116311-ad8ed7c50a95?q=80&w=1470&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1551516594-56cb78394645?q=80&w=1470&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=1470&auto=format&fit=crop"
+  "https://images.pexels.com/photos/1117210/pexels-photo-1117210.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Karqo gəmisi
+  "https://images.pexels.com/photos/1790856/pexels-photo-1790856.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Böyük anbar / Təchizat
+  "https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  // Logistika maşınları
 ];
 
 export default function Hero({ dict }: { dict: any }) {
@@ -16,7 +16,7 @@ export default function Hero({ dict }: { dict: any }) {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % sliderImages.length);
-    }, 5000); // Hər 5 saniyədən bir dəyişir
+    }, 5000); 
     return () => clearInterval(timer);
   }, []);
 
@@ -90,44 +90,39 @@ export default function Hero({ dict }: { dict: any }) {
           </motion.div>
 
           {/* Slider Animation Section */}
-          <motion.div 
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="w-full relative"
-          >
-            <div className="relative h-[300px] sm:h-[400px] lg:h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl shadow-emerald-900/15 border border-emerald-100 group">
+          <div className="w-full relative">
+            <div className="relative h-[300px] sm:h-[400px] lg:h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl shadow-emerald-900/15 border border-emerald-100 group bg-slate-200">
               
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={currentIndex}
-                  src={sliderImages[currentIndex]}
-                  initial={{ opacity: 0, scale: 1.05 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.8, ease: "easeInOut" }}
-                  className="absolute inset-0 object-cover w-full h-full"
-                  alt={`Logistics and Supply Slide ${currentIndex + 1}`}
+              {sliderImages.map((src, index) => (
+                <img
+                  key={index}
+                  src={src}
+                  alt={`GX Global Logistics Slide ${index + 1}`}
+                  className={`absolute inset-0 object-cover w-full h-full transition-opacity duration-1000 ease-in-out ${
+                    index === currentIndex 
+                      ? 'opacity-100 z-10' 
+                      : 'opacity-0 z-0 pointer-events-none'
+                  }`}
                 />
-              </AnimatePresence>
+              ))}
 
-              <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/60 via-transparent to-transparent z-10 pointer-events-none"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/60 via-transparent to-transparent z-20 pointer-events-none"></div>
               
               {/* Slider nöqtələri (Indicators) */}
-              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-30">
                 {sliderImages.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => setCurrentIndex(i)}
-                    className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                      i === currentIndex ? 'bg-emerald-500 w-6' : 'bg-white/60 hover:bg-white'
+                    className={`h-2.5 rounded-full transition-all duration-300 ${
+                      i === currentIndex ? 'bg-emerald-500 w-8' : 'bg-white/70 w-2.5 hover:bg-white'
                     }`}
                     aria-label={`Slayda keç ${i + 1}`}
                   />
                 ))}
               </div>
             </div>
-          </motion.div>
+          </div>
 
         </div>
       </div>
