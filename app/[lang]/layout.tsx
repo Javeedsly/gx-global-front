@@ -31,8 +31,8 @@ export default async function RootLayout({
   const { lang } = await params;
 
   return (
-    <html lang={lang} className={`${poppins.variable}`}>
-      <body className={`${inter.className} bg-slate-950 text-white`}>
+    <html lang={lang} className={`${poppins.variable}`} suppressHydrationWarning>
+      <body className={`${inter.className} bg-slate-950 text-white`} suppressHydrationWarning>
         {children}
       </body>
     </html>

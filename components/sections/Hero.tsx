@@ -2,10 +2,11 @@
 import { motion, Variants } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
-// Sənin öz lokal şəkillərin (public qovluğundakılar)
+// Sənin yeni şəkillərin
 const sliderImages = [
-  "/slide1.jpg", 
-  "/slide2.avif"
+  "/home-global.jpg", 
+  "/home-collab.jpg",
+  "/chuttersnap-BNBA1h-NgdY-unsplash-scaled.jpg"
 ];
 
 export default function Hero({ dict }: { dict: any }) {

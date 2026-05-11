@@ -15,11 +15,12 @@ export default function Services({ dict }: { dict: any }) {
     visible: { opacity: 1, scale: 1, y: 0, transition: { type: "spring", stiffness: 80, damping: 15 } },
   };
 
+  // Unsplash şəkillərinin əvəzinə sənin lokal şəkillərin
   const images = [
-    'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1518349619113-03114f06ac3a?q=80&w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=800&auto=format&fit=crop',
+    '/home-global.jpg',
+    '/home-collab.jpg',
+    '/istockphoto-1460822484-612x612.jpg',
+    '/chuttersnap-BNBA1h-NgdY-unsplash-scaled.jpg',
   ];
 
   return (
