@@ -19,7 +19,7 @@ export default function Footer({ dict }: { dict: any }) {
         </div>
 
         <div className="border-t border-gray-100 pt-8 mt-8 text-center text-gray-400 font-medium">
-          <p>© {new Date().getFullYear()} GX-GLOBAL. {dict.rights}</p>
+          <p>© GX-GLOBAL. {dict.rights}</p>
         </div>
       </div>
     </footer>
