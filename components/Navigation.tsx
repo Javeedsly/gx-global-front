@@ -70,13 +70,15 @@ export default function Navigation({ dict, currentLang }: { dict: any, currentLa
               ))}
             </div>
 
-            <motion.button 
+            {/* Birbaşa mail-ə yönləndirən Əlaqə düyməsi */}
+            <motion.a 
+              href="mailto:info@gx-global.com"
               whileHover={{ scale: 1.05 }} 
               whileTap={{ scale: 0.95 }}
-              className="bg-emerald-800 hover:bg-emerald-900 text-white px-6 py-2.5 rounded-lg font-semibold transition-colors shadow-md shadow-emerald-900/20"
+              className="bg-emerald-800 hover:bg-emerald-900 text-white px-6 py-2.5 rounded-lg font-semibold transition-colors shadow-md shadow-emerald-900/20 inline-block text-center cursor-pointer"
             >
               {dict.contact}
-            </motion.button>
+            </motion.a>
           </div>
 
           {/* Mobile Hamburger Button */}
@@ -112,6 +114,16 @@ export default function Navigation({ dict, currentLang }: { dict: any, currentLa
                   {item.label}
                 </a>
               ))}
+              
+              {/* Mobil menyu üçün mail-ə yönləndirən Əlaqə düyməsi */}
+              <a
+                href="mailto:info@gx-global.com"
+                onClick={() => setIsOpen(false)}
+                className="block py-3 px-4 text-emerald-900 bg-emerald-50 hover:bg-emerald-100 font-bold rounded-lg text-center mt-2 border border-emerald-100"
+              >
+                {dict.contact}
+              </a>
+
               <div className="flex gap-4 py-4 px-4 border-t border-gray-100 mt-4 justify-center">
                  {['az', 'en', 'ru'].map((lang) => (
                   <button 
