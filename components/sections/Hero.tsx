@@ -1,22 +1,22 @@
 'use client';
-import { motion, Variants } from 'framer-motion';
 import { useState, useEffect } from 'react';
-
-const sliderImages = [
-  "/home-global.png", 
-  "/home-collab.png",
-  "/chuttersnap-BNBA1h-NgdY-unsplash-scaled.jpg"
-];
+import { motion, Variants, AnimatePresence } from 'framer-motion';
 
 export default function Hero({ dict }: { dict: any }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const sliderImages = [
+    '/istockphoto-1460822484-612x612.jpg',
+    '/chuttersnap-BNBA1h-NgdY-unsplash-scaled.jpg',
+    '/home-global.png'
+  ];
+
+  const [currentImage, setCurrentImage] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % sliderImages.length);
-    }, 5000); 
+      setCurrentImage((prev) => (prev + 1) % sliderImages.length);
+    }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [sliderImages.length]);
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -46,7 +46,7 @@ export default function Hero({ dict }: { dict: any }) {
             initial="hidden"
             animate="visible"
           >
-            <motion.h1 variants={itemVariants} className="heading-lg mb-6">
+            <motion.h1 variants={itemVariants} className="heading-lg mb-6 leading-tight font-bold text-emerald-950">
               {dict.title} <br className="hidden lg:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-800 to-emerald-500 inline-block mt-2">
                 {dict.subtitle}
@@ -57,13 +57,16 @@ export default function Hero({ dict }: { dict: any }) {
               {dict.desc}
             </motion.p>
 
-            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              {/* Məhsullar düyməsi silindi, sadəcə Əlaqə saxlanıldı */}
-              <a href="mailto:info@gx-global.com" className="w-full sm:w-auto">
-                <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="btn-primary w-full">
-                  {dict.btn_contact}
-                </motion.button>
-              </a>
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row justify-center lg:justify-start">
+              {/* Birbaşa mail tətbiqinə (Outlook) yönləndirən buton */}
+              <motion.a 
+                href="mailto:info@gx-global.com"
+                whileHover={{ scale: 1.05 }} 
+                whileTap={{ scale: 0.95 }} 
+                className="inline-block bg-emerald-800 hover:bg-emerald-900 text-white px-8 py-3 rounded-lg font-semibold transition-colors shadow-md shadow-emerald-900/20 text-center"
+              >
+                {dict.btn_contact}
+              </motion.a>
             </motion.div>
 
             <motion.div variants={containerVariants} className="grid grid-cols-3 gap-4 sm:gap-6 mt-12 border-t border-gray-200 pt-8">
@@ -76,49 +79,78 @@ export default function Hero({ dict }: { dict: any }) {
                   key={i} 
                   variants={itemVariants} 
                   whileHover={{ y: -5 }} 
-                  transition={{ type: "spring" }}
                   className="group cursor-pointer"
                 >
-                  <div className="text-2xl sm:text-3xl font-bold text-emerald-900 group-hover:text-emerald-600 transition-colors duration-300">{stat.number}</div>
-                  <div className="text-xs sm:text-sm text-gray-500 mt-1 font-medium group-hover:text-emerald-700 transition-colors duration-300">{stat.label}</div>
+                  <div className="text-2xl sm:text-3xl font-bold text-emerald-900 group-hover:text-emerald-600 transition-colors">
+                    {stat.number}
+                  </div>
+                  <div className="text-xs sm:text-sm text-gray-500 mt-1 font-medium">
+                    {stat.label}
+                  </div>
                 </motion.div>
               ))}
             </motion.div>
           </motion.div>
 
-          <div className="w-full relative">
-            <div className="relative h-[300px] sm:h-[400px] lg:h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl shadow-emerald-900/15 border border-emerald-100 bg-slate-100">
+          {/* Slider Bölməsi */}
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="w-full relative"
+          >
+            <div className="relative h-[350px] sm:h-[450px] lg:h-[600px] w-full rounded-3xl overflow-hidden shadow-2xl shadow-emerald-900/20 border border-emerald-100 bg-gray-100">
               
-              {sliderImages.map((src, index) => (
-                <img
-                  key={index}
-                  src={src}
-                  alt={`GX Global Slide ${index + 1}`}
-                  loading={index === 0 ? "eager" : "lazy"}
-                  className={`absolute inset-0 object-cover w-full h-full transition-opacity duration-1000 ease-in-out ${
-                    index === currentIndex 
-                      ? 'opacity-100 z-10' 
-                      : 'opacity-0 z-0'
-                  }`}
+              <AnimatePresence mode="wait">
+                <motion.img 
+                  key={currentImage}
+                  src={sliderImages[currentImage]}
+                  alt={`GX Global Slide ${currentImage + 1}`}
+                  initial={{ opacity: 0, scale: 1.05 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.8, ease: "easeInOut" }}
+                  className="absolute inset-0 object-cover w-full h-full"
                 />
-              ))}
+              </AnimatePresence>
 
-              <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/60 via-transparent to-transparent z-20 pointer-events-none"></div>
-              
-              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-30">
-                {sliderImages.map((_, i) => (
+              <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/60 via-emerald-950/10 to-transparent pointer-events-none"></div>
+
+              {/* Slider İndikatorları (Nöqtələr) */}
+              <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-3 z-20">
+                {sliderImages.map((_, idx) => (
                   <button
-                    key={i}
-                    onClick={() => setCurrentIndex(i)}
-                    className={`h-2.5 rounded-full transition-all duration-300 ${
-                      i === currentIndex ? 'bg-emerald-500 w-8' : 'bg-white/70 w-2.5 hover:bg-white'
+                    key={idx}
+                    onClick={() => setCurrentImage(idx)}
+                    className={`h-2 rounded-full transition-all duration-500 ${
+                      idx === currentImage 
+                        ? 'w-8 bg-emerald-400' 
+                        : 'w-2 bg-white/50 hover:bg-white'
                     }`}
-                    aria-label={`Slayda keç ${i + 1}`}
+                    aria-label={`Go to slide ${idx + 1}`}
                   />
                 ))}
               </div>
+
             </div>
-          </div>
+            
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 1, duration: 0.5 }}
+              className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl hidden md:block border border-emerald-50 z-30"
+            >
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <div>
+                  <div className="font-bold text-emerald-950">Premium Quality</div>
+                  <div className="text-sm text-gray-500">Global Standards</div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
 
         </div>
       </div>
