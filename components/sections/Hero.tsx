@@ -2,17 +2,15 @@
 import { motion, Variants } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
-// Sənin yeni şəkillərin
 const sliderImages = [
-  "/home-global.jpg", 
-  "/home-collab.jpg",
+  "/home-global.png", 
+  "/home-collab.png",
   "/chuttersnap-BNBA1h-NgdY-unsplash-scaled.jpg"
 ];
 
 export default function Hero({ dict }: { dict: any }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Avtomatik slider
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % sliderImages.length);
@@ -60,12 +58,12 @@ export default function Hero({ dict }: { dict: any }) {
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="btn-primary">
-                {dict.btn_products}
-              </motion.button>
-              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="btn-secondary">
-                {dict.btn_contact}
-              </motion.button>
+              {/* Məhsullar düyməsi silindi, sadəcə Əlaqə saxlanıldı */}
+              <a href="mailto:info@gx-global.com" className="w-full sm:w-auto">
+                <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="btn-primary w-full">
+                  {dict.btn_contact}
+                </motion.button>
+              </a>
             </motion.div>
 
             <motion.div variants={containerVariants} className="grid grid-cols-3 gap-4 sm:gap-6 mt-12 border-t border-gray-200 pt-8">

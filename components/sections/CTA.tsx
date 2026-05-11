@@ -22,23 +22,29 @@ export default function CTA({ dict }: { dict: any }) {
           transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
         >
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">{dict.title}</h2>
-          <p className="text-lg md:text-xl text-emerald-100/90 mb-10 px-4 max-w-2xl mx-auto">{dict.subtitle}</p>
+          <p className="text-lg md:text-xl text-emerald-100/90 mb-12 px-4 max-w-2xl mx-auto">{dict.subtitle}</p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-md mx-auto sm:max-w-none">
-            <motion.button 
-              whileHover={{ scale: 1.05, boxShadow: "0px 0px 20px rgba(255,255,255,0.4)" }} 
+          {/* Əlaqə məlumatları (Məhsula bax düymələri silindi) */}
+          <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 justify-center items-center w-full max-w-2xl mx-auto">
+            
+            <motion.a 
+              href="tel:+994508041911"
+              whileHover={{ scale: 1.05, y: -5 }} 
               whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold bg-white text-emerald-900 transition-all text-center" 
+              className="flex items-center gap-3 w-full sm:w-auto px-8 py-5 rounded-2xl font-bold bg-white text-emerald-900 shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-all text-center text-lg md:text-xl" 
             >
-              {dict.btn_start}
-            </motion.button>
-            <motion.button 
-              whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }} 
+              📞 (+994 50) 804 19 11
+            </motion.a>
+
+            <motion.a 
+              href="mailto:info@gx-global.com"
+              whileHover={{ scale: 1.05, y: -5 }} 
               whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold border-2 border-emerald-400 text-emerald-50 transition-colors text-center" 
+              className="flex items-center gap-3 w-full sm:w-auto px-8 py-5 rounded-2xl font-bold border-2 border-emerald-400 text-emerald-50 hover:bg-emerald-800/50 transition-all text-center text-lg md:text-xl" 
             >
-              {dict.btn_contact}
-            </motion.button>
+              ✉️ info@gx-global.com
+            </motion.a>
+
           </div>
         </motion.div>
       </div>

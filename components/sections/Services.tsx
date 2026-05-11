@@ -15,10 +15,10 @@ export default function Services({ dict }: { dict: any }) {
     visible: { opacity: 1, scale: 1, y: 0, transition: { type: "spring", stiffness: 80, damping: 15 } },
   };
 
-  // Unsplash şəkillərinin əvəzinə sənin lokal şəkillərin
+  // FƏRQ BURADADIR: İlk iki şəklin formatı .png olaraq düzəldildi
   const images = [
-    '/home-global.jpg',
-    '/home-collab.jpg',
+    '/home-global.png',
+    '/home-collab.png',
     '/istockphoto-1460822484-612x612.jpg',
     '/chuttersnap-BNBA1h-NgdY-unsplash-scaled.jpg',
   ];
