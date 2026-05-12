@@ -1,12 +1,23 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Səhifənin daha sürətli yüklənməsi üçün sıxılmanı aktiv edir
   compress: true, 
-  
-  // Şəkilləri ən yeni və yüngül formatlara (WebP və AVIF) çevirir
   images: {
     formats: ['image/avif', 'image/webp'],
+  },
+  // YENİLİK: Təhlükəsizlik Başlıqları (Security Headers)
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          { key: 'X-Frame-Options', value: 'DENY' }, // Saytın başqa yerdə iFrame kimi açılmasının qarşısını alır
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          { key: 'Strict-Transport-Security', value: 'max-age=31536000; includeSubDomains' } // Həmişə HTTPS istifadə etməyə məcbur edir
+        ],
+      },
+    ];
   },
 };
 
