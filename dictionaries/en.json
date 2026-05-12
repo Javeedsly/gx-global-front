@@ -6,9 +6,9 @@
     "contact": "Contact Us"
   },
   "hero": {
-    "title": "Your Global Supply",
-    "subtitle": "Solution Partner",
-    "desc": "Access premium quality products and reliable logistics services all in one place. GX-GLOBAL delivers excellence worldwide.",
+    "title": "Global Logistics and Supply Solutions",
+    "subtitle": "Your Reliable Business Partner",
+    "desc": "Access premium quality wholesale products and reliable global logistics services all in one place. GX-GLOBAL delivers excellence worldwide.",
     "btn_products": "View Products",
     "btn_contact": "Contact Us",
     "stats": {
@@ -25,18 +25,18 @@
       { "icon": "🚚", "title": "Global Delivery", "description": "Quick and reliable international shipping with real-time tracking capabilities." },
       { "icon": "💰", "title": "Competitive Pricing", "description": "Wholesale prices with bulk discounts and special offers for regular customers." },
       { "icon": "✅", "title": "Quality Guarantee", "description": "All products certified and tested for quality and durability." },
-      { "icon": "🤝", "title": "24/7 Support", "description": "Dedicated customer service team ready to assist with any inquiries globally." },
+      { "icon": "🤝", "title": "24/7 Support", "description": "Dedicated customer service team ready to assist with any logistics inquiries globally." },
       { "icon": "🔐", "title": "Secure Transactions", "description": "Safe and encrypted payment systems to protect your business information." }
     ]
   },
   "services": {
-    "title": "Product Categories",
-    "subtitle": "All the supply solutions you need for your business",
+    "title": "Core Services",
+    "subtitle": "All the logistics and supply solutions you need for your business",
     "items": [
       { "title": "Supply Materials" },
-      { "title": "Logistics" },
+      { "title": "Global Logistics" },
       { "title": "Industrial Equipment" },
-      { "title": "Warehousing services" }
+      { "title": "Warehousing Services" }
     ]
   },
   "testimonials": {
@@ -56,7 +56,7 @@
         "company": "Global Build"
       },
       {
-        "content": "The competitive pricing and fast delivery helped us significantly reduce our costs.",
+        "content": "The competitive pricing and fast international delivery helped us significantly reduce our costs.",
         "author": "Emma Davis",
         "role": "CEO",
         "company": "Retail Solutions"
@@ -65,12 +65,16 @@
   },
   "cta": {
     "title": "Ready to Streamline Your Supply Chain?",
-    "subtitle": "Join thousands of businesses that trust GX-GLOBAL for their daily operations.",
+    "subtitle": "Join thousands of businesses that trust GX-GLOBAL for their daily logistics operations.",
     "btn_start": "Get Started Now",
     "btn_contact": "Contact Sales"
   },
   "footer": {
     "desc": "Your trusted partner for global supply chain, premium quality products, and logistics solutions.",
     "rights": "All rights reserved."
+  },
+  "seo": {
+    "title": "GX-GLOBAL - Global Supply & Logistics Partner",
+    "description": "Your trusted partner for wholesale supplies, fast global delivery, and reliable logistics solutions."
   }
 }
