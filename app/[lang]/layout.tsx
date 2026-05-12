@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "../globals.css"; 
-import WhatsAppButton from "@/components/WhatsAppButton"; // Düyməni import edirik
+import WhatsAppButton from "@/components/WhatsAppButton";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({
@@ -33,12 +34,15 @@ export default async function RootLayout({
 
   return (
     <html lang={lang} className={`${poppins.variable}`} suppressHydrationWarning>
-      <body className={`${inter.className} bg-slate-950 text-white relative`} suppressHydrationWarning>
-        {children}
-        
-        {/* Bütün səhifələrdə görünəcək WhatsApp düyməsi */}
-        <WhatsAppButton />
-        
+      <body className={`${inter.className} bg-white text-slate-900 dark:bg-slate-950 dark:text-white transition-colors duration-300 relative`} suppressHydrationWarning>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+        >
+          {children}
+          <WhatsAppButton />
+        </ThemeProvider>
       </body>
     </html>
   );
