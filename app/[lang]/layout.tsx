@@ -4,6 +4,7 @@ import "../globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { getDictionary, Locale } from '@/lib/getDictionary';
 import WhatsAppButton from "@/components/WhatsAppButton";
+import Script from "next/script"; // YENİLİK 1: Next.js Script import edildi
 
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({
@@ -106,6 +107,21 @@ export default async function RootLayout({
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
       </head>
       <body className={`${inter.className} bg-white text-slate-900 dark:bg-slate-950 dark:text-white transition-colors duration-300 relative`} suppressHydrationWarning>
+        
+        {/* YENİLİK 2: Google Analytics Kodu (Sürəti qorumaq üçün afterInteractive istifadə olunur) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-6HXV8DL3GG"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-6HXV8DL3GG');
+          `}
+        </Script>
+
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
           <WhatsAppButton />
