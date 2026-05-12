@@ -19,7 +19,7 @@ export default function Footer({ dict }: { dict: any }) {
         </div>
 
         <div className="border-t border-gray-100 pt-8 mt-8 text-center text-gray-400 font-medium">
-          <p>© GX-GLOBAL. {dict.rights}</p>
+          <p>© 2018 GX-GLOBAL. {dict.rights}</p>
         </div>
       </div>
     </footer>
