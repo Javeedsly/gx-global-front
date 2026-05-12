@@ -3,7 +3,11 @@ import { motion, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 export default function Features({ dict }: { dict: any }) {
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
+  const { ref, inView } = useInView({ 
+    triggerOnce: true, 
+    threshold: 0.1,
+    rootMargin: "50px 0px"
+  });
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },

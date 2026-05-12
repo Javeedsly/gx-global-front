@@ -4,13 +4,14 @@ import "../globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { getDictionary, Locale } from '@/lib/getDictionary';
 import WhatsAppButton from "@/components/WhatsAppButton";
-import Script from "next/script"; // YENİLİK 1: Next.js Script import edildi
+import Script from "next/script"; 
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], display: 'swap' });
 const poppins = Poppins({
   weight: ["400", "500", "600", "700", "800"],
   subsets: ["latin"],
   variable: "--font-poppins",
+  display: 'swap',
 });
 
 type Props = {
@@ -108,12 +109,12 @@ export default async function RootLayout({
       </head>
       <body className={`${inter.className} bg-white text-slate-900 dark:bg-slate-950 dark:text-white transition-colors duration-300 relative`} suppressHydrationWarning>
         
-        {/* YENİLİK 2: Google Analytics Kodu (Sürəti qorumaq üçün afterInteractive istifadə olunur) */}
+        {/* Google Analytics - Mobil performansı yormamaq üçün lazyOnload edildi */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-6HXV8DL3GG"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}

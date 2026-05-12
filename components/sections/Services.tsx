@@ -1,10 +1,14 @@
 'use client';
 import { motion, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import Image from 'next/image'; // Yenilik: Image əlavə edildi
+import Image from 'next/image';
 
 export default function Services({ dict }: { dict: any }) {
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
+  const { ref, inView } = useInView({ 
+    triggerOnce: true, 
+    threshold: 0.1,
+    rootMargin: "50px 0px" 
+  });
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -44,7 +48,6 @@ export default function Services({ dict }: { dict: any }) {
               whileHover={{ y: -10 }}
               className="relative h-72 md:h-80 rounded-2xl overflow-hidden group cursor-pointer shadow-lg shadow-gray-200/50 dark:shadow-none border border-transparent dark:border-slate-800"
             >
-              {/* Yenilik: img əvəzinə Next.js Image istifadə edildi */}
               <Image 
                 src={images[index]} 
                 alt={category.title || "GX Global Service"} 

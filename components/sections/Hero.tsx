@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { motion, Variants, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
+import Image from 'next/image'; 
 
 export default function Hero({ dict }: { dict: any }) {
   const sliderImages = [
@@ -13,8 +13,6 @@ export default function Hero({ dict }: { dict: any }) {
   const [currentImage, setCurrentImage] = useState(0);
 
   useEffect(() => {
-    // YENİLİK 1: Slider-in işə düşməsini 2 saniyə gecikdiririk ki, 
-    // səhifə ilk açılanda telefonun prosessoru (CPU) yorulmasın (TBT xalı artır).
     const startTimeout = setTimeout(() => {
       const timer = setInterval(() => {
         setCurrentImage((prev) => (prev + 1) % sliderImages.length);
@@ -50,7 +48,6 @@ export default function Hero({ dict }: { dict: any }) {
           <motion.div 
             className="z-10 text-center lg:text-left mt-8 lg:mt-0"
             variants={containerVariants}
-            // YENİLİK 2: "initial={false}" - Yazılar görünməz (opacity:0) olmaq əvəzinə dərhal ekrana çıxır. LCP xalını uçurur!
             initial={false} 
             animate="visible"
           >
@@ -99,9 +96,7 @@ export default function Hero({ dict }: { dict: any }) {
             </motion.div>
           </motion.div>
 
-          {/* Slider Bölməsi */}
           <motion.div 
-            // YENİLİK 3: Slider qutusunun özünün gecikmə animasiyasını ləğv etdik
             initial={false} 
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
@@ -109,7 +104,6 @@ export default function Hero({ dict }: { dict: any }) {
           >
             <div className="relative h-[350px] sm:h-[450px] lg:h-[600px] w-full rounded-3xl overflow-hidden shadow-2xl shadow-emerald-900/20 dark:shadow-black/50 border border-emerald-100 dark:border-slate-800 bg-gray-100 dark:bg-slate-900">
               
-              {/* YENİLİK 4: "initial={false}" - İlk şəklin "fade-in" animasiyasını ləğv edir ki, şəkil dərhal görünsün! */}
               <AnimatePresence mode="wait" initial={false}>
                 <motion.div 
                   key={currentImage}
@@ -123,7 +117,7 @@ export default function Hero({ dict }: { dict: any }) {
                     src={sliderImages[currentImage]}
                     alt={`GX Global Slide ${currentImage + 1}`}
                     fill
-                    priority={currentImage === 0}
+                    priority={currentImage === 0} 
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover"
                   />
@@ -132,12 +126,12 @@ export default function Hero({ dict }: { dict: any }) {
 
               <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/60 via-emerald-950/10 to-transparent pointer-events-none"></div>
 
-              <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-3 z-20">
+              <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-2 z-20">
                 {sliderImages.map((_, idx) => (
                   <button
                     key={idx}
                     onClick={() => setCurrentImage(idx)}
-                    className={`h-2 rounded-full transition-all duration-500 ${
+                    className={`h-2 p-2 mx-1 rounded-full transition-all duration-500 bg-clip-content ${
                       idx === currentImage 
                         ? 'w-8 bg-emerald-400' 
                         : 'w-2 bg-white/50 hover:bg-white'
