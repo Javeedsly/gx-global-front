@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { motion, Variants, AnimatePresence } from 'framer-motion';
-import Image from 'next/image'; // YENİLİK: Next.js Image import edildi
+import Image from 'next/image';
 
 export default function Hero({ dict }: { dict: any }) {
   const sliderImages = [
@@ -13,10 +13,16 @@ export default function Hero({ dict }: { dict: any }) {
   const [currentImage, setCurrentImage] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % sliderImages.length);
-    }, 5000);
-    return () => clearInterval(timer);
+    // YENİLİK 1: Slider-in işə düşməsini 2 saniyə gecikdiririk ki, 
+    // səhifə ilk açılanda telefonun prosessoru (CPU) yorulmasın (TBT xalı artır).
+    const startTimeout = setTimeout(() => {
+      const timer = setInterval(() => {
+        setCurrentImage((prev) => (prev + 1) % sliderImages.length);
+      }, 5000);
+      return () => clearInterval(timer);
+    }, 2000);
+    
+    return () => clearTimeout(startTimeout);
   }, [sliderImages.length]);
 
   const containerVariants: Variants = {
@@ -44,7 +50,8 @@ export default function Hero({ dict }: { dict: any }) {
           <motion.div 
             className="z-10 text-center lg:text-left mt-8 lg:mt-0"
             variants={containerVariants}
-            initial="hidden"
+            // YENİLİK 2: "initial={false}" - Yazılar görünməz (opacity:0) olmaq əvəzinə dərhal ekrana çıxır. LCP xalını uçurur!
+            initial={false} 
             animate="visible"
           >
             <motion.h1 variants={itemVariants} className="heading-lg mb-6 leading-tight font-bold text-emerald-950 dark:text-emerald-50">
@@ -94,14 +101,16 @@ export default function Hero({ dict }: { dict: any }) {
 
           {/* Slider Bölməsi */}
           <motion.div 
-            initial={{ opacity: 0, x: 50 }}
+            // YENİLİK 3: Slider qutusunun özünün gecikmə animasiyasını ləğv etdik
+            initial={false} 
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
             className="w-full relative"
           >
             <div className="relative h-[350px] sm:h-[450px] lg:h-[600px] w-full rounded-3xl overflow-hidden shadow-2xl shadow-emerald-900/20 dark:shadow-black/50 border border-emerald-100 dark:border-slate-800 bg-gray-100 dark:bg-slate-900">
               
-              <AnimatePresence mode="wait">
+              {/* YENİLİK 4: "initial={false}" - İlk şəklin "fade-in" animasiyasını ləğv edir ki, şəkil dərhal görünsün! */}
+              <AnimatePresence mode="wait" initial={false}>
                 <motion.div 
                   key={currentImage}
                   initial={{ opacity: 0, scale: 1.05 }}
@@ -110,12 +119,11 @@ export default function Hero({ dict }: { dict: any }) {
                   transition={{ duration: 0.8, ease: "easeInOut" }}
                   className="absolute inset-0 w-full h-full"
                 >
-                  {/* YENİLİK: motion.img əvəzinə Next.js Image istifadə edildi */}
                   <Image 
                     src={sliderImages[currentImage]}
                     alt={`GX Global Slide ${currentImage + 1}`}
                     fill
-                    priority={currentImage === 0} // Krtik! Yalnız ilk şəkil "təcili" yüklənəcək (SEO və Mobil LCP üçün)
+                    priority={currentImage === 0}
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover"
                   />
