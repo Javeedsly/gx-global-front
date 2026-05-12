@@ -75,8 +75,47 @@ export default async function RootLayout({
 }>) {
   const { lang } = await params;
 
+  // 1. Şirkət üçün Schema Markup (Google-un şirkəti tanıması üçün)
+  const orgJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "GX-GLOBAL",
+    "url": "https://gx-global.com",
+    "logo": "https://gx-global.com/gx_2.png",
+    "description": "Global Supply & Logistics Partner",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "availableLanguage": ["Azerbaijani", "English", "Russian"]
+    }
+  };
+
+  // 2. Saytın naviqasiyası üçün Schema (Alt linklərin çıxma şansını artırır)
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "GX-GLOBAL",
+    "url": "https://gx-global.com",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://gx-global.com/en?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  };
+
   return (
     <html lang={lang} className={`${poppins.variable}`} suppressHydrationWarning>
+      {/* JSON-LD kodları head etiketinin içinə əlavə edildi */}
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+      </head>
       <body className={`${inter.className} bg-white text-slate-900 dark:bg-slate-950 dark:text-white transition-colors duration-300 relative`} suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
