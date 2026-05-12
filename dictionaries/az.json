@@ -33,9 +33,9 @@
     "title": "Məhsul Kateqoriyaları",
     "subtitle": "Biznesiniz üçün lazım olan bütün təchizat həlləri",
     "items": [
-      { "title": "Etibarlı təchizatçı" },
-      { "title": "Neft və qaz" },
-      { "title": "Ofis və Elektronika" },
+      { "title": "Təchizat materialları" },
+      { "title": "Gəmiqayırma" },
+      { "title": "Sənayə Avadanlıqları" },
       { "title": "Qablaşdırma və Logistika" }
     ]
   },

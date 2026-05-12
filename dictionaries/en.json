@@ -33,9 +33,9 @@
     "title": "Product Categories",
     "subtitle": "Complete supply chain solutions for your business success",
     "items": [
+      { "title": "Supply Materials" },
+      { "title": "Shipbuilding" },
       { "title": "Industrial Equipment" },
-      { "title": "Raw Materials" },
-      { "title": "Office & Electronics" },
       { "title": "Packaging & Logistics" }
     ]
   },
