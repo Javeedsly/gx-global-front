@@ -4,7 +4,7 @@ import { motion, Variants, AnimatePresence } from 'framer-motion';
 
 export default function Hero({ dict }: { dict: any }) {
   const sliderImages = [
-    '/istockphoto-1460822484-612x612.jpg',
+    '/EAST_AZERI_-_panoramio.jpg',
     '/chuttersnap-BNBA1h-NgdY-unsplash-scaled.jpg',
     '/home-global.png'
   ];
