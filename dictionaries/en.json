@@ -31,12 +31,12 @@
   },
   "services": {
     "title": "Product Categories",
-    "subtitle": "Complete supply chain solutions for your business success",
+    "subtitle": "All the supply solutions you need for your business",
     "items": [
       { "title": "Supply Materials" },
-      { "title": "Shipbuilding" },
+      { "title": "Logistics" },
       { "title": "Industrial Equipment" },
-      { "title": "Packaging & Logistics" }
+      { "title": "Warehousing" }
     ]
   },
   "testimonials": {

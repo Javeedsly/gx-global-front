@@ -37,9 +37,8 @@ export default function Testimonials({ dict }: { dict: any }) {
               </motion.div>
               <p className="text-gray-700 mb-6 italic relative z-10 leading-relaxed flex-grow text-sm md:text-base">{testimonial.content}</p>
               <div className="mt-auto relative z-10">
-                <div className="font-bold text-emerald-950">{testimonial.author}</div>
-                <div className="text-xs md:text-sm font-semibold text-emerald-600">{testimonial.role}</div>
-                <div className="text-xs text-gray-400 mt-1">{testimonial.company}</div>
+                {/* Yalnız vəzifə adı (role) saxlanıldı */}
+                <div className="text-base md:text-lg font-bold text-emerald-600">{testimonial.role}</div>
               </div>
             </motion.div>
           ))}

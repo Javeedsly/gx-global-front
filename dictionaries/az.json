@@ -34,9 +34,9 @@
     "subtitle": "Biznesiniz üçün lazım olan bütün təchizat həlləri",
     "items": [
       { "title": "Təchizat materialları" },
-      { "title": "Gəmiqayırma" },
+      { "title": "Logistika" },
       { "title": "Sənayə Avadanlıqları" },
-      { "title": "Qablaşdırma və Logistika" }
+      { "title": "Anbarçılıq" }
     ]
   },
   "testimonials": {
@@ -45,21 +45,15 @@
     "items": [
       {
         "content": "GX-GLOBAL təchizat zəncirimizi tamamilə dəyişdirdi. Onların etibarlılığı və məhsul keyfiyyəti bənzərsizdir.",
-        "author": "Sarah Johnson",
-        "role": "Əməliyyatlar Direktoru",
-        "company": "TechCorp"
+        "role": "Əməliyyatlar Direktoru"
       },
       {
         "content": "Biz iki ildir onlarla tərəfdaşıq. Müştəri xidmətləri hər zaman hər hansı bir problemi dərhal həll etməyə hazırdır.",
-        "author": "Michael Chen",
-        "role": "Satınalma Meneceri",
-        "company": "Global Build"
+        "role": "Satınalma Meneceri"
       },
       {
         "content": "Təklif etdikləri qiymətlər və sürətli çatdırılma bizə xərcləri xeyli azaltmağa kömək etdi.",
-        "author": "Emma Davis",
-        "role": "CEO",
-        "company": "Retail Solutions"
+        "role": "CEO"
       }
     ]
   },
