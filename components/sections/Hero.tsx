@@ -6,7 +6,7 @@ export default function Hero({ dict }: { dict: any }) {
   const sliderImages = [
     '/EAST_AZERI_-_panoramio.jpg',
     '/chuttersnap-BNBA1h-NgdY-unsplash-scaled.jpg',
-    '/home-global.png'
+    '/slide2.avif'
   ];
 
   const [currentImage, setCurrentImage] = useState(0);
