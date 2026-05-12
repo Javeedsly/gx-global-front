@@ -7,16 +7,13 @@ import CTA from '@/components/sections/CTA';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
-// params tipini standart 'string' edirik ki, Next.js type error verməsin
 export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
   const resolvedParams = await params;
-  
-  // Burada string-i Locale tipinə cast edirik ('az' | 'en' | 'ru')
   const lang = resolvedParams.lang as Locale;
   const dict = await getDictionary(lang);
 
   return (
-    <main className="min-h-screen bg-slate-950">
+    <main className="min-h-screen bg-transparent transition-colors duration-300">
       <Navigation dict={dict.nav} currentLang={lang} />
       <Hero dict={dict.hero} />
       <Features dict={dict.features} /> 

@@ -15,7 +15,6 @@ export default function Services({ dict }: { dict: any }) {
     visible: { opacity: 1, scale: 1, y: 0, transition: { type: "spring", stiffness: 80, damping: 15 } },
   };
 
-  // Yalnız layihənin public qovluğunda olan şəkillər
   const images = [
     '/home-global.png', 
     '/slide2.avif', 
@@ -24,7 +23,7 @@ export default function Services({ dict }: { dict: any }) {
   ];
 
   return (
-    <section ref={ref} className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gray-50" id="services">
+    <section ref={ref} className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-slate-900/50 transition-colors duration-300" id="services">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-12 md:mb-16"
@@ -33,7 +32,7 @@ export default function Services({ dict }: { dict: any }) {
           transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
         >
           <h2 className="heading-md mb-4">{dict.title}</h2>
-          <p className="text-gray-600 text-base md:text-lg font-medium px-4">{dict.subtitle}</p>
+          <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg font-medium px-4">{dict.subtitle}</p>
         </motion.div>
 
         <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" variants={containerVariants} initial="hidden" animate={inView ? 'visible' : 'hidden'}>
@@ -42,7 +41,7 @@ export default function Services({ dict }: { dict: any }) {
               key={index} 
               variants={itemVariants} 
               whileHover={{ y: -10 }}
-              className="relative h-72 md:h-80 rounded-2xl overflow-hidden group cursor-pointer shadow-lg shadow-gray-200/50"
+              className="relative h-72 md:h-80 rounded-2xl overflow-hidden group cursor-pointer shadow-lg shadow-gray-200/50 dark:shadow-none border border-transparent dark:border-slate-800"
             >
               <img 
                 src={images[index]} 

@@ -33,8 +33,10 @@ export default function Navigation({ dict, currentLang }: { dict: any, currentLa
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
+          
+          {/* Loqonun arxa fonu tam şəffaf edildi və rəngi dəyişdirilmir */}
           <motion.div
-            className="flex items-center cursor-pointer bg-white/20 p-2 rounded-xl"
+            className="flex items-center cursor-pointer p-2"
             whileHover={{ scale: 1.05 }}
             onClick={() => {
               router.push(`/${currentLang}`);
