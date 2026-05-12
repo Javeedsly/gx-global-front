@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "../globals.css"; 
-import WhatsAppButton from "@/components/WhatsAppButton";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { getDictionary, Locale } from '@/lib/getDictionary';
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({
@@ -20,8 +20,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params;
   
   const dict = await getDictionary(lang as Locale);
-  
-  // TypeScript xətasının qarşısını almaq üçün tərcüməni bu cür oxuyuruq
   const seoData = (dict as any).seo; 
 
   const baseUrl = 'https://gx-global.com';
@@ -75,7 +73,6 @@ export default async function RootLayout({
 }>) {
   const { lang } = await params;
 
-  // 1. Şirkət üçün Schema Markup (Google-un şirkəti tanıması üçün)
   const orgJsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -90,7 +87,6 @@ export default async function RootLayout({
     }
   };
 
-  // 2. Saytın naviqasiyası üçün Schema (Alt linklərin çıxma şansını artırır)
   const websiteJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -105,23 +101,12 @@ export default async function RootLayout({
 
   return (
     <html lang={lang} className={`${poppins.variable}`} suppressHydrationWarning>
-      {/* JSON-LD kodları head etiketinin içinə əlavə edildi */}
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
       </head>
       <body className={`${inter.className} bg-white text-slate-900 dark:bg-slate-950 dark:text-white transition-colors duration-300 relative`} suppressHydrationWarning>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-        >
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
           <WhatsAppButton />
         </ThemeProvider>

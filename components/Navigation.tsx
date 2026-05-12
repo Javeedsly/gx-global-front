@@ -67,6 +67,7 @@ export default function Navigation({ dict, currentLang }: { dict: any, currentLa
               {['az', 'en', 'ru'].map((lang) => (
                 <button
                   key={lang}
+                  aria-label={`Dili dəyiş: ${lang}`}
                   onClick={() => switchLanguage(lang)}
                   className={`uppercase font-bold transition-colors ${currentLang === lang ? 'text-emerald-600 dark:text-emerald-400' : 'text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-300'}`}
                 >
@@ -131,7 +132,8 @@ export default function Navigation({ dict, currentLang }: { dict: any, currentLa
                 <ThemeToggle />
                  {['az', 'en', 'ru'].map((lang) => (
                   <button 
-                    key={lang} 
+                    key={lang}
+                    aria-label={`Dili dəyiş: ${lang}`}
                     onClick={() => switchLanguage(lang)} 
                     className={`uppercase font-bold px-4 py-2 rounded-md transition-colors ${currentLang === lang ? 'bg-emerald-50 text-emerald-800 dark:bg-slate-800 dark:text-emerald-400' : 'text-gray-500 dark:text-gray-400'}`}
                   >

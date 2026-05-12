@@ -1,6 +1,7 @@
 'use client';
 import { motion, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import Image from 'next/image'; // Yenilik: Image əlavə edildi
 
 export default function Services({ dict }: { dict: any }) {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -43,10 +44,13 @@ export default function Services({ dict }: { dict: any }) {
               whileHover={{ y: -10 }}
               className="relative h-72 md:h-80 rounded-2xl overflow-hidden group cursor-pointer shadow-lg shadow-gray-200/50 dark:shadow-none border border-transparent dark:border-slate-800"
             >
-              <img 
+              {/* Yenilik: img əvəzinə Next.js Image istifadə edildi */}
+              <Image 
                 src={images[index]} 
-                alt={category.title} 
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                alt={category.title || "GX Global Service"} 
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/90 via-emerald-900/30 to-transparent transition-opacity duration-300 group-hover:opacity-90" />
               <div className="absolute inset-0 p-6 flex flex-col justify-end relative z-10">
