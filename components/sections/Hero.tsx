@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { motion, Variants, AnimatePresence } from 'framer-motion';
+import Image from 'next/image'; // YENİLİK: Next.js Image import edildi
 
 export default function Hero({ dict }: { dict: any }) {
   const sliderImages = [
@@ -101,16 +102,24 @@ export default function Hero({ dict }: { dict: any }) {
             <div className="relative h-[350px] sm:h-[450px] lg:h-[600px] w-full rounded-3xl overflow-hidden shadow-2xl shadow-emerald-900/20 dark:shadow-black/50 border border-emerald-100 dark:border-slate-800 bg-gray-100 dark:bg-slate-900">
               
               <AnimatePresence mode="wait">
-                <motion.img 
+                <motion.div 
                   key={currentImage}
-                  src={sliderImages[currentImage]}
-                  alt={`GX Global Slide ${currentImage + 1}`}
                   initial={{ opacity: 0, scale: 1.05 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.8, ease: "easeInOut" }}
-                  className="absolute inset-0 object-cover w-full h-full"
-                />
+                  className="absolute inset-0 w-full h-full"
+                >
+                  {/* YENİLİK: motion.img əvəzinə Next.js Image istifadə edildi */}
+                  <Image 
+                    src={sliderImages[currentImage]}
+                    alt={`GX Global Slide ${currentImage + 1}`}
+                    fill
+                    priority={currentImage === 0} // Krtik! Yalnız ilk şəkil "təcili" yüklənəcək (SEO və Mobil LCP üçün)
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover"
+                  />
+                </motion.div>
               </AnimatePresence>
 
               <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/60 via-emerald-950/10 to-transparent pointer-events-none"></div>
