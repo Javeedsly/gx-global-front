@@ -29,10 +29,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const defaultDesc = 'Your trusted partner for wholesale supplies, fast global delivery, and reliable logistics solutions.';
 
   return {
+    metadataBase: new URL(baseUrl),
     title: seoData?.title || defaultTitle,
     description: seoData?.description || defaultDesc,
     icons: {
       icon: '/gx_2.png',
+      shortcut: '/gx_2.png',
+      apple: '/gx_2.png',
     },
     alternates: {
       canonical: `${baseUrl}/${lang}`,
@@ -50,7 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: 'GX-GLOBAL',
       images: [
         {
-          url: '/gx_2.png',
+          url: `${baseUrl}/gx_2.png`, // Tam link istifadə edildi! (WhatsApp və s. üçün zəruridir)
           width: 800,
           height: 600,
           alt: 'GX-GLOBAL Logistics',
@@ -58,6 +61,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ],
       locale: lang,
       type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: seoData?.title || defaultTitle,
+      description: seoData?.description || defaultDesc,
+      images: [`${baseUrl}/gx_2.png`], // Twitter/X paylaşımları üçün
     },
   };
 }
