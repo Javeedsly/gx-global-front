@@ -3,27 +3,29 @@ import Image from 'next/image';
 
 export default function Footer({ dict }: { dict: any }) {
   return (
-    <footer className="bg-white dark:bg-slate-950 border-t border-gray-200 dark:border-slate-800 py-12 transition-colors duration-300">
+    <footer className="bg-emerald-900 dark:bg-emerald-950 border-t border-emerald-800 dark:border-emerald-900 py-12 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-center gap-4 text-center">
           
-          {/* Loqonun arxa fonu tam şəffaf edildi və rəngi dəyişdirilmir */}
-          <div className="flex items-center justify-center mb-2">
+          <div className="flex items-center justify-center mb-4 relative group cursor-pointer">
+            {/* Parıltı (glow) effekti */}
+            <div className="absolute inset-0 bg-emerald-400/20 dark:bg-emerald-300/10 blur-2xl rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
+            
             <Image 
               src="/gx_2.png" 
               alt="GX Global Logo" 
               width={160} 
               height={45} 
-              className="object-contain"
+              className="object-contain relative z-10 transition-all duration-300 group-hover:scale-105 drop-shadow-md group-hover:drop-shadow-xl dark:drop-shadow-[0_0_15px_rgba(52,211,153,0.15)] dark:group-hover:drop-shadow-[0_0_25px_rgba(52,211,153,0.3)]"
             />
           </div>
           
-          <p className="text-gray-500 dark:text-gray-400 max-w-lg font-medium transition-colors">
+          <p className="text-emerald-50/80 dark:text-emerald-100/70 max-w-lg font-medium transition-colors">
             {dict.footer.desc}
           </p>
         </div>
 
-        <div className="border-t border-gray-100 dark:border-slate-800 pt-8 mt-8 text-center text-gray-400 dark:text-gray-500 font-medium transition-colors">
+        <div className="border-t border-emerald-800/50 dark:border-emerald-900/50 pt-8 mt-8 text-center text-emerald-200/60 dark:text-emerald-300/50 font-medium transition-colors">
           <p>© 2018 GX-GLOBAL. {dict.footer.rights}</p>
         </div>
       </div>
