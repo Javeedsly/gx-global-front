@@ -1,7 +1,49 @@
-import React from 'react';
+"use client";
+import React, { useState } from 'react';
 
 export default function Contact({ dict }: { dict: any }) {
   const contact = dict.contactPage;
+  
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: ''
+  });
+  
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('loading');
+
+    try {
+      // Sorğunu Next.js API Route-a göndəririk
+      // Əgər arxa planda ayrıca bir ASP.NET Core API-sı işlədirsənsə, 
+      // fetch url-ni həmin API-nin endpointi ilə əvəz edə bilərsən.
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      if (res.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', phone: '', subject: '', message: '' }); // Formu təmizlə
+        setTimeout(() => setStatus('idle'), 5000); // 5 saniyə sonra mesajı gizlət
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus('error');
+    }
+  };
 
   return (
     <section id="contact" className="py-20 bg-slate-50 dark:bg-slate-900 transition-colors">
@@ -21,9 +63,7 @@ export default function Contact({ dict }: { dict: any }) {
             <div className="space-y-8">
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{contact.addressTitle}</h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  {contact.address}
-                </p>
+                <p className="text-gray-600 dark:text-gray-300">{contact.address}</p>
               </div>
               
               <div>
@@ -52,11 +92,14 @@ export default function Contact({ dict }: { dict: any }) {
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">{contact.formTitle}</h3>
             <p className="text-gray-600 dark:text-gray-300 mb-8">{contact.formSubtitle}</p>
             
-            <form className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{contact.name}</label>
                 <input 
                   type="text" 
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   required
                   className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-gray-50 dark:bg-slate-900 dark:text-white transition-colors" 
                 />
@@ -66,6 +109,9 @@ export default function Contact({ dict }: { dict: any }) {
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{contact.email}</label>
                 <input 
                   type="email" 
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   required
                   className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-gray-50 dark:bg-slate-900 dark:text-white transition-colors" 
                 />
@@ -75,6 +121,9 @@ export default function Contact({ dict }: { dict: any }) {
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{contact.phoneOption}</label>
                 <input 
                   type="tel" 
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-gray-50 dark:bg-slate-900 dark:text-white transition-colors" 
                 />
               </div>
@@ -83,6 +132,9 @@ export default function Contact({ dict }: { dict: any }) {
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{contact.subject}</label>
                 <input 
                   type="text" 
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
                   required
                   className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-gray-50 dark:bg-slate-900 dark:text-white transition-colors" 
                 />
@@ -91,6 +143,9 @@ export default function Contact({ dict }: { dict: any }) {
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{contact.message}</label>
                 <textarea 
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   rows={4} 
                   required
                   className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-gray-50 dark:bg-slate-900 dark:text-white transition-colors resize-none"
@@ -98,11 +153,23 @@ export default function Contact({ dict }: { dict: any }) {
               </div>
               
               <button 
-                type="button" 
-                className="w-full bg-emerald-800 hover:bg-emerald-900 text-white font-semibold py-3.5 px-6 rounded-lg transition-colors shadow-md shadow-emerald-900/20"
+                type="submit" 
+                disabled={status === 'loading'}
+                className="w-full bg-emerald-800 hover:bg-emerald-900 text-white font-semibold py-3.5 px-6 rounded-lg transition-colors shadow-md shadow-emerald-900/20 disabled:opacity-70"
               >
-                {contact.submit}
+                {status === 'loading' ? 'Göndərilir...' : contact.submit}
               </button>
+
+              {status === 'success' && (
+                <p className="text-emerald-600 dark:text-emerald-400 text-sm text-center mt-2 font-medium">
+                  Mesajınız uğurla göndərildi!
+                </p>
+              )}
+              {status === 'error' && (
+                <p className="text-red-600 dark:text-red-400 text-sm text-center mt-2 font-medium">
+                  Xəta baş verdi. Zəhmət olmasa yenidən yoxlayın.
+                </p>
+              )}
             </form>
           </div>
         </div>
