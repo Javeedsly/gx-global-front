@@ -18,6 +18,7 @@ type Props = {
   params: Promise<{ lang: string }>
 };
 
+// Bu funksiya ümumi meta dataları tənzimləyir. Hər səhifənin öz canonical URL-i olmalıdır.
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params;
   
@@ -53,7 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: 'GX-GLOBAL',
       images: [
         {
-          url: `${baseUrl}/gx_2.png`, // Tam link istifadə edildi! (WhatsApp və s. üçün zəruridir)
+          url: `${baseUrl}/gx_2.png`, 
           width: 800,
           height: 600,
           alt: 'GX-GLOBAL Logistics',
@@ -66,7 +67,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title: seoData?.title || defaultTitle,
       description: seoData?.description || defaultDesc,
-      images: [`${baseUrl}/gx_2.png`], // Twitter/X paylaşımları üçün
+      images: [`${baseUrl}/gx_2.png`], 
     },
   };
 }
@@ -84,6 +85,7 @@ export default async function RootLayout({
 }>) {
   const { lang } = await params;
 
+  // 1. Organization Schema
   const orgJsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -93,32 +95,59 @@ export default async function RootLayout({
     "description": "Global Supply & Logistics Partner",
     "contactPoint": {
       "@type": "ContactPoint",
+      "telephone": "+994-50-XXX-XX-XX", // Əsas əlaqə nömrənizi yazın
       "contactType": "customer support",
       "availableLanguage": ["Azerbaijani", "English", "Russian"]
     }
   };
 
-  const websiteJsonLd = {
+  // 2. LocalBusiness Schema (Şirkətin profili üçün vacibdir)
+  const localBusinessJsonLd = {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "GX-GLOBAL",
-    "url": "https://gx-global.com",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://gx-global.com/en?q={search_term_string}",
-      "query-input": "required name=search_term_string"
+    "@type": "LogisticsService",
+    "name": "GX-GLOBAL Logistics",
+    "image": "https://gx-global.com/gx_2.png",
+    "@id": `https://gx-global.com/${lang}`,
+    "url": `https://gx-global.com/${lang}`,
+    "telephone": "+994-50-XXX-XX-XX",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Street Name, City", // Dəqiq ünvanı yazın
+      "addressLocality": "Baku",
+      "addressRegion": "AZ",
+      "postalCode": "AZ1000",
+      "addressCountry": "AZ"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
     }
+  };
+
+  // 3. BreadcrumbList Schema (Naviqasiya üçün)
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": `https://gx-global.com/${lang}`
+    }]
   };
 
   return (
     <html lang={lang} className={`${poppins.variable}`} suppressHydrationWarning>
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       </head>
       <body className={`${inter.className} bg-white text-slate-900 dark:bg-slate-950 dark:text-white transition-colors duration-300 relative`} suppressHydrationWarning>
         
-        {/* Google Analytics - Mobil performansı yormamaq üçün lazyOnload edildi */}
+        {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-6HXV8DL3GG"
           strategy="lazyOnload"

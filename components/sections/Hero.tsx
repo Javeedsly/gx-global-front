@@ -51,6 +51,7 @@ export default function Hero({ dict }: { dict: any }) {
             initial={false} 
             animate="visible"
           >
+            {/* SEO Qeydi: Səhifədəki yeganə H1 başlığı */}
             <motion.h1 variants={itemVariants} className="heading-lg mb-6 leading-tight font-bold text-emerald-950 dark:text-emerald-50">
               {dict.hero.title} <br className="hidden lg:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-800 to-emerald-500 dark:from-emerald-400 dark:to-emerald-200 inline-block mt-2">
@@ -63,7 +64,6 @@ export default function Hero({ dict }: { dict: any }) {
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row justify-center lg:justify-start">
-              {/* href dəyəri "#contact" olaraq dəyişdirildi */}
               <motion.a 
                 href="#contact"
                 whileHover={{ scale: 1.05 }} 
@@ -114,9 +114,10 @@ export default function Hero({ dict }: { dict: any }) {
                   transition={{ duration: 0.8, ease: "easeInOut" }}
                   className="absolute inset-0 w-full h-full"
                 >
+                  {/* SEO Qeydi: Açar sözlərlə zənginləşdirilmiş alt atributu */}
                   <Image 
                     src={sliderImages[currentImage]}
-                    alt={`GX Global Slide ${currentImage + 1}`}
+                    alt={`GX Global Logistics and Supply Chain Slide ${currentImage + 1}`}
                     fill
                     priority={currentImage === 0} 
                     sizes="(max-width: 768px) 100vw, 50vw"

@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 export default function Contact({ dict }: { dict: any }) {
   const contact = dict.contactPage;
 
-  // Form məlumatlarını idarə etmək üçün state
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -46,6 +45,7 @@ export default function Contact({ dict }: { dict: any }) {
     <section id="contact" className="py-20 bg-slate-50 dark:bg-slate-900 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
+          {/* SEO Qeydi: Bölmə başlığı olaraq H2 iyerarxiyası */}
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             {contact.title}
           </h2>
@@ -55,9 +55,10 @@ export default function Contact({ dict }: { dict: any }) {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Əlaqə Məlumatları (Sol Tərəf) - Orijinal halına qaytarıldı */}
+          {/* Əlaqə Məlumatları (Sol Tərəf) */}
           <div className="bg-white dark:bg-slate-800 p-8 md:p-10 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
-            <div className="space-y-8">
+            {/* SEO Qeydi: Fiziki ünvan və əlaqə vasitələri axtarış botları üçün <address> ilə əhatə olunur */}
+            <address className="space-y-8 not-italic">
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{contact.addressTitle}</h3>
                 <p className="text-gray-600 dark:text-gray-300">
@@ -83,10 +84,10 @@ export default function Contact({ dict }: { dict: any }) {
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{contact.hoursTitle}</h3>
                 <p className="text-gray-600 dark:text-gray-300">{contact.hours}</p>
               </div>
-            </div>
+            </address>
           </div>
 
-          {/* Əlaqə Formu (Sağ Tərəf) - Funksionallıq əlavə olundu */}
+          {/* Əlaqə Formu (Sağ Tərəf) */}
           <div className="bg-white dark:bg-slate-800 p-8 md:p-10 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">{contact.formTitle}</h3>
             <p className="text-gray-600 dark:text-gray-300 mb-8">{contact.formSubtitle}</p>
