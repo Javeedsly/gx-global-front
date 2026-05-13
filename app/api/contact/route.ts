@@ -7,15 +7,17 @@ export async function POST(req: Request) {
 
     // Zoho Mail SMTP Ayarları
     const transporter = nodemailer.createTransport({
-      host: 'smtp.zoho.com', // Avropa üçün 'smtp.zoho.eu' ola bilər
-      port: 465,
-      secure: true, // SSL üçün true
-      auth: {
-        user: 'info@gx-global.com',
-        // Railway Variables-dan gələn App Password
-        pass: process.env.EMAIL_PASSWORD, 
-      },
-    });
+  host: 'smtp.zoho.com', // Əgər hesabın Avropadırsa 'smtp.zoho.eu' yaz
+  port: 587,             // 465-dən 587-yə dəyişdik
+  secure: false,         // 587 portu üçün mütləq false olmalıdır
+  auth: {
+    user: 'info@gx-global.com',
+    pass: process.env.EMAIL_PASSWORD,
+  },
+  tls: {
+    rejectUnauthorized: false // Bəzi serverlərdə sertifikat xətasının qarşısını alır
+  }
+});
 
     // Mailin tərkibi
     await transporter.sendMail({
