@@ -63,8 +63,9 @@ export default function Hero({ dict }: { dict: any }) {
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row justify-center lg:justify-start">
+              {/* href dəyəri "#contact" olaraq dəyişdirildi */}
               <motion.a 
-                href="mailto:info@gx-global.com"
+                href="#contact"
                 whileHover={{ scale: 1.05 }} 
                 whileTap={{ scale: 0.95 }} 
                 className="inline-block bg-emerald-800 hover:bg-emerald-900 dark:bg-emerald-700 dark:hover:bg-emerald-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors shadow-md shadow-emerald-900/20 text-center"
