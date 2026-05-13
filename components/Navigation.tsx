@@ -24,6 +24,11 @@ export default function Navigation({ dict, currentLang }: { dict: any, currentLa
     setIsOpen(false);
   };
 
+  // Səhifənin yuxarısına axıcı sürüşdürmək üçün funksiya
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <motion.nav
       className="fixed top-0 w-full z-50 glass-dark bg-white/80 dark:bg-slate-950/80 backdrop-blur-md transition-colors"
@@ -38,7 +43,13 @@ export default function Navigation({ dict, currentLang }: { dict: any, currentLa
             className="flex items-center cursor-pointer p-2"
             whileHover={{ scale: 1.05 }}
             onClick={() => {
-              router.push(`/${currentLang}`);
+              // Əgər istifadəçi onsuz da ana səhifədədirsə, birbaşa yuxarı sürüşdür
+              if (pathname === `/${currentLang}` || pathname === `/${currentLang}/` || pathname === '/') {
+                handleScrollToTop();
+              } else {
+                // Başqa səhifədədirsə ana səhifəyə göndər
+                router.push(`/${currentLang}`);
+              }
               setIsOpen(false);
             }}
           >
@@ -55,7 +66,18 @@ export default function Navigation({ dict, currentLang }: { dict: any, currentLa
           {/* Desktop Menu */}
           <div className="hidden md:flex gap-8 items-center">
             {navItems.map((item) => (
-              <a key={item.label} href={item.href} className="text-gray-700 hover:text-emerald-600 dark:text-gray-300 dark:hover:text-emerald-400 font-medium transition-colors">
+              <a 
+                key={item.label} 
+                href={item.href} 
+                onClick={(e) => {
+                  // Ana Səhifə linkinə basıldıqda yuxarı sürüşdür
+                  if (item.href === '#home') {
+                    e.preventDefault();
+                    handleScrollToTop();
+                  }
+                }}
+                className="text-gray-700 hover:text-emerald-600 dark:text-gray-300 dark:hover:text-emerald-400 font-medium transition-colors"
+              >
                 {item.label}
               </a>
             ))}
@@ -112,7 +134,14 @@ export default function Navigation({ dict, currentLang }: { dict: any, currentLa
                 <a 
                   key={item.label} 
                   href={item.href} 
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => {
+                    // Mobil versiyada da Ana Səhifəyə basıldıqda yuxarı sürüşdür
+                    if (item.href === '#home') {
+                      e.preventDefault();
+                      handleScrollToTop();
+                    }
+                    setIsOpen(false);
+                  }}
                   className="block py-3 px-4 text-gray-700 hover:bg-emerald-50 hover:text-emerald-800 dark:text-gray-300 dark:hover:bg-slate-800 dark:hover:text-emerald-400 font-medium rounded-lg transition-colors"
                 >
                   {item.label}
