@@ -70,5 +70,23 @@
   "seo": {
     "title": "GX-GLOBAL - Qlobal Təchizat və Logistika Partnyoru",
     "description": "Topdansatış təchizatı, sürətli qlobal çatdırılma və etibarlı logistika həlləri üçün güvəndiyiniz tərəfdaş."
+  },
+  "contactPage": {
+    "title": "Əlaqə məlumatları",
+    "subtitle": "Sorğularınız üçün bizə yazın və ya zəng edin.",
+    "addressTitle": "Ünvan",
+    "address": "Nərimanov rayonu,Nəcəf Nərimanov küçəsi 5c AZ1007 Bakı, Azərbaycan",
+    "phoneTitle": "Telefon",
+    "emailTitle": "E-poçt",
+    "hoursTitle": "İş saatları",
+    "hours": "Bazar ertəsi – Cümə: 09:00 – 18:00",
+    "formTitle": "Mesaj göndərin",
+    "formSubtitle": "Formu doldurun — tezliklə sizinlə əlaqə saxlayacağıq.",
+    "name": "Ad, soyad",
+    "email": "E-poçt",
+    "phoneOption": "Telefon (istəyə bağlı)",
+    "subject": "Mövzu",
+    "message": "Mesaj",
+    "submit": "Göndər"
   }
 }

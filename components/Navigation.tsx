@@ -12,9 +12,9 @@ export default function Navigation({ dict, currentLang }: { dict: any, currentLa
   const router = useRouter();
 
   const navItems = [
-    { label: dict.home, href: '#home' },
-    { label: dict.services, href: '#services' },
-    { label: dict.features, href: '#features' },
+    { label: dict.nav.home, href: '#home' },
+    { label: dict.nav.services, href: '#services' },
+    { label: dict.nav.features, href: '#features' },
   ];
 
   const switchLanguage = (locale: string) => {
@@ -34,7 +34,6 @@ export default function Navigation({ dict, currentLang }: { dict: any, currentLa
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           
-          {/* Loqonun arxa fonu tam şəffaf edildi və rəngi dəyişdirilmir */}
           <motion.div
             className="flex items-center cursor-pointer p-2"
             whileHover={{ scale: 1.05 }}
@@ -77,12 +76,12 @@ export default function Navigation({ dict, currentLang }: { dict: any, currentLa
             </div>
 
             <motion.a 
-              href="mailto:info@gx-global.com"
+              href="#contact"
               whileHover={{ scale: 1.05 }} 
               whileTap={{ scale: 0.95 }}
               className="bg-emerald-800 hover:bg-emerald-900 text-white px-6 py-2.5 rounded-lg font-semibold transition-colors shadow-md shadow-emerald-900/20 inline-block text-center cursor-pointer"
             >
-              {dict.contact}
+              {dict.nav.contact}
             </motion.a>
           </div>
 
@@ -121,11 +120,11 @@ export default function Navigation({ dict, currentLang }: { dict: any, currentLa
               ))}
               
               <a
-                href="mailto:info@gx-global.com"
+                href="#contact"
                 onClick={() => setIsOpen(false)}
                 className="block py-3 px-4 text-emerald-900 bg-emerald-50 hover:bg-emerald-100 dark:text-emerald-100 dark:bg-emerald-900/30 dark:hover:bg-emerald-900/50 font-bold rounded-lg text-center mt-2 border border-emerald-100 dark:border-emerald-900/50 transition-colors"
               >
-                {dict.contact}
+                {dict.nav.contact}
               </a>
 
               <div className="flex items-center gap-4 py-4 px-4 border-t border-gray-100 dark:border-gray-800 mt-4 justify-center">

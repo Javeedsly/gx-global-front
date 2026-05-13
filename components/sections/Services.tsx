@@ -36,12 +36,16 @@ export default function Services({ dict }: { dict: any }) {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
           transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
         >
-          <h2 className="heading-md mb-4">{dict.title}</h2>
-          <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg font-medium px-4">{dict.subtitle}</p>
+          {/* Bura dəyişdirildi: dict.title -> dict.services.title */}
+          <h2 className="heading-md mb-4">{dict.services.title}</h2>
+          
+          {/* Bura dəyişdirildi: dict.subtitle -> dict.services.subtitle */}
+          <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg font-medium px-4">{dict.services.subtitle}</p>
         </motion.div>
 
         <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" variants={containerVariants} initial="hidden" animate={inView ? 'visible' : 'hidden'}>
-          {dict.items.map((category: any, index: number) => (
+          {/* Bura dəyişdirildi: dict.items -> dict.services.items */}
+          {dict.services.items.map((category: any, index: number) => (
             <motion.div 
               key={index} 
               variants={itemVariants} 

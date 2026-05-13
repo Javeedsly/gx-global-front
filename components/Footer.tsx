@@ -19,12 +19,12 @@ export default function Footer({ dict }: { dict: any }) {
           </div>
           
           <p className="text-gray-500 dark:text-gray-400 max-w-lg font-medium transition-colors">
-            {dict.desc}
+            {dict.footer.desc}
           </p>
         </div>
 
         <div className="border-t border-gray-100 dark:border-slate-800 pt-8 mt-8 text-center text-gray-400 dark:text-gray-500 font-medium transition-colors">
-          <p>© 2018 GX-GLOBAL. {dict.rights}</p>
+          <p>© 2018 GX-GLOBAL. {dict.footer.rights}</p>
         </div>
       </div>
     </footer>

@@ -76,5 +76,23 @@
   "seo": {
     "title": "GX-GLOBAL - Global Supply & Logistics Partner",
     "description": "Your trusted partner for wholesale supplies, fast global delivery, and reliable logistics solutions."
+  },
+  "contactPage": {
+    "title": "Contact Information",
+    "subtitle": "Write or call us for your inquiries.",
+    "addressTitle": "Address",
+    "address": "5C Najaf Narimanov Street, Narimanov District, AZ1007 Baku, Azerbaijan",
+    "phoneTitle": "Phone",
+    "emailTitle": "Email",
+    "hoursTitle": "Business Hours",
+    "hours": "Monday – Friday: 09:00 – 18:00",
+    "formTitle": "Send a Message",
+    "formSubtitle": "Fill out the form — we will contact you shortly.",
+    "name": "Full Name",
+    "email": "Email",
+    "phoneOption": "Phone (optional)",
+    "subject": "Subject",
+    "message": "Message",
+    "submit": "Submit"
   }
 }

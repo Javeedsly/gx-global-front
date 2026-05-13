@@ -28,12 +28,17 @@ export default function Features({ dict }: { dict: any }) {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <h2 className="heading-md mb-4">{dict.title}</h2>
-          <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg font-medium px-4">{dict.subtitle}</p>
+          {/* Bura dəyişdirildi: dict.title -> dict.features.title */}
+          <h2 className="heading-md mb-4">{dict.features.title}</h2>
+          
+          {/* Bura dəyişdirildi: dict.subtitle -> dict.features.subtitle */}
+          <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg font-medium px-4">{dict.features.subtitle}</p>
         </motion.div>
 
         <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" variants={containerVariants} initial="hidden" animate={inView ? 'visible' : 'hidden'}>
-          {dict.items.map((feature: any, index: number) => (
+          
+          {/* Bura dəyişdirildi: dict.items -> dict.features.items */}
+          {dict.features.items.map((feature: any, index: number) => (
             <motion.div 
               key={index} 
               variants={itemVariants} 

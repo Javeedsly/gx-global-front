@@ -52,14 +52,14 @@ export default function Hero({ dict }: { dict: any }) {
             animate="visible"
           >
             <motion.h1 variants={itemVariants} className="heading-lg mb-6 leading-tight font-bold text-emerald-950 dark:text-emerald-50">
-              {dict.title} <br className="hidden lg:block" />
+              {dict.hero.title} <br className="hidden lg:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-800 to-emerald-500 dark:from-emerald-400 dark:to-emerald-200 inline-block mt-2">
                 {dict.subtitle}
               </span>
             </motion.h1>
 
             <motion.p variants={itemVariants} className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-xl mx-auto lg:mx-0 font-medium">
-              {dict.desc}
+              {dict.hero.desc}
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row justify-center lg:justify-start">
@@ -69,15 +69,15 @@ export default function Hero({ dict }: { dict: any }) {
                 whileTap={{ scale: 0.95 }} 
                 className="inline-block bg-emerald-800 hover:bg-emerald-900 dark:bg-emerald-700 dark:hover:bg-emerald-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors shadow-md shadow-emerald-900/20 text-center"
               >
-                {dict.btn_contact}
+                {dict.hero.btn_contact}
               </motion.a>
             </motion.div>
 
             <motion.div variants={containerVariants} className="grid grid-cols-3 gap-4 sm:gap-6 mt-12 border-t border-gray-200 dark:border-gray-800 pt-8">
               {[
-                { number: "10K+", label: dict.stats.products },
-                { number: "50+", label: dict.stats.countries },
-                { number: "24/7", label: dict.stats.support }
+                { number: "10K+", label: dict.hero.stats.products },
+                { number: "50+", label: dict.hero.stats.countries },
+                { number: "24/7", label: dict.hero.stats.support }
               ].map((stat, i) => (
                 <motion.div 
                   key={i} 

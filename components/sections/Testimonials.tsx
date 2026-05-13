@@ -14,12 +14,14 @@ export default function Testimonials({ dict }: { dict: any }) {
           animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="heading-md mb-4">{dict.title}</h2>
-          <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg font-medium px-4">{dict.subtitle}</p>
+          {/* Bura dəyişdirildi */}
+          <h2 className="heading-md mb-4">{dict.testimonials.title}</h2>
+          <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg font-medium px-4">{dict.testimonials.subtitle}</p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {dict.items.map((testimonial: any, index: number) => (
+          {/* Bura dəyişdirildi */}
+          {dict.testimonials.items.map((testimonial: any, index: number) => (
             <motion.div
               key={index}
               className="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border border-emerald-900/5 dark:border-slate-700 relative flex flex-col h-full transition-colors"

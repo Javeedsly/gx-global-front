@@ -20,8 +20,9 @@ export default function CTA({ dict }: { dict: any }) {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
         >
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">{dict.title}</h2>
-          <p className="text-lg md:text-xl text-emerald-100/90 mb-12 px-4 max-w-2xl mx-auto">{dict.subtitle}</p>
+          {/* Bura dəyişdirildi */}
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">{dict.cta.title}</h2>
+          <p className="text-lg md:text-xl text-emerald-100/90 mb-12 px-4 max-w-2xl mx-auto">{dict.cta.subtitle}</p>
           
           <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 justify-center items-center w-full max-w-2xl mx-auto">
             
