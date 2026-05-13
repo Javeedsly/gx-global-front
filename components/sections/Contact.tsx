@@ -5,13 +5,8 @@ export default function Contact({ dict }: { dict: any }) {
   const contact = dict.contactPage;
   
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: ''
+    name: '', email: '', phone: '', subject: '', message: ''
   });
-  
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -23,9 +18,6 @@ export default function Contact({ dict }: { dict: any }) {
     setStatus('loading');
 
     try {
-      // Sorğunu Next.js API Route-a göndəririk
-      // Əgər arxa planda ayrıca bir ASP.NET Core API-sı işlədirsənsə, 
-      // fetch url-ni həmin API-nin endpointi ilə əvəz edə bilərsən.
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -34,13 +26,11 @@ export default function Contact({ dict }: { dict: any }) {
 
       if (res.ok) {
         setStatus('success');
-        setFormData({ name: '', email: '', phone: '', subject: '', message: '' }); // Formu təmizlə
-        setTimeout(() => setStatus('idle'), 5000); // 5 saniyə sonra mesajı gizlət
+        setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
       } else {
         setStatus('error');
       }
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
       setStatus('error');
     }
   };
@@ -48,128 +38,29 @@ export default function Contact({ dict }: { dict: any }) {
   return (
     <section id="contact" className="py-20 bg-slate-50 dark:bg-slate-900 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            {contact.title}
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
-            {contact.subtitle}
-          </p>
-        </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Əlaqə Məlumatları (Sol Tərəf) */}
-          <div className="bg-white dark:bg-slate-800 p-8 md:p-10 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{contact.addressTitle}</h3>
-                <p className="text-gray-600 dark:text-gray-300">{contact.address}</p>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{contact.phoneTitle}</h3>
-                <div className="text-gray-600 dark:text-gray-300">
-                  <a href="tel:+994508041911" className="hover:text-emerald-600 dark:hover:text-emerald-400 block">+994 50 804-19-11</a>
-                </div>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{contact.emailTitle}</h3>
-                <a href="mailto:info@gx-global.com" className="text-emerald-600 dark:text-emerald-400 font-medium hover:underline">
-                  info@gx-global.com
-                </a>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{contact.hoursTitle}</h3>
-                <p className="text-gray-600 dark:text-gray-300">{contact.hours}</p>
-              </div>
-            </div>
+          {/* Sol tərəf (Məlumatlar) - Olduğu kimi saxla və ya dict-dən gətir */}
+          <div className="bg-white dark:bg-slate-800 p-8 rounded-2xl border border-gray-100 dark:border-gray-700">
+             {/* ... address, phone, email bölmələri ... */}
+             <h3 className="text-xl font-semibold mb-2">{contact.emailTitle}</h3>
+             <p className="text-emerald-600">info@gx-global.com</p>
           </div>
 
-          {/* Əlaqə Formu (Sağ Tərəf) */}
-          <div className="bg-white dark:bg-slate-800 p-8 md:p-10 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">{contact.formTitle}</h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-8">{contact.formSubtitle}</p>
-            
+          {/* Sağ tərəf (Form) */}
+          <div className="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
             <form onSubmit={handleSubmit} className="space-y-5">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{contact.name}</label>
-                <input 
-                  type="text" 
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-gray-50 dark:bg-slate-900 dark:text-white transition-colors" 
-                />
-              </div>
+              <input type="text" name="name" placeholder={contact.name} value={formData.name} onChange={handleChange} required className="w-full p-3 bg-gray-50 dark:bg-slate-900 border rounded-lg dark:text-white" />
+              <input type="email" name="email" placeholder={contact.email} value={formData.email} onChange={handleChange} required className="w-full p-3 bg-gray-50 dark:bg-slate-900 border rounded-lg dark:text-white" />
+              <input type="tel" name="phone" placeholder={contact.phoneOption} value={formData.phone} onChange={handleChange} className="w-full p-3 bg-gray-50 dark:bg-slate-900 border rounded-lg dark:text-white" />
+              <input type="text" name="subject" placeholder={contact.subject} value={formData.subject} onChange={handleChange} required className="w-full p-3 bg-gray-50 dark:bg-slate-900 border rounded-lg dark:text-white" />
+              <textarea name="message" rows={4} placeholder={contact.message} value={formData.message} onChange={handleChange} required className="w-full p-3 bg-gray-50 dark:bg-slate-900 border rounded-lg dark:text-white resize-none" />
               
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{contact.email}</label>
-                <input 
-                  type="email" 
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-gray-50 dark:bg-slate-900 dark:text-white transition-colors" 
-                />
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{contact.phoneOption}</label>
-                <input 
-                  type="tel" 
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-gray-50 dark:bg-slate-900 dark:text-white transition-colors" 
-                />
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{contact.subject}</label>
-                <input 
-                  type="text" 
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-gray-50 dark:bg-slate-900 dark:text-white transition-colors" 
-                />
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{contact.message}</label>
-                <textarea 
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows={4} 
-                  required
-                  className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-gray-50 dark:bg-slate-900 dark:text-white transition-colors resize-none"
-                ></textarea>
-              </div>
-              
-              <button 
-                type="submit" 
-                disabled={status === 'loading'}
-                className="w-full bg-emerald-800 hover:bg-emerald-900 text-white font-semibold py-3.5 px-6 rounded-lg transition-colors shadow-md shadow-emerald-900/20 disabled:opacity-70"
-              >
+              <button type="submit" disabled={status === 'loading'} className="w-full bg-emerald-800 text-white py-3.5 rounded-lg hover:bg-emerald-900 transition-all disabled:opacity-50">
                 {status === 'loading' ? 'Göndərilir...' : contact.submit}
               </button>
 
-              {status === 'success' && (
-                <p className="text-emerald-600 dark:text-emerald-400 text-sm text-center mt-2 font-medium">
-                  Mesajınız uğurla göndərildi!
-                </p>
-              )}
-              {status === 'error' && (
-                <p className="text-red-600 dark:text-red-400 text-sm text-center mt-2 font-medium">
-                  Xəta baş verdi. Zəhmət olmasa yenidən yoxlayın.
-                </p>
-              )}
+              {status === 'success' && <p className="text-emerald-500 text-center text-sm">Mesajınız göndərildi!</p>}
+              {status === 'error' && <p className="text-red-500 text-center text-sm">Xəta baş verdi, loqları yoxlayın.</p>}
             </form>
           </div>
         </div>
