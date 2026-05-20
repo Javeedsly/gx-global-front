@@ -29,16 +29,16 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
       name: "OKS Industrial Lubricants",
       description: "Sənaye üçün yüksək performanslı sürtkü yağları və xüsusi yağlayıcılar.",
       products: [
-        { id: "oks-1", name: "OKS 478 Plastic and Elastomer Grease 400g", image: "/gx_2.png" },
-        { id: "oks-2", name: "OKS 1149 Long-lasting silicone grease with PTFE 25kg hobbock", image: "/gx_2.png" },
-        { id: "oks-3", name: "OKS 1149 Long-lasting silicone grease with PTFE 5kg hobbock", image: "/gx_2.png" },
-        { id: "oks-4", name: "OKS 1149 Long-lasting silicone grease with PTFE 500g tin", image: "/gx_2.png" },
-        { id: "oks-5", name: "OKS 1149 Long-lasting silicone grease with PTFE 400ml cartridge", image: "/gx_2.png" },
-        { id: "oks-6", name: "OKS 1144 Universal silicone grease 25kg hobbock", image: "/gx_2.png" },
-        { id: "oks-7", name: "OKS 1144 Universal silicone grease 5kg hobbock", image: "/gx_2.png" },
-        { id: "oks-8", name: "OKS 1144 Universal silicone grease 500g tin", image: "/gx_2.png" },
-        { id: "oks-9", name: "OKS 1110 Food grade multi-usage silicone grease colorless NLGI-3 25kg", image: "/gx_2.png" },
-        { id: "oks-10", name: "OKS 1110 Food grade multi-usage silicone grease colorless NLGI-3 5kg", image: "/gx_2.png" }
+        { id: "oks-1", name: "OKS 478 Plastic and Elastomer Grease 400g", image: "/oks-478-plastic-and-elastomer-grease-400g-001.jpg" },
+        { id: "oks-2", name: "OKS 1149 Long-lasting silicone grease with PTFE 25kg hobbock", image: "/oks-produkte.webp" },
+        { id: "oks-3", name: "OKS 1149 Long-lasting silicone grease with PTFE 5kg hobbock", image: "/oks1149-5kg.webp" },
+        { id: "oks-4", name: "OKS 1149 Long-lasting silicone grease with PTFE 500g tin", image: "/oks-1149-silicone-grease-with-ptfe-tin-500g-ol.webp" },
+        { id: "oks-5", name: "OKS 1149 Long-lasting silicone grease with PTFE 400ml cartridge", image: "/oks-1149-long-lasting-silicone-grease-with-ptfe-400ml-cartridge-004.jpg" },
+        { id: "oks-6", name: "OKS 1144 Universal silicone grease 25kg hobbock", image: "/oks-produkte (1).webp" },
+        { id: "oks-7", name: "OKS 1144 Universal silicone grease 5kg hobbock", image: "/oks-1144-5kg.jpg" },
+        { id: "oks-8", name: "OKS 1144 Universal silicone grease 500g tin", image: "/oks1144-500g.webp" },
+        { id: "oks-9", name: "OKS 1110 Food grade multi-usage silicone grease colorless NLGI-3 25kg", image: "/oks-1110-food-grade-multi-usage-silicone-grease-colorless-nlgi-3-25kg-002.jpg" },
+        { id: "oks-10", name: "OKS 1110 Food grade multi-usage silicone grease colorless NLGI-3 5kg", image: "/oks-1110-multi-silikonfett-lebensmittelecht-wasserfest-nlgi3-nsf-h1-5kg-004.webp" }
       ]
     },
     {
