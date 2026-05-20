@@ -46,15 +46,15 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
       name: "Loctite Industrial Adhesives & Sealing",
       description: "Sənaye yapışdırıcıları və kipgəcləyici (sealing) kompozitlər.",
       products: [
-        { id: "loc-1", name: "Loctite SI 5331 Thread sealant for plastic/metal fittings 100ml tube", image: "/gx_2.png" },
-        { id: "loc-2", name: "Loctite PC 5070 Pipe Repair Kit for plastic/metall fittings 50mm, 1.8m", image: "/gx_2.png" },
-        { id: "loc-3", name: "Loctite 55 Pipe Sealing Cord for plastic & metal pipe threads 160m", image: "/gx_2.png" },
-        { id: "loc-4", name: "Loctite 55 Pipe Sealing Cord for plastic & metal pipe threads 50m", image: "/gx_2.png" },
-        { id: "loc-5", name: "Loctite 545 Thread sealant 50ml", image: "/gx_2.png" },
-        { id: "loc-6", name: "Loctite 572 Pipe Thread Sealant for M80 coarse threads 250ml tube", image: "/gx_2.png" },
-        { id: "loc-7", name: "Loctite 576 Thread sealant medium viscosity brown 50ml bottle", image: "/gx_2.png" },
-        { id: "loc-8", name: "Loctite 5776 Thread sealant for gas and water pipes 250ml tube", image: "/gx_2.png" },
-        { id: "loc-9", name: "Loctite 5772 PMUC approved Pipe Thread Sealant 50ml", image: "/gx_2.png" }
+        { id: "loc-1", name: "Loctite SI 5331 Thread sealant for plastic/metal fittings 100ml tube", image: "/loctite-si-5331-thread-sealant-low-strength-100ml-tube-01.webp" },
+        { id: "loc-2", name: "Loctite PC 5070 Pipe Repair Kit for plastic/metall fittings 50mm, 1.8m", image: "/loctite-pc-5070-pipe-repair-kit-50mmx180cm-inkl-ea-3463-metal-compound-50g-and-gloves-idh255861-ol.webp" },
+        { id: "loc-3", name: "Loctite 55 Pipe Sealing Cord for plastic & metal pipe threads 160m", image: "/loctite-55-gewindedichtfaden-160ml.webp" },
+        { id: "loc-4", name: "Loctite 55 Pipe Sealing Cord for plastic & metal pipe threads 50m", image: "/loctite-55-gewindedichtfaden-492004.webp" },
+        { id: "loc-5", name: "Loctite 545 Thread sealant 50ml", image: "/loctite-545-thread-sealant-50ml-01.webp" },
+        { id: "loc-6", name: "Loctite 572 Pipe Thread Sealant for M80 coarse threads 250ml tube", image: "/loctite-572-pipe-thread-sealant-medium-strength-white-250ml-tube-01.webp" },
+        { id: "loc-7", name: "Loctite 576 Thread sealant medium viscosity brown 50ml bottle", image: "/loctite-576-medium-viscosity-thread-sealant-brown-bottle-50ml-idh-234548-front-ol.webp" },
+        { id: "loc-8", name: "Loctite 5776 Thread sealant for gas and water pipes 250ml tube", image: "/loctite-5776-thread-sealant-gas-and-water-pipes-250ml-idh-1545064.webp" },
+        { id: "loc-9", name: "Loctite 5772 PMUC approved Pipe Thread Sealant 50ml", image: "/loctite-5772-medium-strength-thread-sealant-for-fittings-50ml-bottle.webp" }
       ]
     },
     {
