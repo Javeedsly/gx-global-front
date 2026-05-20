@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
+import Link from 'next/link'; // 1. Next.js Link əlavə edildi
 import { ThemeToggle } from './ThemeToggle';
 
 export default function Navigation({ dict, currentLang }: { dict: any, currentLang: string }) {
@@ -11,10 +12,12 @@ export default function Navigation({ dict, currentLang }: { dict: any, currentLa
   const pathname = usePathname();
   const router = useRouter();
 
+  // 2. Məhsullar linki əlavə edildi və digər linklər dinamikləşdirildi
   const navItems = [
-    { label: dict.nav.home, href: '#home' },
-    { label: dict.nav.services, href: '#services' },
-    { label: dict.nav.features, href: '#features' },
+    { label: dict.nav.home, href: `/${currentLang}#home` },
+    { label: dict.nav.services, href: `/${currentLang}#services` },
+    { label: dict.nav.features, href: `/${currentLang}#features` },
+    { label: dict.nav.products || "Məhsullar", href: `/${currentLang}/products` }, // YENİ SƏHİFƏ
   ];
 
   const switchLanguage = (locale: string) => {
@@ -24,7 +27,6 @@ export default function Navigation({ dict, currentLang }: { dict: any, currentLa
     setIsOpen(false);
   };
 
-  // Səhifənin yuxarısına axıcı sürüşdürmək üçün funksiya
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -43,11 +45,9 @@ export default function Navigation({ dict, currentLang }: { dict: any, currentLa
             className="flex items-center cursor-pointer p-2"
             whileHover={{ scale: 1.05 }}
             onClick={() => {
-              // Əgər istifadəçi onsuz da ana səhifədədirsə, birbaşa yuxarı sürüşdür
               if (pathname === `/${currentLang}` || pathname === `/${currentLang}/` || pathname === '/') {
                 handleScrollToTop();
               } else {
-                // Başqa səhifədədirsə ana səhifəyə göndər
                 router.push(`/${currentLang}`);
               }
               setIsOpen(false);
@@ -66,20 +66,23 @@ export default function Navigation({ dict, currentLang }: { dict: any, currentLa
           {/* Desktop Menu */}
           <div className="hidden md:flex gap-8 items-center">
             {navItems.map((item) => (
-              <a 
+              <Link 
                 key={item.label} 
                 href={item.href} 
                 onClick={(e) => {
-                  // Ana Səhifə linkinə basıldıqda yuxarı sürüşdür
-                  if (item.href === '#home') {
+                  if (item.href === `/${currentLang}#home` && (pathname === `/${currentLang}` || pathname === `/${currentLang}/`)) {
                     e.preventDefault();
                     handleScrollToTop();
                   }
                 }}
-                className="text-gray-700 hover:text-emerald-600 dark:text-gray-300 dark:hover:text-emerald-400 font-medium transition-colors"
+                className={`font-medium transition-colors ${
+                  pathname.includes(item.href) 
+                    ? "text-emerald-600 dark:text-emerald-400" 
+                    : "text-gray-700 hover:text-emerald-600 dark:text-gray-300 dark:hover:text-emerald-400"
+                }`}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
 
             <ThemeToggle />
@@ -97,8 +100,9 @@ export default function Navigation({ dict, currentLang }: { dict: any, currentLa
               ))}
             </div>
 
+            {/* Contact düyməsi üçün href yeniləndi */}
             <motion.a 
-              href="#contact"
+              href={`/${currentLang}#contact`}
               whileHover={{ scale: 1.05 }} 
               whileTap={{ scale: 0.95 }}
               className="bg-emerald-800 hover:bg-emerald-900 text-white px-6 py-2.5 rounded-lg font-semibold transition-colors shadow-md shadow-emerald-900/20 inline-block text-center cursor-pointer"
@@ -131,30 +135,33 @@ export default function Navigation({ dict, currentLang }: { dict: any, currentLa
           >
             <div className="px-4 py-4 space-y-2">
               {navItems.map((item) => (
-                <a 
+                <Link 
                   key={item.label} 
                   href={item.href} 
                   onClick={(e) => {
-                    // Mobil versiyada da Ana Səhifəyə basıldıqda yuxarı sürüşdür
-                    if (item.href === '#home') {
+                    if (item.href === `/${currentLang}#home` && (pathname === `/${currentLang}` || pathname === `/${currentLang}/`)) {
                       e.preventDefault();
                       handleScrollToTop();
                     }
                     setIsOpen(false);
                   }}
-                  className="block py-3 px-4 text-gray-700 hover:bg-emerald-50 hover:text-emerald-800 dark:text-gray-300 dark:hover:bg-slate-800 dark:hover:text-emerald-400 font-medium rounded-lg transition-colors"
+                  className={`block py-3 px-4 font-medium rounded-lg transition-colors ${
+                    pathname.includes(item.href)
+                      ? "bg-emerald-50 text-emerald-800 dark:bg-slate-800 dark:text-emerald-400"
+                      : "text-gray-700 hover:bg-emerald-50 hover:text-emerald-800 dark:text-gray-300 dark:hover:bg-slate-800 dark:hover:text-emerald-400"
+                  }`}
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
               
-              <a
-                href="#contact"
+              <Link
+                href={`/${currentLang}#contact`}
                 onClick={() => setIsOpen(false)}
                 className="block py-3 px-4 text-emerald-900 bg-emerald-50 hover:bg-emerald-100 dark:text-emerald-100 dark:bg-emerald-900/30 dark:hover:bg-emerald-900/50 font-bold rounded-lg text-center mt-2 border border-emerald-100 dark:border-emerald-900/50 transition-colors"
               >
                 {dict.nav.contact}
-              </a>
+              </Link>
 
               <div className="flex items-center gap-4 py-4 px-4 border-t border-gray-100 dark:border-gray-800 mt-4 justify-center">
                 <ThemeToggle />
