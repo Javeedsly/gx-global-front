@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import Image from 'next/image';
 import { Metadata } from 'next';
 
-// SEO üçün dinamik Meta Data (www silindi!)
+// SEO üçün dinamik Meta Data
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const resolvedParams = await params;
   const lang = resolvedParams.lang;
@@ -46,10 +46,15 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
       name: "Loctite Industrial Adhesives & Sealing",
       description: "Sənaye yapışdırıcıları və kipgəcləyici (sealing) kompozitlər.",
       products: [
-        { id: "loc-1", name: "Loctite Yiv Bərkidici", image: "/gx_2.png" },
-        { id: "loc-2", name: "Loctite Sənaye Yapışdırıcısı", image: "/gx_2.png" },
-        { id: "loc-3", name: "Loctite Silikon Kipgəcləyici", image: "/gx_2.png" },
-        { id: "loc-4", name: "Loctite Epoksi Qətran", image: "/gx_2.png" }
+        { id: "loc-1", name: "Loctite SI 5331 Thread sealant for plastic/metal fittings 100ml tube", image: "/gx_2.png" },
+        { id: "loc-2", name: "Loctite PC 5070 Pipe Repair Kit for plastic/metall fittings 50mm, 1.8m", image: "/gx_2.png" },
+        { id: "loc-3", name: "Loctite 55 Pipe Sealing Cord for plastic & metal pipe threads 160m", image: "/gx_2.png" },
+        { id: "loc-4", name: "Loctite 55 Pipe Sealing Cord for plastic & metal pipe threads 50m", image: "/gx_2.png" },
+        { id: "loc-5", name: "Loctite 545 Thread sealant 50ml", image: "/gx_2.png" },
+        { id: "loc-6", name: "Loctite 572 Pipe Thread Sealant for M80 coarse threads 250ml tube", image: "/gx_2.png" },
+        { id: "loc-7", name: "Loctite 576 Thread sealant medium viscosity brown 50ml bottle", image: "/gx_2.png" },
+        { id: "loc-8", name: "Loctite 5776 Thread sealant for gas and water pipes 250ml tube", image: "/gx_2.png" },
+        { id: "loc-9", name: "Loctite 5772 PMUC approved Pipe Thread Sealant 50ml", image: "/gx_2.png" }
       ]
     },
     {
