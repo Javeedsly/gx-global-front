@@ -4,7 +4,6 @@ import Footer from '@/components/Footer';
 import Image from 'next/image';
 import { Metadata } from 'next';
 
-// SEO üçün dinamik Meta Data
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const resolvedParams = await params;
   const lang = resolvedParams.lang;
@@ -62,16 +61,16 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
       name: "Molykote (Dow Corning) Lubricants",
       description: "Ağır sənaye şərtləri üçün ixtisaslaşmış Molykote sürtkü materialları.",
       products: [
-        { id: "mol-1", name: "Molykote BG-20 Synthetic high performance bearing grease 50kg", image: "/gx_2.png" },
-        { id: "mol-2", name: "Molykote HP-870 Fully fluorinated grease NLGI-2 1kg", image: "/gx_2.png" },
-        { id: "mol-3", name: "Molykote PG 54 Plastislip Silicone grease NLGI 2-3 white 25kg pail", image: "/gx_2.png" },
-        { id: "mol-4", name: "Molykote PG 21 High performance silicone grease NLGI-2 25 kg pail", image: "/gx_2.png" },
-        { id: "mol-5", name: "Molykote Microsize Powder MoS2 Solid Lubricant 1 kg", image: "/gx_2.png" },
-        { id: "mol-6", name: "Molykote DX Paste Grease for assembly and long-term lubrication 50kg", image: "/gx_2.png" },
-        { id: "mol-7", name: "Molykote P-1500 White anti-fretting paste for metal components 25kg", image: "/gx_2.png" },
-        { id: "mol-8", name: "Molykote P-1500 White anti-fretting paste for metal components 5kg", image: "/gx_2.png" },
-        { id: "mol-9", name: "Molykote P-40 V1 Metal-free adhesive assembly paste on PAO-basis 5kg", image: "/gx_2.png" },
-        { id: "mol-10", name: "Molykote P-74 Super Anti-Seize / Assembly paste PAO 500g can", image: "/gx_2.png" }
+        { id: "mol-1", name: "Molykote BG-20 Synthetic high performance bearing grease 50kg", image: "/molykote-bg-20-grease-synthetic-high-performance-lubricating-grease-for-bearings-bucket-25kg.jpg" },
+        { id: "mol-2", name: "Molykote HP-870 Fully fluorinated grease NLGI-2 1kg", image: "/molykote-hp-870-grease-fuly-fluorinated-lubricating-grease-tin-1kg-4045303-ol.webp" },
+        { id: "mol-3", name: "Molykote PG 54 Plastislip Silicone grease NLGI 2-3 white 25kg pail", image: "/molykote-pg-54-plastislip-silicone-grease-nlgi-2-3-white-25kg-pail-001.jpg" },
+        { id: "mol-4", name: "Molykote PG 21 High performance silicone grease NLGI-2 25 kg pail", image: "/molykote-pg-21-high-performance-silicone-grease-nlgi-2-25-kg-pail-001.jpg" },
+        { id: "mol-5", name: "Molykote Microsize Powder MoS2 Solid Lubricant 1 kg", image: "/molykote-microsize-powder-mos2-solid-lubricant-1-kg-can.webp" },
+        { id: "mol-6", name: "Molykote DX Paste Grease for assembly and long-term lubrication 50kg", image: "/molykote-dx-paste-fettpaste-montagepaste-weiss-dauerschmierung-50kg-fass.jpg" },
+        { id: "mol-7", name: "Molykote P-1500 White anti-fretting paste for metal components 25kg", image: "/molykote-p-1500-white-anti-fretting-paste-for-metal-components-25kg-001.jpg" },
+        { id: "mol-8", name: "Molykote P-1500 White anti-fretting paste for metal components 5kg", image: "/molykote-p-1500-semi-synthetic-oil-based-assembly-paste-lithium-5kg.webp" },
+        { id: "mol-9", name: "Molykote P-40 V1 Metal-free adhesive assembly paste on PAO-basis 5kg", image: "/molykote-p-40-paste-metal-free-adhesive-lubricating-paste-dow-corning-pail-5kg-ol.webp" },
+        { id: "mol-10", name: "Molykote P-74 Super Anti-Seize / Assembly paste PAO 500g can", image: "/molykote-p-74-super-anti-seize-assembly-paste-pao-500g-can-001.jpg" }
       ]
     }
   ];
