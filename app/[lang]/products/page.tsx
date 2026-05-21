@@ -21,8 +21,8 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
   const categories = [
     {
       id: "oks-lubricants",
-      name: dict.productsPage?.categories?.oks?.name || "OKS Industrial Lubricants",
-      description: dict.productsPage?.categories?.oks?.desc || "Sənaye üçün yüksək performanslı sürtkü yağları və xüsusi yağlayıcılar.",
+      name: dict.productsPage.categories.oks.name,
+      description: dict.productsPage.categories.oks.desc,
       products: [
         { id: "oks-1", name: "OKS 478 Plastic and Elastomer Grease 400g", image: "/oks-478-plastic-and-elastomer-grease-400g-001.jpg" },
         { id: "oks-2", name: "OKS 1149 Long-lasting silicone grease with PTFE 25kg hobbock", image: "/oks-produkte.webp" },
@@ -33,13 +33,19 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
         { id: "oks-7", name: "OKS 1144 Universal silicone grease 5kg hobbock", image: "/oks-1144-5kg.jpg" },
         { id: "oks-8", name: "OKS 1144 Universal silicone grease 500g tin", image: "/oks1144-500g.webp" },
         { id: "oks-9", name: "OKS 1110 Food grade multi-usage silicone grease colorless NLGI-3 25kg", image: "/oks-1110-food-grade-multi-usage-silicone-grease-colorless-nlgi-3-25kg-002.jpg" },
-        { id: "oks-10", name: "OKS 1110 Food grade multi-usage silicone grease colorless NLGI-3 5kg", image: "/oks-1110-multi-silikonfett-lebensmittelecht-wasserfest-nlgi3-nsf-h1-5kg-004.webp" }
+        { id: "oks-10", name: "OKS 1110 Food grade multi-usage silicone grease colorless NLGI-3 5kg", image: "/oks-1110-multi-silikonfett-lebensmittelecht-wasserfest-nlgi3-nsf-h1-5kg-004.webp" },
+        { id: "oks-11", name: "OKS 428 Synthetic Fluid Grease for Gears 1kg tin", image: "/gx_2.png" },
+        { id: "oks-12", name: "OKS 403 Marine grease for exposure to seawater 1kg tin", image: "/gx_2.png" },
+        { id: "oks-13", name: "OKS 410 MoS2 high pressure long life grease 5kg hobbock", image: "/gx_2.png" },
+        { id: "oks-14", name: "OKS 427 gear and bearing grease 1kg tin", image: "/gx_2.png" },
+        { id: "oks-15", name: "OKS 450 Chain adhesive lubricant transparent 25l canister", image: "/gx_2.png" },
+        { id: "oks-16", name: "OKS 4100 MoS2 extreme pressure grease 25kg hobbock", image: "/gx_2.png" }
       ]
     },
     {
       id: "loctite-adhesives",
-      name: dict.productsPage?.categories?.loctite?.name || "Loctite Industrial Adhesives & Sealing",
-      description: dict.productsPage?.categories?.loctite?.desc || "Sənaye yapışdırıcıları və kipgəcləyici (sealing) kompozitlər.",
+      name: dict.productsPage.categories.loctite.name,
+      description: dict.productsPage.categories.loctite.desc,
       products: [
         { id: "loc-1", name: "Loctite SI 5331 Thread sealant for plastic/metal fittings 100ml tube", image: "/loctite-si-5331-thread-sealant-low-strength-100ml-tube-01.webp" },
         { id: "loc-2", name: "Loctite PC 5070 Pipe Repair Kit for plastic/metall fittings 50mm, 1.8m", image: "/loctite-pc-5070-pipe-repair-kit-50mmx180cm-inkl-ea-3463-metal-compound-50g-and-gloves-idh255861-ol.webp" },
@@ -61,8 +67,8 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
     },
     {
       id: "molykote-lubricants",
-      name: dict.productsPage?.categories?.molykote?.name || "Molykote (Dow Corning) Lubricants",
-      description: dict.productsPage?.categories?.molykote?.desc || "Ağır sənaye şərtləri üçün ixtisaslaşmış Molykote sürtkü materialları.",
+      name: dict.productsPage.categories.molykote.name,
+      description: dict.productsPage.categories.molykote.desc,
       products: [
         { id: "mol-1", name: "Molykote BG-20 Synthetic high performance bearing grease 50kg", image: "/molykote-bg-20-grease-synthetic-high-performance-lubricating-grease-for-bearings-bucket-25kg.jpg" },
         { id: "mol-2", name: "Molykote HP-870 Fully fluorinated grease NLGI-2 1kg", image: "/molykote-hp-870-grease-fuly-fluorinated-lubricating-grease-tin-1kg-4045303-ol.webp" },
@@ -82,53 +88,42 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
     <main className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
       <Navigation dict={dict} currentLang={lang} />
       
-      <div className="flex-grow container mx-auto px-4 py-28 lg:py-36">
+      <div className="flex-grow container mx-auto px-4 py-24 md:py-32">
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">
-            {dict.productsPage?.title || "Sənaye Məhsullarımız"}
+          <h1 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">
+            {dict.productsPage.title}
           </h1>
-          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-            {dict.productsPage?.subtitle || "Qlobal təchizat şəbəkəmiz üzrə təklif etdiyimiz yüksək keyfiyyətli sənaye yağları, yapışdırıcılar və xüsusi kompozitlər."}
+          <p className="text-sm md:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto px-4">
+            {dict.productsPage.subtitle}
           </p>
         </div>
         
-        <div className="space-y-20">
+        <div className="space-y-16 md:space-y-24">
           {categories.map((category) => (
             <section key={category.id} className="scroll-mt-24" id={category.id}>
-              
-              <div className="mb-8">
-                <div className="flex items-center mb-2">
-                  <h2 className="text-2xl md:text-3xl font-bold text-slate-800 dark:text-slate-100">
-                    {category.name}
-                  </h2>
-                  <div className="h-px bg-slate-200 dark:bg-slate-800 flex-grow ml-6"></div>
-                </div>
-                <p className="text-slate-600 dark:text-slate-400">
-                  {category.description}
-                </p>
+              <div className="mb-8 px-2">
+                <h2 className="text-xl md:text-3xl font-bold text-slate-800 dark:text-slate-100 mb-2">{category.name}</h2>
+                <p className="text-sm md:text-base text-slate-600 dark:text-slate-400">{category.description}</p>
+                <div className="h-px bg-slate-200 dark:bg-slate-800 mt-4"></div>
               </div>
               
-              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
                 {category.products.map((product) => (
-                  <article key={product.id} className="bg-white dark:bg-slate-900 rounded-2xl shadow-sm hover:shadow-xl border border-slate-100 dark:border-slate-800 overflow-hidden transition-all duration-300 group flex flex-col">
-                    
-                    <div className="relative aspect-square w-full bg-slate-100 dark:bg-slate-800/50 overflow-hidden flex items-center justify-center p-4">
+                  <article key={product.id} className="bg-white dark:bg-slate-900 rounded-xl md:rounded-2xl shadow-sm hover:shadow-md border border-slate-100 dark:border-slate-800 overflow-hidden transition-all duration-300 flex flex-col">
+                    <div className="relative aspect-square w-full bg-slate-50 dark:bg-slate-950 overflow-hidden flex items-center justify-center p-3 md:p-6">
                       <Image 
                         src={product.image} 
-                        alt={`${product.name} - ${category.name}`}
+                        alt={product.name}
                         fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                        className="object-contain p-4 md:p-6 transition-transform duration-500 group-hover:scale-110 mix-blend-multiply dark:mix-blend-normal"
+                        sizes="(max-width: 768px) 50vw, 25vw"
+                        className="object-contain transition-transform duration-500 group-hover:scale-105 mix-blend-multiply dark:mix-blend-normal"
                       />
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300" />
                     </div>
-                    
-                    <div className="p-3 md:p-5 text-center flex-grow flex items-center justify-center border-t border-slate-50 dark:border-slate-800/50">
-                      <h3 className="text-xs md:text-base font-semibold text-slate-900 dark:text-slate-200 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors leading-snug">
+                    <div className="p-3 md:p-4 text-center flex-grow flex items-center justify-center border-t border-slate-100 dark:border-slate-800">
+                      <h3 className="text-[10px] md:text-sm font-medium text-slate-800 dark:text-slate-200 leading-tight">
                         {product.name}
                       </h3>
                     </div>
-                    
                   </article>
                 ))}
               </div>
