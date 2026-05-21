@@ -25,8 +25,8 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
   const categories = [
     {
       id: "oks-lubricants",
-      name: "OKS Industrial Lubricants",
-      description: "Sənaye üçün yüksək performanslı sürtkü yağları və xüsusi yağlayıcılar.",
+      name: dict.productsPage?.categories?.oks?.name || "OKS Industrial Lubricants",
+      description: dict.productsPage?.categories?.oks?.desc || "Sənaye üçün yüksək performanslı sürtkü yağları və xüsusi yağlayıcılar.",
       products: [
         { id: "oks-1", name: "OKS 478 Plastic and Elastomer Grease 400g", image: "/oks-478-plastic-and-elastomer-grease-400g-001.jpg" },
         { id: "oks-2", name: "OKS 1149 Long-lasting silicone grease with PTFE 25kg hobbock", image: "/oks-produkte.webp" },
@@ -42,8 +42,8 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
     },
     {
       id: "loctite-adhesives",
-      name: "Loctite Industrial Adhesives & Sealing",
-      description: "Sənaye yapışdırıcıları və kipgəcləyici (sealing) kompozitlər.",
+      name: dict.productsPage?.categories?.loctite?.name || "Loctite Industrial Adhesives & Sealing",
+      description: dict.productsPage?.categories?.loctite?.desc || "Sənaye yapışdırıcıları və kipgəcləyici (sealing) kompozitlər.",
       products: [
         { id: "loc-1", name: "Loctite SI 5331 Thread sealant for plastic/metal fittings 100ml tube", image: "/loctite-si-5331-thread-sealant-low-strength-100ml-tube-01.webp" },
         { id: "loc-2", name: "Loctite PC 5070 Pipe Repair Kit for plastic/metall fittings 50mm, 1.8m", image: "/loctite-pc-5070-pipe-repair-kit-50mmx180cm-inkl-ea-3463-metal-compound-50g-and-gloves-idh255861-ol.webp" },
@@ -54,18 +54,19 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
         { id: "loc-7", name: "Loctite 576 Thread sealant medium viscosity brown 50ml bottle", image: "/loctite-576-medium-viscosity-thread-sealant-brown-bottle-50ml-idh-234548-front-ol.webp" },
         { id: "loc-8", name: "Loctite 5776 Thread sealant for gas and water pipes 250ml tube", image: "/loctite-5776-thread-sealant-gas-and-water-pipes-250ml-idh-1545064.webp" },
         { id: "loc-9", name: "Loctite 5772 PMUC approved Pipe Thread Sealant 50ml", image: "/loctite-5772-medium-strength-thread-sealant-for-fittings-50ml-bottle.webp" },
-        { id: "loc-10", name: "Loctite 221 Threadlocker for small screws low strength purple 250ml", image: "/gx_2.png" },
-        { id: "loc-11", name: "Loctite 259 Threadlocker low strength purple 50ml", image: "/gx_2.png" },
-        { id: "loc-12", name: "Loctite 225 Threadlocker medium viscosity low strength brown 50ml", image: "/gx_2.png" },
-        { id: "loc-13", name: "Loctite 225 Threadlocker medium viscosity low strength brown 250ml", image: "/gx_2.png" },
-        { id: "loc-14", name: "Loctite 222 Threadlocker low strength purple 50ml", image: "/gx_2.png" },
-        { id: "loc-15", name: "Loctite 222 Threadlocker low strength purple 250ml", image: "/gx_2.png" }
+        { id: "loc-10", name: "Loctite 221 Threadlocker for small screws low strength purple 250ml", image: "/loctite-221-threadlocker-for-small-screws-low-strength-purple-250ml-01.webp" },
+        { id: "loc-11", name: "Loctite 259 Threadlocker low strength purple 50ml", image: "/loctite-259-threadlocker-low-stregth-purple-50-ml-idh-231678-front-ol.webp" },
+        { id: "loc-13", name: "Loctite 225 Threadlocker medium viscosity low strength brown 250ml", image: "/loctite-225-threadlocker-medium-viscosity-low-strength-250ml-01.jpg" },
+        { id: "loc-15", name: "Loctite 222 Threadlocker low strength purple 250ml", image: "/loctite-222-low-strength-threadlocking-adhesive-for-metal-threads-250ml.webp" },
+        { id: "loc-16", name: "Loctite 932 Threadlocker for electronics low strength brown 50ml", image: "/gx_2.png" },
+        { id: "loc-17", name: "Loctite 2701 Threadlocker for chromated screws high strength 1 l", image: "/gx_2.png" },
+        { id: "loc-18", name: "Loctite 262 Threadlocker thixotropic medium-to-high strength red 250ml", image: "/gx_2.png" }
       ]
     },
     {
       id: "molykote-lubricants",
-      name: "Molykote (Dow Corning) Lubricants",
-      description: "Ağır sənaye şərtləri üçün ixtisaslaşmış Molykote sürtkü materialları.",
+      name: dict.productsPage?.categories?.molykote?.name || "Molykote (Dow Corning) Lubricants",
+      description: dict.productsPage?.categories?.molykote?.desc || "Ağır sənaye şərtləri üçün ixtisaslaşmış Molykote sürtkü materialları.",
       products: [
         { id: "mol-1", name: "Molykote BG-20 Synthetic high performance bearing grease 50kg", image: "/molykote-bg-20-grease-synthetic-high-performance-lubricating-grease-for-bearings-bucket-25kg.jpg" },
         { id: "mol-2", name: "Molykote HP-870 Fully fluorinated grease NLGI-2 1kg", image: "/molykote-hp-870-grease-fuly-fluorinated-lubricating-grease-tin-1kg-4045303-ol.webp" },
@@ -88,10 +89,10 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
       <div className="flex-grow container mx-auto px-4 py-28 lg:py-36">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">
-            Sənaye Məhsullarımız
+            {dict.productsPage?.title || "Sənaye Məhsullarımız"}
           </h1>
           <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-            Qlobal təchizat şəbəkəmiz üzrə təklif etdiyimiz yüksək keyfiyyətli sənaye yağları, yapışdırıcılar və xüsusi kompozitlər.
+            {dict.productsPage?.subtitle || "Qlobal təchizat şəbəkəmiz üzrə təklif etdiyimiz yüksək keyfiyyətli sənaye yağları, yapışdırıcılar və xüsusi kompozitlər."}
           </p>
         </div>
         
@@ -111,7 +112,7 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
                 </p>
               </div>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8">
                 {category.products.map((product) => (
                   <article key={product.id} className="bg-white dark:bg-slate-900 rounded-2xl shadow-sm hover:shadow-xl border border-slate-100 dark:border-slate-800 overflow-hidden transition-all duration-300 group flex flex-col">
                     
@@ -121,13 +122,13 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
                         alt={`${product.name} - ${category.name}`}
                         fill
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                        className="object-contain p-6 transition-transform duration-500 group-hover:scale-110 mix-blend-multiply dark:mix-blend-normal"
+                        className="object-contain p-4 md:p-6 transition-transform duration-500 group-hover:scale-110 mix-blend-multiply dark:mix-blend-normal"
                       />
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300" />
                     </div>
                     
-                    <div className="p-5 text-center flex-grow flex items-center justify-center border-t border-slate-50 dark:border-slate-800/50">
-                      <h3 className="text-sm md:text-base font-semibold text-slate-900 dark:text-slate-200 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors leading-snug">
+                    <div className="p-3 md:p-5 text-center flex-grow flex items-center justify-center border-t border-slate-50 dark:border-slate-800/50">
+                      <h3 className="text-xs md:text-base font-semibold text-slate-900 dark:text-slate-200 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors leading-snug">
                         {product.name}
                       </h3>
                     </div>
