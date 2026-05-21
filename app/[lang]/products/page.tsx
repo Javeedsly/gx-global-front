@@ -89,7 +89,20 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
         { id: "mol-15", name: "Molykote BG-20 Synthetic high performance bearing grease 1kg can", image: "/molykote-bg-20-grease-synthetic-high-performance-lubricating-grease-for-bearings-bucket-25kg.jpg" },
         { id: "mol-16", name: "Molykote BR-2 Plus High performance grease NLGI-2 black 1kg tin", image: "/molykote-p-1500-semi-synthetic-oil-based-assembly-paste-lithium-5kg.webp" }
       ]
+    },
+    // ...existing code...
+    // ...existing code...
+    {
+      id: "arcanol-lubricants",
+      name: dict.productsPage?.categories?.arcanol?.name || "Arcanol Industrial Lubricants",
+      description: dict.productsPage?.categories?.arcanol?.desc || "Arcanol yüksək performanslı sürtkü materialları və xüsusi yağlar.",
+      products: [
+        { id: "arc-1", name: "ARCANOL MULTITOP Bearing grease 5kg", image: "/0016A49E_d.png" },
+        { id: "arc-2", name: "ARCANOL TEMP90 Bearing grease 1kg", image: "/0016A853_d.png" }
+      ]
     }
+// ...existing code...
+// ...existing code...
 // ...existing code...
   ];
 

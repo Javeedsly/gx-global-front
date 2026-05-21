@@ -22,6 +22,7 @@ export interface Dictionary {
       oks: { name: string; desc: string };
       loctite: { name: string; desc: string };
       molykote: { name: string; desc: string };
+      arcanol: { name: string; desc: string };
     };
   };
 }
