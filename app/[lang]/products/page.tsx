@@ -21,8 +21,8 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
   const categories = [
     {
       id: "oks-lubricants",
-      name: dict.productsPage.categories.oks.name,
-      description: dict.productsPage.categories.oks.desc,
+      name: dict.productsPage?.categories?.oks?.name || "OKS Industrial Lubricants",
+      description: dict.productsPage?.categories?.oks?.desc || "Sənaye üçün yüksək performanslı sürtkü yağları və xüsusi yağlayıcılar.",
       products: [
         { id: "oks-1", name: "OKS 478 Plastic and Elastomer Grease 400g", image: "/oks-478-plastic-and-elastomer-grease-400g-001.jpg" },
         { id: "oks-2", name: "OKS 1149 Long-lasting silicone grease with PTFE 25kg hobbock", image: "/oks-produkte.webp" },
@@ -34,18 +34,18 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
         { id: "oks-8", name: "OKS 1144 Universal silicone grease 500g tin", image: "/oks1144-500g.webp" },
         { id: "oks-9", name: "OKS 1110 Food grade multi-usage silicone grease colorless NLGI-3 25kg", image: "/oks-1110-food-grade-multi-usage-silicone-grease-colorless-nlgi-3-25kg-002.jpg" },
         { id: "oks-10", name: "OKS 1110 Food grade multi-usage silicone grease colorless NLGI-3 5kg", image: "/oks-1110-multi-silikonfett-lebensmittelecht-wasserfest-nlgi3-nsf-h1-5kg-004.webp" },
-        { id: "oks-11", name: "OKS 428 Synthetic Fluid Grease for Gears 1kg tin", image: "/gx_2.png" },
-        { id: "oks-12", name: "OKS 403 Marine grease for exposure to seawater 1kg tin", image: "/gx_2.png" },
-        { id: "oks-13", name: "OKS 410 MoS2 high pressure long life grease 5kg hobbock", image: "/gx_2.png" },
-        { id: "oks-14", name: "OKS 427 gear and bearing grease 1kg tin", image: "/gx_2.png" },
-        { id: "oks-15", name: "OKS 450 Chain adhesive lubricant transparent 25l canister", image: "/gx_2.png" },
-        { id: "oks-16", name: "OKS 4100 MoS2 extreme pressure grease 25kg hobbock", image: "/gx_2.png" }
+        { id: "oks-11", name: "OKS 428 Synthetic Fluid Grease for Gears 1kg tin", image: "/oks-428-synthetic-fluid-grease-for-transmissions-1kg-tin-001.jpg" },
+        { id: "oks-12", name: "OKS 403 Marine grease for exposure to seawater 1kg tin", image: "/oks-403-marine-grease-for-exposure-to-seawater-1kg-tin-001.webp" },
+        { id: "oks-13", name: "OKS 410 MoS2 high pressure long life grease 5kg hobbock", image: "/oks410-5kg.webp" },
+        { id: "oks-14", name: "OKS 427 gear and bearing grease 1kg tin", image: "/oks-427-gear-and-bearing-grease-1kg-tin-002.jpg" },
+        { id: "oks-15", name: "OKS 450 Chain adhesive lubricant transparent 25l canister", image: "/oks450-chain-and-adhesive-lubricant-transparent-25l.webp" },
+        { id: "oks-16", name: "OKS 4100 MoS2 extreme pressure grease 25kg hobbock", image: "/oks-4100-mos2-extreme-pressure-lubricating-grease-hobbock-25kg-ol.jpg" }
       ]
     },
     {
       id: "loctite-adhesives",
-      name: dict.productsPage.categories.loctite.name,
-      description: dict.productsPage.categories.loctite.desc,
+      name: dict.productsPage?.categories?.loctite?.name || "Loctite Industrial Adhesives & Sealing",
+      description: dict.productsPage?.categories?.loctite?.desc || "Sənaye yapışdırıcıları və kipgəcləyici (sealing) kompozitlər.",
       products: [
         { id: "loc-1", name: "Loctite SI 5331 Thread sealant for plastic/metal fittings 100ml tube", image: "/loctite-si-5331-thread-sealant-low-strength-100ml-tube-01.webp" },
         { id: "loc-2", name: "Loctite PC 5070 Pipe Repair Kit for plastic/metall fittings 50mm, 1.8m", image: "/loctite-pc-5070-pipe-repair-kit-50mmx180cm-inkl-ea-3463-metal-compound-50g-and-gloves-idh255861-ol.webp" },
@@ -67,8 +67,8 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
     },
     {
       id: "molykote-lubricants",
-      name: dict.productsPage.categories.molykote.name,
-      description: dict.productsPage.categories.molykote.desc,
+      name: dict.productsPage?.categories?.molykote?.name || "Molykote (Dow Corning) Lubricants",
+      description: dict.productsPage?.categories?.molykote?.desc || "Ağır sənaye şərtləri üçün ixtisaslaşmış Molykote sürtkü materialları.",
       products: [
         { id: "mol-1", name: "Molykote BG-20 Synthetic high performance bearing grease 50kg", image: "/molykote-bg-20-grease-synthetic-high-performance-lubricating-grease-for-bearings-bucket-25kg.jpg" },
         { id: "mol-2", name: "Molykote HP-870 Fully fluorinated grease NLGI-2 1kg", image: "/molykote-hp-870-grease-fuly-fluorinated-lubricating-grease-tin-1kg-4045303-ol.webp" },
@@ -87,14 +87,13 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
   return (
     <main className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
       <Navigation dict={dict} currentLang={lang} />
-      
       <div className="flex-grow container mx-auto px-4 py-24 md:py-32">
         <div className="text-center mb-16">
           <h1 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">
-            {dict.productsPage.title}
+            {dict.productsPage?.title || "Sənaye Məhsullarımız"}
           </h1>
           <p className="text-sm md:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto px-4">
-            {dict.productsPage.subtitle}
+            {dict.productsPage?.subtitle || "Qlobal təchizat şəbəkəmiz üzrə təklif etdiyimiz yüksək keyfiyyətli sənaye yağları, yapışdırıcılar və xüsusi kompozitlər."}
           </p>
         </div>
         
