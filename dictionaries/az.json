@@ -39,24 +39,6 @@
       { "title": "Anbar Xidmətləri" }
     ]
   },
-  "testimonials": {
-    "title": "Müştəri Rəyləri",
-    "subtitle": "Bizneslərin GX-GLOBAL haqqında dedikləri",
-    "items": [
-      {
-        "content": "GX-GLOBAL təchizat zəncirimizi tamamilə dəyişdirdi. Onların etibarlılığı və məhsul keyfiyyəti bənzərsizdir.",
-        "role": "Əməliyyatlar Direktoru"
-      },
-      {
-        "content": "Biz iki ildir onlarla tərəfdaşıq. Müştəri xidmətləri hər zaman hər hansı bir logistika problemini dərhal həll etməyə hazırdır.",
-        "role": "Satınalma Meneceri"
-      },
-      {
-        "content": "Təklif etdikləri qiymətlər və sürətli beynəlxalq çatdırılma bizə xərcləri xeyli azaltmağa kömək etdi.",
-        "role": "CEO"
-      }
-    ]
-  },
   "cta": {
     "title": "Təchizat Zəncirinizi Optimallaşdırmağa Hazırsınız?",
     "subtitle": "Gündəlik logistika əməliyyatları üçün GX-GLOBAL-a etibar edən minlərlə biznesə qoşulun.",
@@ -88,5 +70,14 @@
     "subject": "Mövzu",
     "message": "Mesaj",
     "submit": "Göndər"
+  },
+  "productsPage": {
+    "title": "Sənaye Məhsullarımız",
+    "subtitle": "Qlobal təchizat şəbəkəmiz üzrə təklif etdiyimiz yüksək keyfiyyətli sənaye yağları, yapışdırıcılar və xüsusi kompozitlər.",
+    "categories": {
+      "oks": { "name": "OKS Sənaye Yağları", "desc": "Sənaye üçün yüksək performanslı sürtkü yağları." },
+      "loctite": { "name": "Loctite Sənaye Yapışdırıcıları", "desc": "Yapışdırıcılar və kipgəcləyici kompozitlər." },
+      "molykote": { "name": "Molykote Sürtkü Materialları", "desc": "Ağır sənaye üçün sürtkü materialları." }
+    }
   }
 }

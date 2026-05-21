@@ -1,40 +1,44 @@
-import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import { NextRequest, NextResponse } from 'next/server';
 
-// Railway Variables-dan gələn API Key
-const resend = new Resend(process.env.RESEND_API_KEY);
+export async function POST(request: NextRequest) {
+  // Check if API key exists
+  if (!process.env.RESEND_API_KEY) {
+    return NextResponse.json(
+      { error: 'Email service is not configured' },
+      { status: 500 }
+    );
+  }
 
-export async function POST(req: Request) {
   try {
-    const { name, email, phone, subject, message } = await req.json();
+    const body = await request.json();
+    const { name, email, message } = body;
 
-    const { data, error } = await resend.emails.send({
-      from: 'GX Global <info@gx-global.com>', // Resend-də domaini təsdiqlədikdən sonra 'info@gx-global.com' edə bilərsən
-      to: ['info@gx-global.com'],
-      replyTo: email,
-      subject: `Saytdan Mesaj: ${subject}`,
-      html: `
-        <div style="font-family: sans-serif; padding: 20px;">
-          <h2 style="color: #065f46;">Yeni Əlaqə Mesajı</h2>
-          <p><strong>Ad:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Telefon:</strong> ${phone || 'Qeyd edilməyib'}</p>
-          <p><strong>Mövzu:</strong> ${subject}</p>
-          <hr />
-          <p><strong>Mesaj:</strong></p>
-          <p style="white-space: pre-wrap;">${message}</p>
-        </div>
-      `,
-    });
-
-    if (error) {
-      console.error('RESEND_XETASI:', error);
-      return NextResponse.json({ success: false, error }, { status: 400 });
+    // Validate input
+    if (!name || !email || !message) {
+      return NextResponse.json(
+        { error: 'Missing required fields' },
+        { status: 400 }
+      );
     }
 
+    // Instantiate Resend inside the function, not at module level
+    const resend = new Resend(process.env.RESEND_API_KEY);
+
+    // Send email using Resend
+    const data = await resend.emails.send({
+      from: 'noreply@yourdomain.com',
+      to: email,
+      subject: `Contact form submission from ${name}`,
+      html: `<p>${message}</p>`,
+    });
+
     return NextResponse.json({ success: true, data });
-  } catch (error: any) {
-    console.error('SERVER_XETASI:', error.message);
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+  } catch (error) {
+    console.error('Email error:', error);
+    return NextResponse.json(
+      { error: 'Failed to send email' },
+      { status: 500 }
+    );
   }
 }

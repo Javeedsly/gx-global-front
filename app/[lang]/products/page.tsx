@@ -7,13 +7,9 @@ import { Metadata } from 'next';
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const resolvedParams = await params;
   const lang = resolvedParams.lang;
-  
-  return {
-    title: `Məhsullar | GX-GLOBAL`,
-    description: 'OKS, Loctite və Molykote kimi dünya brendlərinin sənaye yağları, yapışdırıcıları və təchizat materialları.',
-    alternates: {
-      canonical: `https://gx-global.com/${lang}/products`,
-    }
+  return { 
+    title: `Məhsullar | GX-GLOBAL`, 
+    alternates: { canonical: `https://gx-global.com/${lang}/products` } 
   };
 }
 
@@ -58,9 +54,9 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
         { id: "loc-11", name: "Loctite 259 Threadlocker low strength purple 50ml", image: "/loctite-259-threadlocker-low-stregth-purple-50-ml-idh-231678-front-ol.webp" },
         { id: "loc-13", name: "Loctite 225 Threadlocker medium viscosity low strength brown 250ml", image: "/loctite-225-threadlocker-medium-viscosity-low-strength-250ml-01.jpg" },
         { id: "loc-15", name: "Loctite 222 Threadlocker low strength purple 250ml", image: "/loctite-222-low-strength-threadlocking-adhesive-for-metal-threads-250ml.webp" },
-        { id: "loc-16", name: "Loctite 932 Threadlocker for electronics low strength brown 50ml", image: "/gx_2.png" },
-        { id: "loc-17", name: "Loctite 2701 Threadlocker for chromated screws high strength 1 l", image: "/gx_2.png" },
-        { id: "loc-18", name: "Loctite 262 Threadlocker thixotropic medium-to-high strength red 250ml", image: "/gx_2.png" }
+        { id: "loc-16", name: "Loctite 932 Threadlocker for electronics low strength brown 50ml", image: "/loctite-932-50ml-schraubensicherung.jpg" },
+        { id: "loc-17", name: "Loctite 2701 Threadlocker for chromated screws high strength 1 l", image: "/loctite-2701-threadlocker-for-chromated-screws-high-strength-1l-01.webp" },
+        { id: "loc-18", name: "Loctite 262 Threadlocker thixotropic medium-to-high strength red 250ml", image: "/loctite-262-threadlocker-thixotropic-high-strenght-adhesive-idh-88396-2722898-250ml-276g-bottle-front-ol.jpg" }
       ]
     },
     {
@@ -140,7 +136,6 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
           ))}
         </div>
       </div>
-
       <Footer dict={dict} />
     </main>
   );
