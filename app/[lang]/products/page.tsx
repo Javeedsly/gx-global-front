@@ -53,7 +53,13 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
         { id: "loc-6", name: "Loctite 572 Pipe Thread Sealant for M80 coarse threads 250ml tube", image: "/loctite-572-pipe-thread-sealant-medium-strength-white-250ml-tube-01.webp" },
         { id: "loc-7", name: "Loctite 576 Thread sealant medium viscosity brown 50ml bottle", image: "/loctite-576-medium-viscosity-thread-sealant-brown-bottle-50ml-idh-234548-front-ol.webp" },
         { id: "loc-8", name: "Loctite 5776 Thread sealant for gas and water pipes 250ml tube", image: "/loctite-5776-thread-sealant-gas-and-water-pipes-250ml-idh-1545064.webp" },
-        { id: "loc-9", name: "Loctite 5772 PMUC approved Pipe Thread Sealant 50ml", image: "/loctite-5772-medium-strength-thread-sealant-for-fittings-50ml-bottle.webp" }
+        { id: "loc-9", name: "Loctite 5772 PMUC approved Pipe Thread Sealant 50ml", image: "/loctite-5772-medium-strength-thread-sealant-for-fittings-50ml-bottle.webp" },
+        { id: "loc-10", name: "Loctite 221 Threadlocker for small screws low strength purple 250ml", image: "/gx_2.png" },
+        { id: "loc-11", name: "Loctite 259 Threadlocker low strength purple 50ml", image: "/gx_2.png" },
+        { id: "loc-12", name: "Loctite 225 Threadlocker medium viscosity low strength brown 50ml", image: "/gx_2.png" },
+        { id: "loc-13", name: "Loctite 225 Threadlocker medium viscosity low strength brown 250ml", image: "/gx_2.png" },
+        { id: "loc-14", name: "Loctite 222 Threadlocker low strength purple 50ml", image: "/gx_2.png" },
+        { id: "loc-15", name: "Loctite 222 Threadlocker low strength purple 250ml", image: "/gx_2.png" }
       ]
     },
     {
