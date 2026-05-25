@@ -34,7 +34,7 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
         { id: "ter-8", name: "TEROSON® EP 5055", image: "/TEROSON-EP-5055_SbS_200ml.webp" },
         { id: "ter-9", name: "TEROSON® EP 5065", image: "/TEROSON-EP-5065_SbS_200ml.webp" },
         { id: "ter-10", name: "TEROSON® PU 6700", image: "/packshot-grp-teroson-pu-6700-11-2021.webp" },
-        { id: "ter-11", name: "TEROSON® PISTOL 6700", image: "/AG14041_EQU_Handgun_2x25_RZ1-1.webp" },
+        { id: "ter-11", name: "TEROSON® PU 8519 P", image: "/Teroson_PU_8519_P_1178000_primer_25ml_EMEA-1.webp" },
         { id: "ter-12", name: "TEROSON® SB S3000", image: "/Teroson_SB_S3000_767199_stonechip_protection_1l_EMEA-1.webp" },
         { id: "ter-13", name: "TEROSON® BT SP 100", image: "/Teroson_Bt_Sp_100_150012_Selbstklebende.webp" },
         { id: "ter-14", name: "TEROSON® PU 9500 FOAM", image: "/packshot_indv_Loctite_PU_9500_foam_2556870_400ml_09_2019-1.webp" },
