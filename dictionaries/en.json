@@ -94,5 +94,15 @@
     "subject": "Subject",
     "message": "Message",
     "submit": "Submit"
+  },
+  "productsPage": {
+    "title": "Our Industrial Products",
+    "subtitle": "High-quality industrial oils, adhesives, and special composites offered across our global supply network.",
+    "categories": {
+      "teroson": { "name": "TEROSON® Solutions", "desc": "Bonding, sealing, and coating solutions for automotive and industrial applications." },
+      "loctite": { "name": "Loctite Industrial Adhesives", "desc": "Industrial adhesives and sealing composites." },
+      "molykote": { "name": "Molykote Lubricants", "desc": "Specialized Molykote lubricants for heavy industry." },
+      "arcanol": { "name": "Arcanol Industrial Lubricants", "desc": "High-performance lubricating greases and special oils." }
+    }
   }
 }

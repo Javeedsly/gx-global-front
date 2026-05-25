@@ -20,26 +20,26 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
 
   const categories = [
     {
-      id: "oks-lubricants",
-      name: dict.productsPage?.categories?.oks?.name || "OKS Industrial Lubricants",
-      description: dict.productsPage?.categories?.oks?.desc || "Sənaye üçün yüksək performanslı sürtkü yağları və xüsusi yağlayıcılar.",
+      id: "teroson-products",
+      name: dict.productsPage?.categories?.oks?.name || "TEROSON® Products",
+      description: dict.productsPage?.categories?.oks?.desc || "Avtomobil və sənaye üçün yapışdırıcı, kipgəcləyici və qoruyucu məhsullar.",
       products: [
-        { id: "oks-1", name: "OKS 478 Plastic and Elastomer Grease 400g", image: "/oks-478-plastic-and-elastomer-grease-400g-001.jpg" },
-        { id: "oks-2", name: "OKS 1149 Long-lasting silicone grease with PTFE 25kg hobbock", image: "/oks-produkte.webp" },
-        { id: "oks-3", name: "OKS 1149 Long-lasting silicone grease with PTFE 5kg hobbock", image: "/oks1149-5kg.webp" },
-        { id: "oks-4", name: "OKS 1149 Long-lasting silicone grease with PTFE 500g tin", image: "/oks-1149-silicone-grease-with-ptfe-tin-500g-ol.webp" },
-        { id: "oks-5", name: "OKS 1149 Long-lasting silicone grease with PTFE 400ml cartridge", image: "/oks-1149-long-lasting-silicone-grease-with-ptfe-400ml-cartridge-004.jpg" },
-        { id: "oks-6", name: "OKS 1144 Universal silicone grease 25kg hobbock", image: "/oks-produkte (1).webp" },
-        { id: "oks-7", name: "OKS 1144 Universal silicone grease 5kg hobbock", image: "/oks-1144-5kg.jpg" },
-        { id: "oks-8", name: "OKS 1144 Universal silicone grease 500g tin", image: "/oks1144-500g.webp" },
-        { id: "oks-9", name: "OKS 1110 Food grade multi-usage silicone grease colorless NLGI-3 25kg", image: "/oks-1110-food-grade-multi-usage-silicone-grease-colorless-nlgi-3-25kg-002.jpg" },
-        { id: "oks-10", name: "OKS 1110 Food grade multi-usage silicone grease colorless NLGI-3 5kg", image: "/oks-1110-multi-silikonfett-lebensmittelecht-wasserfest-nlgi3-nsf-h1-5kg-004.webp" },
-        { id: "oks-11", name: "OKS 428 Synthetic Fluid Grease for Gears 1kg tin", image: "/oks-428-synthetic-fluid-grease-for-transmissions-1kg-tin-001.jpg" },
-        { id: "oks-12", name: "OKS 403 Marine grease for exposure to seawater 1kg tin", image: "/oks-403-marine-grease-for-exposure-to-seawater-1kg-tin-001.webp" },
-        { id: "oks-13", name: "OKS 410 MoS2 high pressure long life grease 5kg hobbock", image: "/oks410-5kg.webp" },
-        { id: "oks-14", name: "OKS 427 gear and bearing grease 1kg tin", image: "/oks-427-gear-and-bearing-grease-1kg-tin-002.jpg" },
-        { id: "oks-15", name: "OKS 450 Chain adhesive lubricant transparent 25l canister", image: "/oks450-chain-and-adhesive-lubricant-transparent-25l.webp" },
-        { id: "oks-16", name: "OKS 4100 MoS2 extreme pressure grease 25kg hobbock", image: "/oks-4100-mos2-extreme-pressure-lubricating-grease-hobbock-25kg-ol.jpg" }
+        { id: "ter-1", name: "TEROSON® 150", image: "/teroson-150.webp" },
+        { id: "ter-2", name: "TEROSON® WX 350", image: "/teroson-wx-350.webp" },
+        { id: "ter-3", name: "TEROSON® MS 222", image: "/teroson-ms-222.webp" },
+        { id: "ter-4", name: "TEROSON® MS 9320", image: "/teroson-ms-9320.webp" },
+        { id: "ter-5", name: "TEROSON® VR 10", image: "/teroson-vr-10.webp" },
+        { id: "ter-6", name: "TEROSON® SB 3120", image: "/teroson-sb-3120.webp" },
+        { id: "ter-7", name: "TEROSON® PU 9100", image: "/teroson-pu-9100.webp" },
+        { id: "ter-8", name: "TEROSON® EP 5055", image: "/teroson-ep-5055.webp" },
+        { id: "ter-9", name: "TEROSON® EP 5065", image: "/teroson-ep-5065.webp" },
+        { id: "ter-10", name: "TEROSON® PU 6700", image: "/teroson-pu-6700.webp" },
+        { id: "ter-11", name: "TEROSON® PISTOL 6700", image: "/teroson-pistol-6700.webp" },
+        { id: "ter-12", name: "TEROSON® SB S3000", image: "/teroson-sb-s3000.webp" },
+        { id: "ter-13", name: "TEROSON® BT SP 100", image: "/teroson-bt-sp-100.webp" },
+        { id: "ter-14", name: "TEROSON® PU 9500 FOAM", image: "/teroson-pu-9500-foam.webp" },
+        { id: "ter-15", "name": "TEROSON® EP 5010 TR", image: "/teroson-ep-5010-tr.webp" },
+        { id: "ter-16", name: "TEROSON® PU 9225 SF", image: "/teroson-pu-9225-sf.webp" }
       ]
     },
     {
@@ -65,8 +65,6 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
         { id: "loc-18", name: "Loctite 262 Threadlocker thixotropic medium-to-high strength red 250ml", image: "/loctite-262-threadlocker-thixotropic-high-strenght-adhesive-idh-88396-2722898-250ml-276g-bottle-front-ol.jpg" }
       ]
     },
-    // ...existing code...
-    // ...existing code...
     {
       id: "molykote-lubricants",
       name: dict.productsPage?.categories?.molykote?.name || "Molykote (Dow Corning) Lubricants",
@@ -90,8 +88,6 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
         { id: "mol-16", name: "Molykote BR-2 Plus High performance grease NLGI-2 black 1kg tin", image: "/molykote-p-1500-semi-synthetic-oil-based-assembly-paste-lithium-5kg.webp" }
       ]
     },
-    // ...existing code...
-    // ...existing code...
     {
       id: "arcanol-lubricants",
       name: dict.productsPage?.categories?.arcanol?.name || "Arcanol Industrial Lubricants",
@@ -101,9 +97,6 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
         { id: "arc-2", name: "ARCANOL TEMP90 Bearing grease 1kg", image: "/0016A853_d.png" }
       ]
     }
-// ...existing code...
-// ...existing code...
-// ...existing code...
   ];
 
   return (
