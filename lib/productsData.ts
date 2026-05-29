@@ -30,6 +30,11 @@ export const descTranslations = {
     az: 'YILMAZ REDÜKTÖR - Sənaye reduktörlərinin lider üreticisi.',
     en: 'YILMAZ REDÜKTÖR - Leading manufacturer of industrial reducers.',
     ru: 'YILMAZ REDÜKTÖR - ведущий производитель промышленных редукторов.'
+  },
+  skf: {
+    az: 'SKF - Sənaye rulmanlarının və xidmətlərinin qlobal lider.',
+    en: 'SKF - Global leader in industrial bearings and services.',
+    ru: 'SKF - мировой лидер в области промышленных подшипников и услуг.'
   }
 };
 
@@ -168,6 +173,13 @@ export const products = [
   { id: 76, name: 'YILMAZ NV Serisi', category: 'YILMAZ REDÜKTÖR', image: '/34067cd5-87d1-455e-81a4-ed4fd5873ba1.png', descKey: 'yilmzaRedkutor' },
   { id: 77, name: 'YILMAZ NT Serisi', category: 'YILMAZ REDÜKTÖR', image: '/8e5fbf21-5fa6-41ba-845b-f4a83cf598f3.png', descKey: 'yilmzaRedkutor' },
   { id: 78, name: 'YILMAZ NR Flanş Opsiyonları', category: 'YILMAZ REDÜKTÖR', image: '/aabc4a3c-3a8c-4591-923a-10a4879592e4.png', descKey: 'yilmzaRedkutor' },
+
+  // SKF
+  { id: 79, name: 'SKF Cam rollers', category: 'SKF', image: '/0901d19680618376_png_highpreview_800.avif', descKey: 'skf' },
+  { id: 80, name: 'SKF Support rollers', category: 'SKF', image: '/0901d19680618406_png_highpreview_800.avif', descKey: 'skf' },
+  { id: 81, name: 'SKF Cam followers', category: 'SKF', image: '/0901d19680c37dca_png_highpreview_800.avif', descKey: 'skf' },
+  { id: 82, name: 'SKF Backing bearings', category: 'SKF', image: '/0901d196806a1bcf_png_highpreview_800.avif', descKey: 'skf' },
+  { id: 83, name: 'SKF Split plummer block housings – SNL 2, 3, 5 and 6 series', category: 'SKF', image: '/0901d196803e4d48_Flexible_1.avif', descKey: 'skf' },
 ];
 
-export const brandCategories = ['TEROSON', 'Loctite', 'Molykote', 'TESS-SAN', 'SPEEDOL', 'YILMAZ REDÜKTÖR'];
+export const brandCategories = ['TEROSON', 'Loctite', 'Molykote', 'TESS-SAN', 'SPEEDOL', 'YILMAZ REDÜKTÖR', 'SKF'];

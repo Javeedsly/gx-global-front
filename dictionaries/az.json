@@ -79,7 +79,8 @@
       "loctite": { "name": "Loctite Sənaye Yapışdırıcıları", "desc": "Yapışdırıcılar və kipgəcləyici kompozitlər." },
       "molykote": { "name": "Molykote Sürtkü Materialları", "desc": "Ağır sənaye üçün sürtkü materialları." },
       "arcanol": { "name": "Arcanol Sənaye Yağları", "desc": "Arcanol yüksək performanslı sürtkü materialları və xüsusi yağlar." },
-      "yilmzaRedkutor": { "name": "YILMAZ REDÜKTÖR", "desc": "Sənaye reduktörlərinin geniş çeşidi - optimal performans və etibarlılıq." }
+      "yilmzaRedkutor": { "name": "YILMAZ REDÜKTÖR", "desc": "Sənaye reduktörlərinin geniş çeşidi - optimal performans və etibarlılıq." },
+      "skf": { "name": "SKF", "desc": "Qlobal rulmanlarca və sənaye xidmətlərində lider brend." }
     }
   }
 }

@@ -103,7 +103,8 @@
       "loctite": { "name": "Loctite Industrial Adhesives", "desc": "Industrial adhesives and sealing composites." },
       "molykote": { "name": "Molykote Lubricants", "desc": "Specialized Molykote lubricants for heavy industry." },
       "arcanol": { "name": "Arcanol Industrial Lubricants", "desc": "High-performance lubricating greases and special oils." },
-      "yilmzaRedkutor": { "name": "YILMAZ REDÜKTÖR", "desc": "Wide range of industrial reducers - optimal performance and reliability." }
+      "yilmzaRedkutor": { "name": "YILMAZ REDÜKTÖR", "desc": "Wide range of industrial reducers - optimal performance and reliability." },
+      "skf": { "name": "SKF", "desc": "Global leader in bearings and industrial services." }
     }
   }
 }
