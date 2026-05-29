@@ -78,7 +78,8 @@
       "teroson": { "name": "TEROSON® Həlləri", "desc": "Avtomobil və sənaye üçün yapışdırıcı, kipgəcləyici və qoruyucu məhsullar." },
       "loctite": { "name": "Loctite Sənaye Yapışdırıcıları", "desc": "Yapışdırıcılar və kipgəcləyici kompozitlər." },
       "molykote": { "name": "Molykote Sürtkü Materialları", "desc": "Ağır sənaye üçün sürtkü materialları." },
-      "arcanol": { "name": "Arcanol Sənaye Yağları", "desc": "Arcanol yüksək performanslı sürtkü materialları və xüsusi yağlar." }
+      "arcanol": { "name": "Arcanol Sənaye Yağları", "desc": "Arcanol yüksək performanslı sürtkü materialları və xüsusi yağlar." },
+      "yilmzaRedkutor": { "name": "YILMAZ REDÜKTÖR", "desc": "Sənaye reduktörlərinin geniş çeşidi - optimal performans və etibarlılıq." }
     }
   }
 }

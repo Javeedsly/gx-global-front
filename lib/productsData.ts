@@ -25,6 +25,11 @@ export const descTranslations = {
     az: 'Yüksək performanslı SPEEDOL mühərrik və sənaye yağları.',
     en: 'High-performance SPEEDOL engine and industrial oils.',
     ru: 'Высокопроизводительные моторные и промышленные масла SPEEDOL.'
+  },
+  yilmzaRedkutor: {
+    az: 'YILMAZ REDÜKTÖR - Sənaye reduktörlərinin lider üreticisi.',
+    en: 'YILMAZ REDÜKTÖR - Leading manufacturer of industrial reducers.',
+    ru: 'YILMAZ REDÜKTÖR - ведущий производитель промышленных редукторов.'
   }
 };
 
@@ -151,6 +156,18 @@ export const products = [
   { id: 66, name: 'Multi Purpose Grease-3', category: 'SPEEDOL', image: '/mult-purpose-e3-5-removebg-preview.png', descKey: 'speedol' },
   { id: 67, name: 'Multi Purpose Grease-EP3', category: 'SPEEDOL', image: '/mult-purpose-e3-7-removebg-preview.png', descKey: 'speedol' },
   { id: 68, name: 'High Grade Heavy Duty Grease HD1400-2', category: 'SPEEDOL', image: '/mult-purpose-e3-6-removebg-preview.png', descKey: 'speedol' },
+
+  // YILMAZ REDÜKTÖR
+  { id: 69, name: 'YILMAZ MR Serisi', category: 'YILMAZ REDÜKTÖR', image: '/dad0b544-6dcc-4324-a407-3c64b5125525.png', descKey: 'yilmzaRedkutor' },
+  { id: 70, name: 'YILMAZ MN Serisi', category: 'YILMAZ REDÜKTÖR', image: '/a751b348-cc93-4140-afe7-2dc195f0a1b5.png', descKey: 'yilmzaRedkutor' },
+  { id: 71, name: 'YILMAZ MV Serisi', category: 'YILMAZ REDÜKTÖR', image: '/a696b40c-c271-43ef-9ba8-21aadfdce95c.png', descKey: 'yilmzaRedkutor' },
+  { id: 72, name: 'YILMAZ MT Serisi', category: 'YILMAZ REDÜKTÖR', image: '/b3f26ea1-0efe-4d7b-b1ce-0753ed00ddd1.png', descKey: 'yilmzaRedkutor' },
+  { id: 73, name: 'YILMAZ MRF Serisi', category: 'YILMAZ REDÜKTÖR', image: '/4e20fcc0-27aa-4598-9db2-5b41d0650097.png', descKey: 'yilmzaRedkutor' },
+  { id: 74, name: 'YILMAZ NR Serisi', category: 'YILMAZ REDÜKTÖR', image: '/2ae0e3c3-d312-4441-af59-445fe42315d7.png', descKey: 'yilmzaRedkutor' },
+  { id: 75, name: 'YILMAZ NN Serisi', category: 'YILMAZ REDÜKTÖR', image: '/ccc89b1f-53bb-4634-b650-bd3a088e2007.png', descKey: 'yilmzaRedkutor' },
+  { id: 76, name: 'YILMAZ NV Serisi', category: 'YILMAZ REDÜKTÖR', image: '/34067cd5-87d1-455e-81a4-ed4fd5873ba1.png', descKey: 'yilmzaRedkutor' },
+  { id: 77, name: 'YILMAZ NT Serisi', category: 'YILMAZ REDÜKTÖR', image: '/8e5fbf21-5fa6-41ba-845b-f4a83cf598f3.png', descKey: 'yilmzaRedkutor' },
+  { id: 78, name: 'YILMAZ NR Flanş Opsiyonları', category: 'YILMAZ REDÜKTÖR', image: '/aabc4a3c-3a8c-4591-923a-10a4879592e4.png', descKey: 'yilmzaRedkutor' },
 ];
 
-export const brandCategories = ['TEROSON', 'Loctite', 'Molykote', 'TESS-SAN', 'SPEEDOL'];
+export const brandCategories = ['TEROSON', 'Loctite', 'Molykote', 'TESS-SAN', 'SPEEDOL', 'YILMAZ REDÜKTÖR'];
