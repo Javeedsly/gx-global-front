@@ -4,10 +4,11 @@ import { motion, Variants, AnimatePresence } from 'framer-motion';
 import Image from 'next/image'; 
 
 export default function Hero({ dict }: { dict: any }) {
+  // Sənin atdığın yeni şəkillər əlavə olundu
   const sliderImages = [
-    '/EAST_AZERI_-_panoramio.jpg',
-    '/chuttersnap-BNBA1h-NgdY-unsplash-scaled.jpg',
-    '/slide2.avif'
+    '/WhatsApp Image 2026-05-29 at 15.10.58 (1).jpeg',
+    '/50bf873d-ef58-4cc5-b53f-1b09560156e9.jpg',
+    '/d3304a4d-367b-4b08-9d50-f64883210942.jpg'
   ];
 
   const [currentImage, setCurrentImage] = useState(0);
@@ -51,7 +52,6 @@ export default function Hero({ dict }: { dict: any }) {
             initial={false} 
             animate="visible"
           >
-            {/* SEO Qeydi: Səhifədəki yeganə H1 başlığı */}
             <motion.h1 variants={itemVariants} className="heading-lg mb-6 leading-tight font-bold text-emerald-950 dark:text-emerald-50">
               {dict.hero.title} <br className="hidden lg:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-800 to-emerald-500 dark:from-emerald-400 dark:to-emerald-200 inline-block mt-2">
@@ -114,7 +114,6 @@ export default function Hero({ dict }: { dict: any }) {
                   transition={{ duration: 0.8, ease: "easeInOut" }}
                   className="absolute inset-0 w-full h-full"
                 >
-                  {/* SEO Qeydi: Açar sözlərlə zənginləşdirilmiş alt atributu */}
                   <Image 
                     src={sliderImages[currentImage]}
                     alt={`GX Global Logistics and Supply Chain Slide ${currentImage + 1}`}

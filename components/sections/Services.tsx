@@ -20,11 +20,11 @@ export default function Services({ dict }: { dict: any }) {
     visible: { opacity: 1, scale: 1, y: 0, transition: { type: "spring", stiffness: 80, damping: 15 } },
   };
 
+  // 4-cü şəkil silindi
   const images = [
     '/home-global.png', 
     '/slide2.avif', 
-    '/istockphoto-1460822484-612x612.jpg',
-    '/chuttersnap-BNBA1h-NgdY-unsplash-scaled.jpg',
+    '/istockphoto-1460822484-612x612.jpg'
   ];
 
   return (
@@ -36,32 +36,28 @@ export default function Services({ dict }: { dict: any }) {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
           transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
         >
-          {/* SEO Qeydi: Bölmə başlığı H2 olaraq saxlanılır */}
           <h2 className="heading-md mb-4">{dict.services.title}</h2>
-          
           <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg font-medium px-4">{dict.services.subtitle}</p>
         </motion.div>
 
-        <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" variants={containerVariants} initial="hidden" animate={inView ? 'visible' : 'hidden'}>
+        {/* lg:grid-cols-4 əvəzinə lg:grid-cols-3 edildi ki, 3 element ekrana tam gözəl otursun */}
+        <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" variants={containerVariants} initial="hidden" animate={inView ? 'visible' : 'hidden'}>
           {dict.services.items.map((category: any, index: number) => (
-            /* SEO Qeydi: Məntiqi struktur üçün kartlar <article> etiketi ilə əvəz olundu */
             <motion.article 
               key={index} 
               variants={itemVariants} 
               whileHover={{ y: -10 }}
               className="relative h-72 md:h-80 rounded-2xl overflow-hidden group cursor-pointer shadow-lg shadow-gray-200/50 dark:shadow-none border border-transparent dark:border-slate-800"
             >
-              {/* SEO Qeydi: Açılıcı və SEO-ya uyğun alt dəyəri */}
               <Image 
                 src={images[index]} 
                 alt={`${category.title} - GX Global Logistics Services`} 
                 fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/90 via-emerald-900/30 to-transparent transition-opacity duration-300 group-hover:opacity-90" />
               <div className="absolute inset-0 p-6 flex flex-col justify-end relative z-10">
-                {/* SEO Qeydi: Hər bir alt xidmət H3 olaraq təyin olunur */}
                 <motion.h3 
                   className="text-lg md:text-xl font-bold text-white mb-2"
                   initial={{ y: 15, opacity: 0.9 }}
