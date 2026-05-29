@@ -31,12 +31,12 @@
     ]
   },
   "services": {
-    "title": "Əsas Xidmətlərimiz",
-    "subtitle": "Biznesiniz üçün lazım olan bütün logistika və təchizat həlləri",
+    "title": "Our Main Services",
+    "subtitle": "All logistics and supply solutions your business needs",
     "items": [
-      { "title": "Təchizat materialları" },
-      { "title": "Qlobal Logistika" },
-      { "title": "Sənaye sürtkü yağları" }
+      { "title": "Supply Materials" },
+      { "title": "Global Logistics" },
+      { "title": "Industrial Lubricants" }
     ]
   },
   "testimonials": {

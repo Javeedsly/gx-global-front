@@ -20,11 +20,10 @@ export default function Services({ dict }: { dict: any }) {
     visible: { opacity: 1, scale: 1, y: 0, transition: { type: "spring", stiffness: 80, damping: 15 } },
   };
 
-  // 4-cü şəkil silindi
   const images = [
     '/home-global.png', 
     '/slide2.avif', 
-    '/istockphoto-1460822484-612x612.jpg'
+    '/banner-varil.png'
   ];
 
   return (
@@ -40,7 +39,7 @@ export default function Services({ dict }: { dict: any }) {
           <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg font-medium px-4">{dict.services.subtitle}</p>
         </motion.div>
 
-        {/* lg:grid-cols-4 əvəzinə lg:grid-cols-3 edildi ki, 3 element ekrana tam gözəl otursun */}
+        {/* lg:grid-cols-3 3 element üçün optimal tənzimləmə */}
         <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" variants={containerVariants} initial="hidden" animate={inView ? 'visible' : 'hidden'}>
           {dict.services.items.map((category: any, index: number) => (
             <motion.article 
