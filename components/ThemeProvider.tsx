@@ -37,9 +37,7 @@ function isTheme(value: string | null): value is Theme {
 }
 
 function getSystemTheme(): ResolvedTheme {
-  if (typeof window === "undefined") {
-    return "light";
-  }
+  if (typeof window === "undefined") return "light";
 
   return window.matchMedia("(prefers-color-scheme: dark)").matches
     ? "dark"
@@ -56,6 +54,7 @@ function resolveTheme(theme: Theme, enableSystem: boolean): ResolvedTheme {
 
 function disableTransitionsTemporarily() {
   const style = document.createElement("style");
+
   style.appendChild(
     document.createTextNode(
       "*{transition:none!important;animation:none!important}"
@@ -63,7 +62,6 @@ function disableTransitionsTemporarily() {
   );
 
   document.head.appendChild(style);
-
   window.getComputedStyle(document.body);
 
   window.setTimeout(() => {
@@ -106,22 +104,20 @@ export function ThemeProvider({
 
   useEffect(() => {
     const storedTheme = window.localStorage.getItem(storageKey);
+    const initialTheme = isTheme(storedTheme) ? storedTheme : defaultTheme;
+    const initialResolvedTheme = resolveTheme(initialTheme, enableSystem);
 
-    if (isTheme(storedTheme)) {
-      setThemeState(storedTheme);
-      setResolvedTheme(resolveTheme(storedTheme, enableSystem));
-    } else {
-      setThemeState(defaultTheme);
-      setResolvedTheme(resolveTheme(defaultTheme, enableSystem));
-    }
-
+    setThemeState(initialTheme);
+    setResolvedTheme(initialResolvedTheme);
+    applyTheme(initialResolvedTheme, attribute, false);
     setMounted(true);
-  }, [defaultTheme, enableSystem, storageKey]);
+  }, [attribute, defaultTheme, enableSystem, storageKey]);
 
   useEffect(() => {
     if (!mounted) return;
 
     const nextResolvedTheme = resolveTheme(theme, enableSystem);
+
     setResolvedTheme(nextResolvedTheme);
     applyTheme(nextResolvedTheme, attribute, disableTransitionOnChange);
   }, [attribute, disableTransitionOnChange, enableSystem, mounted, theme]);
@@ -133,6 +129,7 @@ export function ThemeProvider({
 
     const handleChange = () => {
       const nextResolvedTheme = getSystemTheme();
+
       setResolvedTheme(nextResolvedTheme);
       applyTheme(nextResolvedTheme, attribute, disableTransitionOnChange);
     };
@@ -149,6 +146,7 @@ export function ThemeProvider({
       if (event.key !== storageKey) return;
 
       const nextTheme = isTheme(event.newValue) ? event.newValue : defaultTheme;
+
       setThemeState(nextTheme);
     };
 

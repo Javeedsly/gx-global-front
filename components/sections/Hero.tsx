@@ -15,23 +15,23 @@ const sliderImages = [
 export default function Hero({ dict }: { dict: Dictionary }) {
   const [currentImage, setCurrentImage] = useState(0);
 
-  useEffect(() => {
-    let intervalId: ReturnType<typeof setInterval> | undefined;
+ useEffect(() => {
+  let intervalId: ReturnType<typeof setInterval> | undefined;
 
-    const startTimeout = setTimeout(() => {
-      intervalId = setInterval(() => {
-        setCurrentImage((prev) => (prev + 1) % sliderImages.length);
-      }, 5000);
-    }, 2000);
+  const startTimeout = setTimeout(() => {
+    intervalId = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % sliderImages.length);
+    }, 5000);
+  }, 2000);
 
-    return () => {
-      clearTimeout(startTimeout);
+  return () => {
+    clearTimeout(startTimeout);
 
-      if (intervalId) {
-        clearInterval(intervalId);
-      }
-    };
-  }, []);
+    if (intervalId) {
+      clearInterval(intervalId);
+    }
+  };
+}, []);
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },

@@ -1,3 +1,5 @@
+import Script from "next/script";
+
 const themeScript = `
 (function () {
   try {
@@ -27,8 +29,9 @@ const themeScript = `
 
 export default function ThemeScript() {
   return (
-    <script
+    <Script
       id="gx-theme-script"
+      strategy="beforeInteractive"
       dangerouslySetInnerHTML={{ __html: themeScript }}
     />
   );

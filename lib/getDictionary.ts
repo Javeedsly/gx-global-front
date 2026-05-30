@@ -43,17 +43,6 @@ export interface Dictionary {
     }>;
   };
 
-  testimonials?: {
-    title: string;
-    subtitle: string;
-    items: Array<{
-      content: string;
-      author: string;
-      role: string;
-      company: string;
-    }>;
-  };
-
   cta: {
     title: string;
     subtitle: string;
@@ -66,7 +55,7 @@ export interface Dictionary {
     rights: string;
   };
 
-  seo: {
+  seo?: {
     title: string;
     description: string;
   };
@@ -93,32 +82,13 @@ export interface Dictionary {
   productsPage: {
     title: string;
     subtitle: string;
-    categories: {
-      teroson: {
+    categories: Record<
+      string,
+      {
         name: string;
         desc: string;
-      };
-      loctite: {
-        name: string;
-        desc: string;
-      };
-      molykote: {
-        name: string;
-        desc: string;
-      };
-      arcanol: {
-        name: string;
-        desc: string;
-      };
-      yilmzaRedkutor: {
-        name: string;
-        desc: string;
-      };
-      skf: {
-        name: string;
-        desc: string;
-      };
-    };
+      }
+    >;
   };
 }
 

@@ -57,7 +57,8 @@ export default function ProductsClient({ lang }: { lang: string }) {
       <div
         className="relative pt-24 text-center py-16 sm:py-20 px-4 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url(/360_F_228089326_QInWWQoCLv83KPEvxHYbXWTg5NMwH6wX.jpg)",
+          backgroundImage:
+            "url(/360_F_228089326_QInWWQoCLv83KPEvxHYbXWTg5NMwH6wX.jpg)",
         }}
       >
         <div className="absolute inset-0 bg-black/30 mix-blend-multiply" />

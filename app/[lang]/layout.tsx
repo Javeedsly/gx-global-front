@@ -1,22 +1,16 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
-
+import type { ReactNode } from "react";
 
 import "../globals.css";
 
-import ThemeScript from "@/components/ThemeScript";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import {
   absoluteUrl,
   canonicalUrl,
-  COMPANY_ADDRESS,
-  CONTACT_EMAIL,
-  CONTACT_PHONE,
   DEFAULT_OG_IMAGE,
-  DISPLAY_PHONE,
   getLocale,
-  jsonLd,
   languageAlternates,
   OG_LOCALE,
   SEO_CONTENT,
@@ -39,7 +33,7 @@ const poppins = Poppins({
 });
 
 type LayoutProps = {
-  children: React.ReactNode;
+  children: ReactNode;
   params: Promise<{ lang: string }>;
 };
 
@@ -136,102 +130,11 @@ export default async function RootLayout({ children, params }: LayoutProps) {
   const { lang: rawLang } = await params;
   const lang = getLocale(rawLang);
 
-  const organizationJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": `${SITE_URL}/#organization`,
-    name: SITE_NAME,
-    url: SITE_URL,
-    logo: absoluteUrl(DEFAULT_OG_IMAGE),
-    image: absoluteUrl(DEFAULT_OG_IMAGE),
-    email: CONTACT_EMAIL,
-    telephone: CONTACT_PHONE,
-    address: {
-      "@type": "PostalAddress",
-      ...COMPANY_ADDRESS,
-    },
-    contactPoint: {
-      "@type": "ContactPoint",
-      telephone: DISPLAY_PHONE,
-      email: CONTACT_EMAIL,
-      contactType: "customer support",
-      availableLanguage: ["Azerbaijani", "English", "Russian"],
-      areaServed: "AZ",
-    },
-  };
-
-  const localBusinessJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": `${SITE_URL}/#local-business`,
-    name: SITE_NAME,
-    image: absoluteUrl(DEFAULT_OG_IMAGE),
-    url: SITE_URL,
-    telephone: CONTACT_PHONE,
-    email: CONTACT_EMAIL,
-    priceRange: "$$",
-    address: {
-      "@type": "PostalAddress",
-      ...COMPANY_ADDRESS,
-    },
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "09:00",
-        closes: "18:00",
-      },
-    ],
-    areaServed: [
-      {
-        "@type": "Country",
-        name: "Azerbaijan",
-      },
-    ],
-  };
-
-  const websiteJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": `${SITE_URL}/#website`,
-    name: SITE_NAME,
-    url: SITE_URL,
-    inLanguage: lang,
-    publisher: {
-      "@id": `${SITE_URL}/#organization`,
-    },
-  };
-
   return (
     <html lang={lang} suppressHydrationWarning>
       <body
         className={`${inter.variable} ${poppins.variable} font-sans antialiased bg-white text-slate-950 dark:bg-slate-950 dark:text-slate-50`}
       >
-        <ThemeScript />
-        
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: jsonLd(organizationJsonLd),
-          }}
-        />
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: jsonLd(localBusinessJsonLd),
-          }}
-        />
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: jsonLd(websiteJsonLd),
-          }}
-        />
-
-        
-
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
