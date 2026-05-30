@@ -1,14 +1,20 @@
-export const SITE_NAME = "GX-GLOBAL";
+export const SUPPORTED_LOCALES = ["az", "en", "ru"] as const;
 
-export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL || "https://gx-global.com"
-).replace(/\/$/, "");
+export type Locale = (typeof SUPPORTED_LOCALES)[number];
+
+export const DEFAULT_LOCALE: Locale = "az";
+
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
+  "https://gx-global.com";
+
+export const SITE_NAME = "GX-GLOBAL";
 
 export const DEFAULT_OG_IMAGE = "/gx_2.png";
 
 export const CONTACT_EMAIL = "info@gx-global.com";
 export const CONTACT_PHONE = "+994508041911";
-export const DISPLAY_PHONE = "+994 50 804-19-11";
+export const DISPLAY_PHONE = "+994 50 804 19 11";
 
 export const COMPANY_ADDRESS = {
   streetAddress: "Nəcəf Nərimanov küçəsi 5c",
@@ -18,19 +24,14 @@ export const COMPANY_ADDRESS = {
   addressCountry: "AZ",
 };
 
-export const SUPPORTED_LOCALES = ["az", "en", "ru"] as const;
-export type SupportedLocale = (typeof SUPPORTED_LOCALES)[number];
-
-export const DEFAULT_LOCALE: SupportedLocale = "az";
-
-export const OG_LOCALE: Record<SupportedLocale, string> = {
+export const OG_LOCALE: Record<Locale, string> = {
   az: "az_AZ",
   en: "en_US",
   ru: "ru_RU",
 };
 
 export const SEO_CONTENT: Record<
-  SupportedLocale,
+  Locale,
   {
     homeTitle: string;
     homeDescription: string;
@@ -40,100 +41,105 @@ export const SEO_CONTENT: Record<
   }
 > = {
   az: {
-    homeTitle: "Sənaye Təchizatı və Qlobal Logistika",
+    homeTitle: "Qlobal təchizat və logistika həlləri",
     homeDescription:
-      "GX-GLOBAL sənaye yağları, yapışdırıcılar, rulmanlar, reduktorlar və qlobal logistika həlləri üzrə etibarlı təchizat partnyorudur.",
-    productsTitle:
-      "Sənaye Məhsulları: Loctite, TEROSON, Molykote, SKF və Reduktorlar",
+      "GX-GLOBAL sənaye məhsulları, topdansatış təchizatı və qlobal logistika üzrə etibarlı tərəfdaşdır.",
+    productsTitle: "Sənaye məhsulları və təchizat kataloqu",
     productsDescription:
-      "Loctite, TEROSON, Molykote, SPEEDOL, TESS-SAN, YILMAZ REDÜKTÖR və SKF məhsullarını GX-GLOBAL kataloqunda kəşf edin.",
+      "Loctite, TEROSON, Molykote, SPEEDOL, TESS-SAN, SKF və YILMAZ REDÜKTÖR məhsulları üzrə sənaye təchizatı.",
     keywords: [
-      "sənaye məhsulları",
-      "sənaye yağları",
-      "logistika",
-      "təchizat",
-      "Loctite Azərbaycan",
-      "TEROSON Azərbaycan",
-      "Molykote Azərbaycan",
-      "SKF rulman",
-      "YILMAZ REDÜKTÖR",
       "GX-GLOBAL",
+      "sənaye təchizatı",
+      "logistika",
+      "topdansatış",
+      "Loctite",
+      "TEROSON",
+      "Molykote",
+      "SPEEDOL",
+      "TESS-SAN",
+      "SKF",
+      "YILMAZ REDÜKTÖR",
+      "Azərbaycan",
+      "Bakı",
     ],
   },
   en: {
-    homeTitle: "Industrial Supply and Global Logistics",
+    homeTitle: "Global supply and logistics solutions",
     homeDescription:
-      "GX-GLOBAL is a trusted supply partner for industrial lubricants, adhesives, bearings, reducers and global logistics solutions.",
-    productsTitle:
-      "Industrial Products: Loctite, TEROSON, Molykote, SKF and Reducers",
+      "GX-GLOBAL is a reliable partner for industrial products, wholesale supply and global logistics solutions.",
+    productsTitle: "Industrial products and supply catalogue",
     productsDescription:
-      "Explore Loctite, TEROSON, Molykote, SPEEDOL, TESS-SAN, YILMAZ REDÜKTÖR and SKF products in the GX-GLOBAL catalogue.",
+      "Industrial supply catalogue for Loctite, TEROSON, Molykote, SPEEDOL, TESS-SAN, SKF and YILMAZ REDÜKTÖR products.",
     keywords: [
-      "industrial products",
-      "industrial lubricants",
-      "global logistics",
-      "supply chain",
-      "Loctite Azerbaijan",
-      "TEROSON Azerbaijan",
-      "Molykote Azerbaijan",
-      "SKF bearings",
-      "YILMAZ REDÜKTÖR",
       "GX-GLOBAL",
+      "industrial supply",
+      "logistics",
+      "wholesale",
+      "Loctite",
+      "TEROSON",
+      "Molykote",
+      "SPEEDOL",
+      "TESS-SAN",
+      "SKF",
+      "YILMAZ REDÜKTÖR",
+      "Azerbaijan",
+      "Baku",
     ],
   },
   ru: {
-    homeTitle: "Промышленное снабжение и глобальная логистика",
+    homeTitle: "Глобальные решения для снабжения и логистики",
     homeDescription:
-      "GX-GLOBAL — надежный партнер по поставкам промышленных масел, клеевых решений, подшипников, редукторов и логистических услуг.",
-    productsTitle:
-      "Промышленные товары: Loctite, TEROSON, Molykote, SKF и редукторы",
+      "GX-GLOBAL — надежный партнер в сфере промышленных товаров, оптовых поставок и глобальной логистики.",
+    productsTitle: "Каталог промышленных товаров и поставок",
     productsDescription:
-      "Ознакомьтесь с продукцией Loctite, TEROSON, Molykote, SPEEDOL, TESS-SAN, YILMAZ REDÜKTÖR и SKF в каталоге GX-GLOBAL.",
+      "Каталог промышленного снабжения для продукции Loctite, TEROSON, Molykote, SPEEDOL, TESS-SAN, SKF и YILMAZ REDÜKTÖR.",
     keywords: [
-      "промышленные товары",
-      "промышленные масла",
-      "логистика",
-      "снабжение",
-      "Loctite Азербайджан",
-      "TEROSON Азербайджан",
-      "Molykote Азербайджан",
-      "подшипники SKF",
-      "YILMAZ REDÜKTÖR",
       "GX-GLOBAL",
+      "промышленное снабжение",
+      "логистика",
+      "оптовые поставки",
+      "Loctite",
+      "TEROSON",
+      "Molykote",
+      "SPEEDOL",
+      "TESS-SAN",
+      "SKF",
+      "YILMAZ REDÜKTÖR",
+      "Азербайджан",
+      "Баку",
     ],
   },
 };
 
-export function getLocale(lang?: string): SupportedLocale {
-  if (SUPPORTED_LOCALES.includes(lang as SupportedLocale)) {
-    return lang as SupportedLocale;
+export function getLocale(locale?: string | null): Locale {
+  if (SUPPORTED_LOCALES.includes(locale as Locale)) {
+    return locale as Locale;
   }
 
   return DEFAULT_LOCALE;
 }
 
-export function absoluteUrl(path = ""): string {
-  if (!path) return SITE_URL;
+function normalizePath(path = "") {
+  if (!path || path === "/") return "";
 
-  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
-  return `${SITE_URL}${normalizedPath}`;
+  return path.startsWith("/") ? path : `/${path}`;
 }
 
-export function localizedPath(lang: SupportedLocale, path = ""): string {
-  const normalizedPath = path
-    ? path.startsWith("/")
-      ? path
-      : `/${path}`
-    : "";
+export function absoluteUrl(path = "") {
+  if (path.startsWith("http://") || path.startsWith("https://")) {
+    return path;
+  }
 
-  return `/${lang}${normalizedPath}`;
+  return `${SITE_URL}${normalizePath(path)}`;
 }
 
-export function canonicalUrl(lang: SupportedLocale, path = ""): string {
-  return absoluteUrl(localizedPath(lang, path));
+export function canonicalUrl(locale: Locale = DEFAULT_LOCALE, path = "") {
+  return `${SITE_URL}/${locale}${normalizePath(path)}`;
 }
 
-export function languageAlternates(path = ""): Record<string, string> {
+export function languageAlternates(
+  path = ""
+): Record<Locale | "x-default", string> {
   return {
     az: canonicalUrl("az", path),
     en: canonicalUrl("en", path),
@@ -142,6 +148,6 @@ export function languageAlternates(path = ""): Record<string, string> {
   };
 }
 
-export function jsonLd(data: unknown): string {
+export function jsonLd(data: unknown) {
   return JSON.stringify(data).replace(/</g, "\\u003c");
 }

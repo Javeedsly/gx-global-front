@@ -1,8 +1,11 @@
 import type { MetadataRoute } from "next";
 
-const baseUrl = "https://gx-global.com";
-
-const locales = ["az", "en", "ru"] as const;
+import {
+  canonicalUrl,
+  languageAlternates,
+  SUPPORTED_LOCALES,
+  type Locale,
+} from "@/lib/seo";
 
 const routes = [
   {
@@ -17,27 +20,17 @@ const routes = [
   },
 ];
 
-function getUrl(lang: (typeof locales)[number], path: string) {
-  return `${baseUrl}/${lang}${path}`;
-}
-
-function getAlternates(path: string) {
-  return {
-    az: getUrl("az", path),
-    en: getUrl("en", path),
-    ru: getUrl("ru", path),
-    "x-default": getUrl("az", path),
-  };
-}
-
 export default function sitemap(): MetadataRoute.Sitemap {
+  const lastModified = new Date();
+
   return routes.flatMap((route) =>
-    locales.map((lang) => ({
-      url: getUrl(lang, route.path),
+    SUPPORTED_LOCALES.map((locale: Locale) => ({
+      url: canonicalUrl(locale, route.path),
+      lastModified,
       changeFrequency: route.changeFrequency,
       priority: route.priority,
       alternates: {
-        languages: getAlternates(route.path),
+        languages: languageAlternates(route.path),
       },
     }))
   );

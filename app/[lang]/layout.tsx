@@ -1,6 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
+
+
 import "../globals.css";
+
+import ThemeScript from "@/components/ThemeScript";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import {
@@ -200,26 +204,40 @@ export default async function RootLayout({ children, params }: LayoutProps) {
 
   return (
     <html lang={lang} suppressHydrationWarning>
-      <body className={`${inter.variable} ${poppins.variable} antialiased`}>
+      <body
+        className={`${inter.variable} ${poppins.variable} font-sans antialiased bg-white text-slate-950 dark:bg-slate-950 dark:text-slate-50`}
+      >
+        <ThemeScript />
+        
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: jsonLd(organizationJsonLd),
+          }}
+        />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: jsonLd(localBusinessJsonLd),
+          }}
+        />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: jsonLd(websiteJsonLd),
+          }}
+        />
+
+        
+
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: jsonLd(organizationJsonLd) }}
-          />
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: jsonLd(localBusinessJsonLd) }}
-          />
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: jsonLd(websiteJsonLd) }}
-          />
-
           {children}
           <WhatsAppButton />
         </ThemeProvider>
