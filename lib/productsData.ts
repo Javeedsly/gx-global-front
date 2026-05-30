@@ -180,6 +180,19 @@ export const products = [
   { id: 81, name: 'SKF Cam followers', category: 'SKF', image: '/0901d19680c37dca_png_highpreview_800.avif', descKey: 'skf' },
   { id: 82, name: 'SKF Backing bearings', category: 'SKF', image: '/0901d196806a1bcf_png_highpreview_800.avif', descKey: 'skf' },
   { id: 83, name: 'SKF Split plummer block housings – SNL 2, 3, 5 and 6 series', category: 'SKF', image: '/0901d196803e4d48_Flexible_1.avif', descKey: 'skf' },
+  { id: 84, name: 'SKF Deep groove ball bearings', category: 'SKF', image: '/0901d1968032b548_png_highpreview_800.avif', descKey: 'skf' },
+  { id: 85, name: 'SKF Pillow block ball bearing units', category: 'SKF', image: '/0901d196808551bb_png_highpreview_800.avif', descKey: 'skf' },
+  { id: 86, name: 'SKF Angular contact ball bearings', category: 'SKF', image: '/0901d196801a369a_png_highpreview_800.avif', descKey: 'skf' },
+  { id: 87, name: 'SKF Double direction angular contact thrust ball bearings', category: 'SKF', image: '/0901d1968053a12b_png_highpreview_800.avif', descKey: 'skf' },
+  { id: 88, name: 'SKF Precision lock nuts', category: 'SKF', image: '/0901d196808e3a1b_png_highpreview_800.avif', descKey: 'skf' }
 ];
 
-export const brandCategories = ['TEROSON', 'Loctite', 'Molykote', 'TESS-SAN', 'SPEEDOL', 'YILMAZ REDÜKTÖR', 'SKF'];
+export const brandCategories = [
+  'TEROSON',
+  'Loctite',
+  'Molykote',
+  'TESS-SAN',
+  'SPEEDOL',
+  'YILMAZ REDÜKTÖR',
+  'SKF'
+];
