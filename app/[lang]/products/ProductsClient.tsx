@@ -31,8 +31,8 @@ export default function ProductsClient({ lang }: { lang: string }) {
   return (
     <div className="bg-gray-50 dark:bg-gray-900 pb-20">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-blue-700 to-indigo-900 pt-24 text-center py-16 sm:py-20 px-4">
-        <div className="absolute inset-0 bg-black/20 mix-blend-multiply" />
+      <div className="relative pt-24 text-center py-16 sm:py-20 px-4 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/360_F_228089326_QInWWQoCLv83KPEvxHYbXWTg5NMwH6wX.jpg)' }}>
+        <div className="absolute inset-0 bg-black/30 mix-blend-multiply" />
         <h1 className="relative text-3xl sm:text-4xl font-extrabold text-white lg:text-6xl">{t.heroTitle}</h1>
         <p className="relative mt-4 max-w-2xl mx-auto text-lg sm:text-xl text-blue-100">{t.heroDesc}</p>
       </div>
