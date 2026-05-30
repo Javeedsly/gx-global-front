@@ -180,13 +180,6 @@ export const products = [
   { id: 81, name: 'SKF Cam followers', category: 'SKF', image: '/0901d19680c37dca_png_highpreview_800.avif', descKey: 'skf' },
   { id: 82, name: 'SKF Backing bearings', category: 'SKF', image: '/0901d196806a1bcf_png_highpreview_800.avif', descKey: 'skf' },
   { id: 83, name: 'SKF Split plummer block housings – SNL 2, 3, 5 and 6 series', category: 'SKF', image: '/0901d196803e4d48_Flexible_1.avif', descKey: 'skf' },
-  { id: 84, name: 'LGMT 2', category: 'SKF', image: '/0901d19680152b28_png_highpreview.avif', descKey: 'skf' },
-  { id: 85, name: 'LGMT 3', category: 'SKF', image: '/0901d19680152b29_png_highpreview_800.avif', descKey: 'skf' },
-  { id: 86, name: 'LGEP 2', category: 'SKF', image: '/0901d19680152b20_png_highpreview.avif', descKey: 'skf' },
-  { id: 87, name: 'LGNL 2', category: 'SKF', image: '/094bfb9a38d70ca7_png_highpreview_800.avif', descKey: 'skf' },
-  { id: 88, name: 'LGNL 3', category: 'SKF', image: '/0944ca86f322eb9d_png_highpreview_800.avif', descKey: 'skf' },
-  { id: 89, name: 'LGWA 2', category: 'SKF', image: '/0901d19680152b2a_png_highpreview_800.webp', descKey: 'skf' },
-  { id: 90, name: 'LGGB 2', category: 'SKF', image: '/0901d19680152b24_png_highpreview.avif', descKey: 'skf' },
 ];
 
 export const brandCategories = ['TEROSON', 'Loctite', 'Molykote', 'TESS-SAN', 'SPEEDOL', 'YILMAZ REDÜKTÖR', 'SKF'];
