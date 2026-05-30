@@ -1,32 +1,43 @@
 import type { MetadataRoute } from "next";
-import {
-  canonicalUrl,
-  languageAlternates,
-  SUPPORTED_LOCALES,
-} from "@/lib/seo";
+
+const baseUrl = "https://gx-global.com";
+
+const locales = ["az", "en", "ru"] as const;
+
+const routes = [
+  {
+    path: "",
+    priority: 1,
+    changeFrequency: "weekly" as const,
+  },
+  {
+    path: "/products",
+    priority: 0.9,
+    changeFrequency: "weekly" as const,
+  },
+];
+
+function getUrl(lang: (typeof locales)[number], path: string) {
+  return `${baseUrl}/${lang}${path}`;
+}
+
+function getAlternates(path: string) {
+  return {
+    az: getUrl("az", path),
+    en: getUrl("en", path),
+    ru: getUrl("ru", path),
+    "x-default": getUrl("az", path),
+  };
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = [
-    {
-      path: "",
-      changeFrequency: "weekly" as const,
-      priority: 1,
-    },
-    {
-      path: "/products",
-      changeFrequency: "weekly" as const,
-      priority: 0.9,
-    },
-  ];
-
   return routes.flatMap((route) =>
-    SUPPORTED_LOCALES.map((lang) => ({
-      url: canonicalUrl(lang, route.path),
-      lastModified: new Date(),
+    locales.map((lang) => ({
+      url: getUrl(lang, route.path),
       changeFrequency: route.changeFrequency,
       priority: route.priority,
       alternates: {
-        languages: languageAlternates(route.path),
+        languages: getAlternates(route.path),
       },
     }))
   );

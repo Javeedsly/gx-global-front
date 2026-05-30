@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "404 - Səhifə tapılmadı",
+  title: "404 - Səhifə tapılmadı | GX-GLOBAL",
   description: "Axtardığınız səhifə mövcud deyil.",
   robots: {
     index: false,
@@ -23,8 +23,8 @@ export default function NotFound() {
         </h1>
 
         <p className="mt-4 text-slate-300">
-          Axtardığınız səhifə mövcud deyil, adı dəyişdirilib və ya müvəqqəti
-          olaraq əlçatan deyil.
+          Axtardığınız səhifə silinib, dəyişdirilib və ya müvəqqəti olaraq
+          əlçatan deyil.
         </p>
 
         <Link
