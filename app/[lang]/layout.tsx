@@ -1,167 +1,225 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
-import "../globals.css"; 
+import "../globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { getDictionary, Locale } from '@/lib/getDictionary';
 import WhatsAppButton from "@/components/WhatsAppButton";
-import Script from "next/script"; 
+import {
+  absoluteUrl,
+  canonicalUrl,
+  COMPANY_ADDRESS,
+  CONTACT_EMAIL,
+  CONTACT_PHONE,
+  DEFAULT_OG_IMAGE,
+  DISPLAY_PHONE,
+  getLocale,
+  jsonLd,
+  languageAlternates,
+  OG_LOCALE,
+  SEO_CONTENT,
+  SITE_NAME,
+  SITE_URL,
+  SUPPORTED_LOCALES,
+} from "@/lib/seo";
 
-const inter = Inter({ subsets: ["latin"], display: 'swap' });
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
 const poppins = Poppins({
   weight: ["400", "500", "600", "700", "800"],
   subsets: ["latin"],
   variable: "--font-poppins",
-  display: 'swap',
+  display: "swap",
 });
 
-type Props = {
-  params: Promise<{ lang: string }>
+type LayoutProps = {
+  children: React.ReactNode;
+  params: Promise<{ lang: string }>;
 };
 
-// Bu funksiya ümumi meta dataları tənzimləyir. Hər səhifənin öz canonical URL-i olmalıdır.
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { lang } = await params;
-  
-  const dict = await getDictionary(lang as Locale);
-  const seoData = (dict as any).seo; 
+export const dynamicParams = false;
 
-  const baseUrl = 'https://gx-global.com';
-  const defaultTitle = 'GX-GLOBAL - Global Supply & Logistics Partner';
-  const defaultDesc = 'Your trusted partner for wholesale supplies, fast global delivery, and reliable logistics solutions.';
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#020617",
+  colorScheme: "dark light",
+};
+
+export function generateStaticParams() {
+  return SUPPORTED_LOCALES.map((lang) => ({ lang }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang: rawLang } = await params;
+  const lang = getLocale(rawLang);
+  const seo = SEO_CONTENT[lang];
 
   return {
-    metadataBase: new URL(baseUrl),
-    title: seoData?.title || defaultTitle,
-    description: seoData?.description || defaultDesc,
+    metadataBase: new URL(SITE_URL),
+    applicationName: SITE_NAME,
+    title: {
+      default: `${seo.homeTitle} | ${SITE_NAME}`,
+      template: `%s | ${SITE_NAME}`,
+    },
+    description: seo.homeDescription,
+    keywords: seo.keywords,
+    authors: [{ name: SITE_NAME }],
+    creator: SITE_NAME,
+    publisher: SITE_NAME,
+    category: "business",
+    referrer: "origin-when-cross-origin",
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
+    },
     icons: {
-      icon: '/gx_2.png',
-      shortcut: '/gx_2.png',
-      apple: '/gx_2.png',
+      icon: "/gx_2.png",
+      shortcut: "/gx_2.png",
+      apple: "/gx_2.png",
     },
     alternates: {
-      canonical: `${baseUrl}/${lang}`,
-      languages: {
-        'az': `${baseUrl}/az`,
-        'en': `${baseUrl}/en`,
-        'ru': `${baseUrl}/ru`,
-        'x-default': `${baseUrl}/en`
-      },
+      canonical: canonicalUrl(lang),
+      languages: languageAlternates(),
     },
     openGraph: {
-      title: seoData?.title || defaultTitle,
-      description: seoData?.description || defaultDesc,
-      url: `${baseUrl}/${lang}`,
-      siteName: 'GX-GLOBAL',
+      title: `${seo.homeTitle} | ${SITE_NAME}`,
+      description: seo.homeDescription,
+      url: canonicalUrl(lang),
+      siteName: SITE_NAME,
+      locale: OG_LOCALE[lang],
+      alternateLocale: SUPPORTED_LOCALES.filter((item) => item !== lang).map(
+        (item) => OG_LOCALE[item]
+      ),
+      type: "website",
       images: [
         {
-          url: `${baseUrl}/gx_2.png`, 
-          width: 800,
-          height: 600,
-          alt: 'GX-GLOBAL Logistics',
+          url: absoluteUrl(DEFAULT_OG_IMAGE),
+          width: 1200,
+          height: 630,
+          alt: `${SITE_NAME} industrial supply and logistics`,
         },
       ],
-      locale: lang,
-      type: 'website',
     },
     twitter: {
-      card: 'summary_large_image',
-      title: seoData?.title || defaultTitle,
-      description: seoData?.description || defaultDesc,
-      images: [`${baseUrl}/gx_2.png`], 
+      card: "summary_large_image",
+      title: `${seo.homeTitle} | ${SITE_NAME}`,
+      description: seo.homeDescription,
+      images: [absoluteUrl(DEFAULT_OG_IMAGE)],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
     },
   };
 }
 
-export async function generateStaticParams() {
-  return [{ lang: 'az' }, { lang: 'en' }, { lang: 'ru' }];
-}
+export default async function RootLayout({ children, params }: LayoutProps) {
+  const { lang: rawLang } = await params;
+  const lang = getLocale(rawLang);
 
-export default async function RootLayout({
-  children,
-  params
-}: Readonly<{
-  children: React.ReactNode;
-  params: Promise<{ lang: string }>; 
-}>) {
-  const { lang } = await params;
-
-  // 1. Organization Schema
-  const orgJsonLd = {
+  const organizationJsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "GX-GLOBAL",
-    "url": "https://gx-global.com",
-    "logo": "https://gx-global.com/gx_2.png",
-    "description": "Global Supply & Logistics Partner",
-    "contactPoint": {
+    "@id": `${SITE_URL}/#organization`,
+    name: SITE_NAME,
+    url: SITE_URL,
+    logo: absoluteUrl(DEFAULT_OG_IMAGE),
+    image: absoluteUrl(DEFAULT_OG_IMAGE),
+    email: CONTACT_EMAIL,
+    telephone: CONTACT_PHONE,
+    address: {
+      "@type": "PostalAddress",
+      ...COMPANY_ADDRESS,
+    },
+    contactPoint: {
       "@type": "ContactPoint",
-      "telephone": "+994-50-XXX-XX-XX", // Əsas əlaqə nömrənizi yazın
-      "contactType": "customer support",
-      "availableLanguage": ["Azerbaijani", "English", "Russian"]
-    }
+      telephone: DISPLAY_PHONE,
+      email: CONTACT_EMAIL,
+      contactType: "customer support",
+      availableLanguage: ["Azerbaijani", "English", "Russian"],
+      areaServed: "AZ",
+    },
   };
 
-  // 2. LocalBusiness Schema (Şirkətin profili üçün vacibdir)
   const localBusinessJsonLd = {
     "@context": "https://schema.org",
-    "@type": "LogisticsService",
-    "name": "GX-GLOBAL Logistics",
-    "image": "https://gx-global.com/gx_2.png",
-    "@id": `https://gx-global.com/${lang}`,
-    "url": `https://gx-global.com/${lang}`,
-    "telephone": "+994-50-XXX-XX-XX",
-    "address": {
+    "@type": "LocalBusiness",
+    "@id": `${SITE_URL}/#local-business`,
+    name: SITE_NAME,
+    image: absoluteUrl(DEFAULT_OG_IMAGE),
+    url: SITE_URL,
+    telephone: CONTACT_PHONE,
+    email: CONTACT_EMAIL,
+    priceRange: "$$",
+    address: {
       "@type": "PostalAddress",
-      "streetAddress": "Street Name, City", // Dəqiq ünvanı yazın
-      "addressLocality": "Baku",
-      "addressRegion": "AZ",
-      "postalCode": "AZ1000",
-      "addressCountry": "AZ"
+      ...COMPANY_ADDRESS,
     },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "09:00",
-      "closes": "18:00"
-    }
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "09:00",
+        closes: "18:00",
+      },
+    ],
+    areaServed: [
+      {
+        "@type": "Country",
+        name: "Azerbaijan",
+      },
+    ],
   };
 
-  // 3. BreadcrumbList Schema (Naviqasiya üçün)
-  const breadcrumbJsonLd = {
+  const websiteJsonLd = {
     "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [{
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": `https://gx-global.com/${lang}`
-    }]
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    name: SITE_NAME,
+    url: SITE_URL,
+    inLanguage: lang,
+    publisher: {
+      "@id": `${SITE_URL}/#organization`,
+    },
   };
 
   return (
-    <html lang={lang} className={`${poppins.variable}`} suppressHydrationWarning>
-      <head>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
-      </head>
-      <body className={`${inter.className} bg-white text-slate-900 dark:bg-slate-950 dark:text-white transition-colors duration-300 relative`} suppressHydrationWarning>
-        
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-6HXV8DL3GG"
-          strategy="lazyOnload"
-        />
-        <Script id="google-analytics" strategy="lazyOnload">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-6HXV8DL3GG');
-          `}
-        </Script>
+    <html lang={lang} suppressHydrationWarning>
+      <body className={`${inter.variable} ${poppins.variable} antialiased`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: jsonLd(organizationJsonLd) }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: jsonLd(localBusinessJsonLd) }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: jsonLd(websiteJsonLd) }}
+          />
 
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
           <WhatsAppButton />
         </ThemeProvider>
