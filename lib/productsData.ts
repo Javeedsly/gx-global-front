@@ -35,6 +35,11 @@ export const descTranslations = {
     az: 'SKF - Sənaye rulmanlarının və xidmətlərinin qlobal lider.',
     en: 'SKF - Global leader in industrial bearings and services.',
     ru: 'SKF - мировой лидер в области промышленных подшипников и услуг.'
+  },
+  yiwuYidaFilters: {
+    az: 'YIWU YIDA FILTERS - avtomobil və sənaye üçün keyfiyyətli filter məhsulları.',
+    en: 'YIWU YIDA FILTERS - quality filter products for automotive and industrial use.',
+    ru: 'YIWU YIDA FILTERS - качественные фильтры для автомобилей и промышленности.'
   }
 };
 
@@ -184,7 +189,19 @@ export const products = [
   { id: 85, name: 'SKF Pillow block ball bearing units', category: 'SKF', image: '/0901d196808551bb_png_highpreview_800.avif', descKey: 'skf' },
   { id: 86, name: 'SKF Angular contact ball bearings', category: 'SKF', image: '/0901d196801a369a_png_highpreview_800.avif', descKey: 'skf' },
   { id: 87, name: 'SKF Double direction angular contact thrust ball bearings', category: 'SKF', image: '/0901d1968053a12b_png_highpreview_800.avif', descKey: 'skf' },
-  { id: 88, name: 'SKF Precision lock nuts', category: 'SKF', image: '/0901d196808e3a1b_png_highpreview_800.avif', descKey: 'skf' }
+  { id: 88, name: 'SKF Precision lock nuts', category: 'SKF', image: '/0901d196808e3a1b_png_highpreview_800.avif', descKey: 'skf' },
+
+    // YIWU YIDA FILTERS
+  { id: 89, name: 'OIL FILTER 80400255 / HTJ 7002', category: 'YIWU YIDA FILTERS', image: '/kale-arco-kapi-hidroligi-5-no-kd00250--a2-ac8.png', descKey: 'yiwuYidaFilters' },
+  { id: 90, name: 'OIL FILTER 1012010A26L#P1', category: 'YIWU YIDA FILTERS', image: '/1090661.jpg', descKey: 'yiwuYidaFilters' },
+  { id: 91, name: 'AIR FILTER 80400399', category: 'YIWU YIDA FILTERS', image: '/vulSIdyyw56IU6ygle6K4hlKil6NngVVoRGzlW5QLIHP5wF1BhgWPGQoWMZOzGZ8__01036.jpg', descKey: 'yiwuYidaFilters' },
+  { id: 92, name: 'AIR FILTER 20008334', category: 'YIWU YIDA FILTERS', image: '/614V1VvJyTL.jpg', descKey: 'yiwuYidaFilters' },
+  { id: 93, name: 'FUEL FILTER 20009413', category: 'YIWU YIDA FILTERS', image: '/s-l400.png', descKey: 'yiwuYidaFilters' },
+  { id: 94, name: 'A/C FILTER 1EA061P11', category: 'YIWU YIDA FILTERS', image: '/Hefc08760f2ae4bdf90654a2f52bb11940.avif', descKey: 'yiwuYidaFilters' },
+  { id: 95, name: 'AIR FILTER 1109160BA01', category: 'YIWU YIDA FILTERS', image: '/H2be40559785f4a2c82f19dadca7e2808b.avif', descKey: 'yiwuYidaFilters' },
+  { id: 96, name: 'OIL FILTER 1012015-14L', category: 'YIWU YIDA FILTERS', image: '/Environmentally-Friendly-Oil-Filter-1012015-6bk-0000f-with-Rod-Dedicated.avif', descKey: 'yiwuYidaFilters' },
+  { id: 97, name: 'AIR FILTER 1109160DD01', category: 'YIWU YIDA FILTERS', image: '/123776.jpg', descKey: 'yiwuYidaFilters' },
+  { id: 98, name: 'FUEL FILTER 1105100U8050', category: 'YIWU YIDA FILTERS', image: '/fuel-filter-original-for-jac-s2-n-auto-express.webp', descKey: 'yiwuYidaFilters' }
 ];
 
 export const brandCategories = [
@@ -194,5 +211,6 @@ export const brandCategories = [
   'TESS-SAN',
   'SPEEDOL',
   'YILMAZ REDÜKTÖR',
-  'SKF'
+  'SKF',
+  'YIWU YIDA FILTERS'
 ];
