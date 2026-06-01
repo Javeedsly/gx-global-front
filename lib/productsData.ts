@@ -192,7 +192,7 @@ export const products = [
   { id: 88, name: 'SKF Precision lock nuts', category: 'SKF', image: '/0901d196808e3a1b_png_highpreview_800.avif', descKey: 'skf' },
 
     // YIWU YIDA FILTERS
-  { id: 89, name: 'OIL FILTER 80400255 / HTJ 7002', category: 'YIWU YIDA FILTERS', image: '/kale-arco-kapi-hidroligi-5-no-kd00250--a2-ac8.png', descKey: 'yiwuYidaFilters' },
+  { id: 89, name: 'OIL FILTER 80400255 / HTJ 7002', category: 'YIWU YIDA FILTERS', image: '/Oil-Filter-15274-90225-P7107-P550077-Lf3386-O-1809-Ml1097A-1527490225-15274ep129-1527499128-15274ep128-Lp5899-05127-Hdr2376p.jpg', descKey: 'yiwuYidaFilters' },
   { id: 90, name: 'OIL FILTER 1012010A26L#P1', category: 'YIWU YIDA FILTERS', image: '/1090661.jpg', descKey: 'yiwuYidaFilters' },
   { id: 91, name: 'AIR FILTER 80400399', category: 'YIWU YIDA FILTERS', image: '/vulSIdyyw56IU6ygle6K4hlKil6NngVVoRGzlW5QLIHP5wF1BhgWPGQoWMZOzGZ8__01036.jpg', descKey: 'yiwuYidaFilters' },
   { id: 92, name: 'AIR FILTER 20008334', category: 'YIWU YIDA FILTERS', image: '/614V1VvJyTL.jpg', descKey: 'yiwuYidaFilters' },
