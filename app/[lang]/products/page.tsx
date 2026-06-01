@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+
 import { getDictionary } from "@/lib/getDictionary";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ProductsClient from "./ProductsClient";
-import { products, descTranslations } from "@/lib/productsData";
+import { products } from "@/lib/productsData";
 import {
   absoluteUrl,
   canonicalUrl,
@@ -102,35 +103,20 @@ export default async function ProductsPage({ params }: PageProps) {
     ],
   };
 
-  const productListJsonLd = {
+  const catalogListJsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "@id": `${canonicalUrl(lang, "/products")}#products`,
+    "@id": `${canonicalUrl(lang, "/products")}#catalog`,
     name: seo.productsTitle,
     description: seo.productsDescription,
     url: canonicalUrl(lang, "/products"),
     numberOfItems: products.length,
-    itemListElement: products.map((product, index) => {
-      const descGroup =
-        descTranslations[product.descKey as keyof typeof descTranslations];
-
-      return {
-        "@type": "ListItem",
-        position: index + 1,
-        item: {
-          "@type": "Product",
-          name: product.name,
-          image: absoluteUrl(product.image),
-          description: descGroup?.[lang] || descGroup?.az || product.name,
-          category: product.category,
-          brand: {
-            "@type": "Brand",
-            name: product.category,
-          },
-          url: canonicalUrl(lang, "/products"),
-        },
-      };
-    }),
+    itemListElement: products.map((product, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: product.name,
+      url: `${canonicalUrl(lang, "/products")}#product-${product.id}`,
+    })),
   };
 
   const collectionPageJsonLd = {
@@ -148,7 +134,7 @@ export default async function ProductsPage({ params }: PageProps) {
       "@id": `${SITE_URL}/#organization`,
     },
     mainEntity: {
-      "@id": `${canonicalUrl(lang, "/products")}#products`,
+      "@id": `${canonicalUrl(lang, "/products")}#catalog`,
     },
   };
 
@@ -158,21 +144,21 @@ export default async function ProductsPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbJsonLd) }}
       />
+
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd(productListJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(catalogListJsonLd) }}
       />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(collectionPageJsonLd) }}
       />
 
       <Navigation dict={dict} currentLang={lang} />
-
       <main>
         <ProductsClient lang={lang} />
       </main>
-
       <Footer dict={dict} />
     </>
   );
