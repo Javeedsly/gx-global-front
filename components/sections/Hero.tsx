@@ -61,7 +61,7 @@ export default function Hero({ dict }: { dict: Dictionary }) {
   };
 
   return (
-    <section className="min-h-[100svh] pt-28 pb-16 lg:pt-32 lg:pb-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-950 transition-colors duration-300 relative overflow-hidden flex items-center">
+    <section className="min-h-[100svh] pt-28 pb-16 lg:pt-32 lg:pb-20 px-4 sm:px-6 lg:px-8 bg-[#d0fae5] dark:bg-[#052e22] transition-colors duration-300 relative overflow-hidden flex items-center">
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
