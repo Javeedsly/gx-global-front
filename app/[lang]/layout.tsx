@@ -6,6 +6,7 @@ import "../globals.css";
 
 import { ThemeProvider } from "@/components/ThemeProvider";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import {
   absoluteUrl,
   canonicalUrl,
@@ -144,6 +145,7 @@ export default async function RootLayout({ children, params }: LayoutProps) {
           {children}
           <WhatsAppButton />
         </ThemeProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
