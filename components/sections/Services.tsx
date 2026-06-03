@@ -23,7 +23,7 @@ export default function Services({ dict }: { dict: any }) {
   const images = [
     '/home-global.png', 
     '/slide2.avif', 
-    '/banner-varil.png'
+    '/Liquid Precision.jpg'
   ];
 
   return (
