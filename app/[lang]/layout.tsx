@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
 import type { ReactNode } from "react";
-
 import "../globals.css";
 
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -9,11 +8,18 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import {
   absoluteUrl,
   canonicalUrl,
+  COMPANY_ADDRESS,
+  CONTACT_EMAIL,
+  CONTACT_PHONE,
   DEFAULT_OG_IMAGE,
+  DISPLAY_PHONE,
   getLocale,
+  GOOGLE_BUSINESS_PROFILE_URL,
+  jsonLd,
   languageAlternates,
   OG_LOCALE,
   SEO_CONTENT,
+  SITE_ALTERNATE_NAMES,
   SITE_NAME,
   SITE_URL,
   SUPPORTED_LOCALES,
@@ -130,17 +136,153 @@ export default async function RootLayout({ children, params }: LayoutProps) {
   const { lang: rawLang } = await params;
   const lang = getLocale(rawLang);
 
+  const sameAsLinks = GOOGLE_BUSINESS_PROFILE_URL
+    ? [GOOGLE_BUSINESS_PROFILE_URL]
+    : [];
+
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `${SITE_URL}/#organization`,
+    name: SITE_NAME,
+    alternateName: SITE_ALTERNATE_NAMES,
+    url: SITE_URL,
+    logo: absoluteUrl(DEFAULT_OG_IMAGE),
+    image: absoluteUrl(DEFAULT_OG_IMAGE),
+    email: CONTACT_EMAIL,
+    telephone: CONTACT_PHONE,
+    foundingDate: "2018",
+    address: {
+      "@type": "PostalAddress",
+      ...COMPANY_ADDRESS,
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: CONTACT_PHONE,
+      email: CONTACT_EMAIL,
+      contactType: "customer service",
+      areaServed: "AZ",
+      availableLanguage: ["Azerbaijani", "English", "Russian"],
+    },
+    ...(sameAsLinks.length > 0 ? { sameAs: sameAsLinks } : {}),
+  };
+
+  const localBusinessJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `${SITE_URL}/#local-business`,
+    name: SITE_NAME,
+    alternateName: SITE_ALTERNATE_NAMES,
+    description:
+      "Industrial supply, industrial lubricants, bearings, filter systems, reducers, adhesives and logistics services in Azerbaijan.",
+    image: absoluteUrl(DEFAULT_OG_IMAGE),
+    logo: absoluteUrl(DEFAULT_OG_IMAGE),
+    url: SITE_URL,
+    telephone: CONTACT_PHONE,
+    email: CONTACT_EMAIL,
+    priceRange: "$$",
+    address: {
+      "@type": "PostalAddress",
+      ...COMPANY_ADDRESS,
+    },
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "09:00",
+        closes: "18:00",
+      },
+    ],
+    areaServed: {
+      "@type": "Country",
+      name: "Azerbaijan",
+    },
+    knowsAbout: [
+      "Industrial lubricants",
+      "Bearings",
+      "Filter systems",
+      "Reducers",
+      "Adhesives",
+      "Logistics",
+      "Wholesale industrial supply",
+    ],
+    brand: [
+      {
+        "@type": "Brand",
+        name: "SKF",
+      },
+      {
+        "@type": "Brand",
+        name: "Loctite",
+      },
+      {
+        "@type": "Brand",
+        name: "Molykote",
+      },
+      {
+        "@type": "Brand",
+        name: "TEROSON",
+      },
+      {
+        "@type": "Brand",
+        name: "SPEEDOL",
+      },
+      {
+        "@type": "Brand",
+        name: "YILMAZ REDÜKTÖR",
+      },
+      {
+        "@type": "Brand",
+        name: "TESS-SAN",
+      },
+      {
+        "@type": "Brand",
+        name: "YIWU YIDA FILTERS",
+      },
+    ],
+    ...(GOOGLE_BUSINESS_PROFILE_URL
+      ? {
+          hasMap: GOOGLE_BUSINESS_PROFILE_URL,
+          sameAs: sameAsLinks,
+        }
+      : {}),
+  };
+
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    name: SITE_NAME,
+    alternateName: SITE_ALTERNATE_NAMES,
+    url: SITE_URL,
+    inLanguage: lang,
+    publisher: {
+      "@id": `${SITE_URL}/#organization`,
+    },
+  };
+
   return (
     <html lang={lang} suppressHydrationWarning>
-      <body
-        className={`${inter.variable} ${poppins.variable} font-sans antialiased bg-white text-slate-950 dark:bg-slate-950 dark:text-slate-50`}
-      >
+      <body className={`${inter.variable} ${poppins.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: jsonLd(organizationJsonLd) }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: jsonLd(localBusinessJsonLd) }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: jsonLd(websiteJsonLd) }}
+          />
+
           {children}
           <WhatsAppButton />
         </ThemeProvider>

@@ -27,6 +27,7 @@ export function proxy(request: NextRequest) {
   if (pathname.length > 1 && pathname.endsWith("/")) {
     const url = request.nextUrl.clone();
     url.pathname = pathname.slice(0, -1);
+
     return NextResponse.redirect(url, 308);
   }
 
@@ -35,11 +36,14 @@ export function proxy(request: NextRequest) {
   }
 
   const url = request.nextUrl.clone();
-  url.pathname = pathname === "/" ? `/${defaultLocale}` : `/${defaultLocale}${pathname}`;
+  url.pathname =
+    pathname === "/" ? `/${defaultLocale}` : `/${defaultLocale}${pathname}`;
 
   return NextResponse.redirect(url, 308);
 }
 
 export const config = {
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|.*\\..*).*)"],
+  matcher: [
+    "/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|.*\\..*).*)",
+  ],
 };
