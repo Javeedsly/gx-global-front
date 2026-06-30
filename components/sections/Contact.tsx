@@ -1,54 +1,80 @@
 "use client";
-import React, { useState } from 'react';
+
+import React, { useState } from "react";
 
 export default function Contact({ dict }: { dict: any }) {
   const contact = dict.contactPage;
 
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
   });
 
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const googleMapsUrl =
+  contact.locationUrl ||
+  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+    contact.locationQuery || contact.address
+  )}`;
+
+const googleMapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(
+  contact.locationEmbedQuery || contact.locationQuery || contact.address
+)}&output=embed`;
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus('loading');
+    setStatus("loading");
 
     try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
 
       if (res.ok) {
-        setStatus('success');
-        setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-        setTimeout(() => setStatus('idle'), 5000);
+        setStatus("success");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+
+        setTimeout(() => setStatus("idle"), 5000);
       } else {
-        setStatus('error');
+        setStatus("error");
       }
     } catch (error) {
-      setStatus('error');
+      setStatus("error");
     }
   };
 
   return (
-    <section id="contact" className="py-20 bg-slate-50 dark:bg-slate-900 transition-colors">
+    <section
+      id="contact"
+      className="py-20 bg-slate-50 dark:bg-slate-900 transition-colors"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           {/* SEO Qeydi: Bölmə başlığı olaraq H2 iyerarxiyası */}
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             {contact.title}
           </h2>
+
           <p className="text-lg text-gray-600 dark:text-gray-300">
             {contact.subtitle}
           </p>
@@ -60,112 +86,189 @@ export default function Contact({ dict }: { dict: any }) {
             {/* SEO Qeydi: Fiziki ünvan və əlaqə vasitələri axtarış botları üçün <address> ilə əhatə olunur */}
             <address className="space-y-8 not-italic">
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{contact.addressTitle}</h3>
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                  {contact.addressTitle}
+                </h3>
+
                 <p className="text-gray-600 dark:text-gray-300">
                   {contact.address}
                 </p>
               </div>
-              
+
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{contact.phoneTitle}</h3>
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                  {contact.phoneTitle}
+                </h3>
+
                 <div className="text-gray-600 dark:text-gray-300">
-                  <a href="tel:+994508041911" className="hover:text-emerald-600 dark:hover:text-emerald-400 block">+994 50 804-19-11</a>
+                  <a
+                    href="tel:+994508041911"
+                    className="hover:text-emerald-600 dark:hover:text-emerald-400 block"
+                  >
+                    +994 50 804-19-11
+                  </a>
                 </div>
               </div>
-              
+
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{contact.emailTitle}</h3>
-                <a href="mailto:info@gx-global.com" className="text-emerald-600 dark:text-emerald-400 font-medium hover:underline">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                  {contact.emailTitle}
+                </h3>
+
+                <a
+                  href="mailto:info@gx-global.com"
+                  className="text-emerald-600 dark:text-emerald-400 font-medium hover:underline"
+                >
                   info@gx-global.com
                 </a>
               </div>
-              
+
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{contact.hoursTitle}</h3>
-                <p className="text-gray-600 dark:text-gray-300">{contact.hours}</p>
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                  {contact.hoursTitle}
+                </h3>
+
+                <p className="text-gray-600 dark:text-gray-300">
+                  {contact.hours}
+                </p>
               </div>
             </address>
+
+            {/* Google Maps Konum */}
+            <div className="mt-8 pt-8 border-t border-gray-100 dark:border-gray-700">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                {contact.locationTitle}
+              </h3>
+
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                {contact.locationText}
+              </p>
+
+              <a
+                href={googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-emerald-600 dark:text-emerald-400 font-medium hover:underline mb-5"
+              >
+                {contact.locationButton}
+              </a>
+
+              <div className="overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
+                <iframe
+                  title={contact.locationTitle}
+                  src={googleMapsEmbedUrl}
+                  width="100%"
+                  height="260"
+                  className="w-full"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
+              </div>
+            </div>
           </div>
 
           {/* Əlaqə Formu (Sağ Tərəf) */}
           <div className="bg-white dark:bg-slate-800 p-8 md:p-10 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">{contact.formTitle}</h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-8">{contact.formSubtitle}</p>
-            
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+              {contact.formTitle}
+            </h3>
+
+            <p className="text-gray-600 dark:text-gray-300 mb-8">
+              {contact.formSubtitle}
+            </p>
+
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{contact.name}</label>
-                <input 
-                  type="text" 
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  {contact.name}
+                </label>
+
+                <input
+                  type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-gray-50 dark:bg-slate-900 dark:text-white transition-colors" 
+                  className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-gray-50 dark:bg-slate-900 dark:text-white transition-colors"
                 />
               </div>
-              
+
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{contact.email}</label>
-                <input 
-                  type="email" 
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  {contact.email}
+                </label>
+
+                <input
+                  type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-gray-50 dark:bg-slate-900 dark:text-white transition-colors" 
+                  className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-gray-50 dark:bg-slate-900 dark:text-white transition-colors"
                 />
               </div>
-              
+
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{contact.phoneOption}</label>
-                <input 
-                  type="tel" 
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  {contact.phoneOption}
+                </label>
+
+                <input
+                  type="tel"
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-gray-50 dark:bg-slate-900 dark:text-white transition-colors" 
+                  className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-gray-50 dark:bg-slate-900 dark:text-white transition-colors"
                 />
               </div>
-              
+
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{contact.subject}</label>
-                <input 
-                  type="text" 
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  {contact.subject}
+                </label>
+
+                <input
+                  type="text"
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-gray-50 dark:bg-slate-900 dark:text-white transition-colors" 
+                  className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-gray-50 dark:bg-slate-900 dark:text-white transition-colors"
                 />
               </div>
-              
+
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{contact.message}</label>
-                <textarea 
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  {contact.message}
+                </label>
+
+                <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  rows={4} 
+                  rows={4}
                   required
                   className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-gray-50 dark:bg-slate-900 dark:text-white transition-colors resize-none"
                 ></textarea>
               </div>
-              
-              <button 
-                type="submit" 
-                disabled={status === 'loading'}
+
+              <button
+                type="submit"
+                disabled={status === "loading"}
                 className="w-full bg-emerald-800 hover:bg-emerald-900 text-white font-semibold py-3.5 px-6 rounded-lg transition-colors shadow-md shadow-emerald-900/20 disabled:opacity-70"
               >
-                {status === 'loading' ? 'Göndərilir...' : contact.submit}
+                {status === "loading" ? "Göndərilir..." : contact.submit}
               </button>
 
-              {status === 'success' && (
+              {status === "success" && (
                 <p className="text-emerald-600 dark:text-emerald-400 text-sm text-center mt-2 font-medium">
                   Mesajınız uğurla göndərildi!
                 </p>
               )}
-              {status === 'error' && (
+
+              {status === "error" && (
                 <p className="text-red-600 dark:text-red-400 text-sm text-center mt-2 font-medium">
                   Xəta baş verdi. Zəhmət olmasa bir az sonra yenidən yoxlayın.
                 </p>
