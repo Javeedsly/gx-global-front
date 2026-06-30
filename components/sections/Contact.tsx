@@ -134,7 +134,7 @@ const googleMapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(
               </div>
             </address>
 
-            {/* Google Maps Konum */}
+            {/* Google Maps Adres */}
             <div className="mt-8 pt-8 border-t border-gray-100 dark:border-gray-700">
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                 {contact.locationTitle}
