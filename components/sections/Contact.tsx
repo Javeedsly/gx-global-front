@@ -5,6 +5,10 @@ import React, { useState } from "react";
 export default function Contact({ dict }: { dict: any }) {
   const contact = dict.contactPage;
 
+  // Hələlik Address / Google Maps hissəsi görünməsin deyə false saxladım.
+  // Sonra göstərmək istəsən, false yerinə true yaz.
+  const showMap = false;
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -18,17 +22,17 @@ export default function Contact({ dict }: { dict: any }) {
   >("idle");
 
   const googleMapsUrl =
-  contact.locationUrl ||
-  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-    contact.locationQuery || contact.address
-  )}`;
+    contact.locationUrl ||
+    `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+      contact.locationQuery || contact.address
+    )}`;
 
-const googleMapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(
-  contact.locationEmbedQuery || contact.locationQuery || contact.address
-)}&output=embed`;
+  const googleMapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(
+    contact.locationEmbedQuery || contact.locationQuery || contact.address
+  )}&output=embed`;
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -46,6 +50,7 @@ const googleMapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(
 
       if (res.ok) {
         setStatus("success");
+
         setFormData({
           name: "",
           email: "",
@@ -58,7 +63,7 @@ const googleMapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(
       } else {
         setStatus("error");
       }
-    } catch (error) {
+    } catch {
       setStatus("error");
     }
   };
@@ -134,39 +139,41 @@ const googleMapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(
               </div>
             </address>
 
-            {/* Google Maps Adres */}
-            <div className="mt-8 pt-8 border-t border-gray-100 dark:border-gray-700">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                {contact.locationTitle}
-              </h3>
+            {/* Google Maps Adres - hələlik gizlədildi */}
+            {showMap && (
+              <div className="mt-8 pt-8 border-t border-gray-100 dark:border-gray-700">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                  {contact.locationTitle}
+                </h3>
 
-              <p className="text-gray-600 dark:text-gray-300 mb-4">
-                {contact.locationText}
-              </p>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  {contact.locationText}
+                </p>
 
-              <a
-                href={googleMapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center text-emerald-600 dark:text-emerald-400 font-medium hover:underline mb-5"
-              >
-                {contact.locationButton}
-              </a>
+                <a
+                  href={googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-emerald-600 dark:text-emerald-400 font-medium hover:underline mb-5"
+                >
+                  {contact.locationButton}
+                </a>
 
-              <div className="overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
-                <iframe
-                  title={contact.locationTitle}
-                  src={googleMapsEmbedUrl}
-                  width="100%"
-                  height="260"
-                  className="w-full"
-                  style={{ border: 0 }}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  allowFullScreen
-                />
+                <div className="overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
+                  <iframe
+                    title={contact.locationTitle}
+                    src={googleMapsEmbedUrl}
+                    width="100%"
+                    height="260"
+                    className="w-full"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    allowFullScreen
+                  />
+                </div>
               </div>
-            </div>
+            )}
           </div>
 
           {/* Əlaqə Formu (Sağ Tərəf) */}
