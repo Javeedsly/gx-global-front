@@ -199,7 +199,7 @@ export default function ProductsClient({ lang }: { lang: string }) {
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 {kluberIndustries.map((industry) => {
                   const IconComponent = KLUBER_ICONS[industry.icon];
                   const label =
@@ -208,18 +208,29 @@ export default function ProductsClient({ lang }: { lang: string }) {
                   return (
                     <article
                       key={industry.key}
-                      className="group relative overflow-hidden rounded-2xl border border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm hover:shadow-lg transition-all duration-300 cursor-default"
+                      className="group relative overflow-hidden rounded-2xl border border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm hover:shadow-xl transition-all duration-300 cursor-default"
                     >
-                      <div className="h-28 sm:h-32 flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900 dark:from-gray-700 dark:to-gray-900 group-hover:from-blue-700 group-hover:to-gray-900 transition-colors duration-300">
-                        {IconComponent ? (
-                          <IconComponent
-                            className="w-9 h-9 sm:w-10 sm:h-10 text-yellow-400"
-                            strokeWidth={1.5}
+                      <div className="relative h-56 sm:h-64 lg:h-72 w-full bg-gradient-to-br from-gray-800 to-gray-900 dark:from-gray-700 dark:to-gray-900 overflow-hidden">
+                        {industry.image ? (
+                          <Image
+                            src={industry.image}
+                            alt={label}
+                            fill
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                           />
+                        ) : IconComponent ? (
+                          <div className="w-full h-full flex items-center justify-center">
+                            <IconComponent
+                              className="w-14 h-14 sm:w-16 sm:h-16 text-yellow-400"
+                              strokeWidth={1.5}
+                            />
+                          </div>
                         ) : null}
-                      </div>
-                      <div className="p-4">
-                        <h3 className="text-sm font-semibold text-gray-800 dark:text-gray-100 leading-snug">
+
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+
+                        <h3 className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 text-base sm:text-lg font-bold text-white leading-snug">
                           {label}
                         </h3>
                       </div>

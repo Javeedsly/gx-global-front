@@ -864,10 +864,18 @@ export const brandCategories = [
 
 // Klüber Lubrication - sənaye sahələri (məhsul kataloqu hazır olana qədər
 // brend kliklənəndə göstərilən sənaye şəbəkəsi bölməsi)
-export const kluberIndustries = [
+type KluberIndustry = {
+  key: string;
+  icon: string;
+  image?: string;
+  names: { az: string; en: string; ru: string };
+};
+
+export const kluberIndustries: KluberIndustry[] = [
   {
     key: "agriculture",
     icon: "Tractor",
+    image: "/lubricants-agriculture-header-V3-ak-181110689.avif",
     names: {
       az: "Kənd təsərrüfatı və Meşəçilik sənayesi",
       en: "Agriculture and Forestry industry",
@@ -877,6 +885,7 @@ export const kluberIndustries = [
   {
     key: "automotive",
     icon: "Car",
+    image: "/Automotive_industry_Kluber_Lubrication.avif",
     names: {
       az: "Avtomobil sənayesi",
       en: "Automotive industry",
@@ -886,6 +895,7 @@ export const kluberIndustries = [
   {
     key: "cement",
     icon: "Factory",
+    image: "/cement-industry-new-sk-2394045939.avif",
     names: {
       az: "Sement sənayesi",
       en: "Cement industry",
@@ -895,6 +905,7 @@ export const kluberIndustries = [
   {
     key: "chemical",
     icon: "FlaskConical",
+    image: "/shutterstock_211820908_Klueber_be.avif",
     names: {
       az: "Kimya sənayesi",
       en: "Chemical industry",
@@ -904,6 +915,7 @@ export const kluberIndustries = [
   {
     key: "food",
     icon: "UtensilsCrossed",
+    image: "/Food_Klueber_lubrication_1.avif",
     names: {
       az: "Qida sənayesi",
       en: "Food industry",
@@ -913,6 +925,7 @@ export const kluberIndustries = [
   {
     key: "glass",
     icon: "GlassWater",
+    image: "/Glass.avif",
     names: {
       az: "Şüşə sənayesi",
       en: "Glass industry",
@@ -922,6 +935,7 @@ export const kluberIndustries = [
   {
     key: "hydrogen",
     icon: "Atom",
+    image: "/Hydrogen-Header.avif",
     names: {
       az: "Hidrogen",
       en: "Hydrogen",
@@ -931,6 +945,7 @@ export const kluberIndustries = [
   {
     key: "hydropower",
     icon: "Waves",
+    image: "/Hydropower-Industry-Klueber-Lubrication.avif",
     names: {
       az: "Hidroenergetika sənayesi",
       en: "Hydropower industry",
