@@ -41,6 +41,11 @@ export const descTranslations = {
     en: "YIWU YIDA FILTERS - quality filter products for automotive and industrial use.",
     ru: "YIWU YIDA FILTERS - качественные фильтры для автомобилей и промышленности.",
   },
+  kluber: {
+    az: "Klüber Lubrication - yüksək performanslı xüsusi sürtkü materialları üzrə qlobal lider.",
+    en: "Klüber Lubrication - global leader in high-performance specialty lubricants.",
+    ru: "Klüber Lubrication - мировой лидер в области высокоэффективных специальных смазочных материалов.",
+  },
 };
 
 export const uiTranslations = {
@@ -58,6 +63,9 @@ export const uiTranslations = {
     noProducts: "Axtarışınıza uyğun məhsul tapılmadı.",
     tryAgain:
       "Fərqli açar sözlər yazaraq və ya filtrləri təmizləyərək yenidən yoxlayın.",
+    kluberIndustriesTitle: "Klüber Lubrication həll etdiyi sənaye sahələri",
+    kluberIndustriesDesc:
+      "Klüber Lubrication dünya üzrə geniş sənaye spektrində xüsusi sürtkü həlləri təqdim edir.",
   },
   en: {
     heroTitle: "Our Products",
@@ -73,6 +81,9 @@ export const uiTranslations = {
     sortZA: "Z - A",
     noProducts: "No products found matching your search.",
     tryAgain: "Try again with different keywords or clear the filters.",
+    kluberIndustriesTitle: "Industries Klüber Lubrication Serves",
+    kluberIndustriesDesc:
+      "Klüber Lubrication delivers specialty lubrication solutions across a broad range of industries worldwide.",
   },
   ru: {
     heroTitle: "Наши продукты",
@@ -89,6 +100,9 @@ export const uiTranslations = {
     noProducts: "По вашему запросу ничего не найдено.",
     tryAgain:
       "Попробуйте использовать другие ключевые слова или очистите фильтры.",
+    kluberIndustriesTitle: "Отрасли, в которых работает Klüber Lubrication",
+    kluberIndustriesDesc:
+      "Klüber Lubrication предлагает специальные смазочные решения для широкого спектра отраслей по всему миру.",
   },
 };
 
@@ -824,6 +838,16 @@ export const products = [
     image: "/fuel-filter-original-for-jac-s2-n-auto-express.webp",
     descKey: "yiwuYidaFilters",
   },
+
+  // Klüber Lubrication
+  // TODO: Məhsul siyahısı hazır olanda bura əlavə et, məsələn:
+  // {
+  //   id: 99,
+  //   name: "Klüber ...",
+  //   category: "Klüber Lubrication",
+  //   image: "/kluber-....webp",
+  //   descKey: "kluber",
+  // },
 ];
 
 export const brandCategories = [
@@ -835,4 +859,226 @@ export const brandCategories = [
   "YILMAZ REDÜKTÖR",
   "SKF",
   "YIWU YIDA FILTERS",
+  "Klüber Lubrication",
+];
+
+// Klüber Lubrication - sənaye sahələri (məhsul kataloqu hazır olana qədər
+// brend kliklənəndə göstərilən sənaye şəbəkəsi bölməsi)
+export const kluberIndustries = [
+  {
+    key: "agriculture",
+    icon: "Tractor",
+    names: {
+      az: "Kənd təsərrüfatı və Meşəçilik sənayesi",
+      en: "Agriculture and Forestry industry",
+      ru: "Сельское и лесное хозяйство",
+    },
+  },
+  {
+    key: "automotive",
+    icon: "Car",
+    names: {
+      az: "Avtomobil sənayesi",
+      en: "Automotive industry",
+      ru: "Автомобильная промышленность",
+    },
+  },
+  {
+    key: "cement",
+    icon: "Factory",
+    names: {
+      az: "Sement sənayesi",
+      en: "Cement industry",
+      ru: "Цементная промышленность",
+    },
+  },
+  {
+    key: "chemical",
+    icon: "FlaskConical",
+    names: {
+      az: "Kimya sənayesi",
+      en: "Chemical industry",
+      ru: "Химическая промышленность",
+    },
+  },
+  {
+    key: "food",
+    icon: "UtensilsCrossed",
+    names: {
+      az: "Qida sənayesi",
+      en: "Food industry",
+      ru: "Пищевая промышленность",
+    },
+  },
+  {
+    key: "glass",
+    icon: "GlassWater",
+    names: {
+      az: "Şüşə sənayesi",
+      en: "Glass industry",
+      ru: "Стекольная промышленность",
+    },
+  },
+  {
+    key: "hydrogen",
+    icon: "Atom",
+    names: {
+      az: "Hidrogen",
+      en: "Hydrogen",
+      ru: "Водород",
+    },
+  },
+  {
+    key: "hydropower",
+    icon: "Waves",
+    names: {
+      az: "Hidroenergetika sənayesi",
+      en: "Hydropower industry",
+      ru: "Гидроэнергетика",
+    },
+  },
+  {
+    key: "intralogistics",
+    icon: "Warehouse",
+    names: {
+      az: "Anbar avtomatlaşdırılması və Intralogistika",
+      en: "Intralogistic & Warehouse Automation",
+      ru: "Интралогистика и автоматизация складов",
+    },
+  },
+  {
+    key: "marine",
+    icon: "Anchor",
+    names: {
+      az: "Dəniz sənayesi",
+      en: "Marine industry",
+      ru: "Морская отрасль",
+    },
+  },
+  {
+    key: "metal",
+    icon: "Hammer",
+    names: {
+      az: "Metal sənayesi",
+      en: "Metal industry",
+      ru: "Металлургическая промышленность",
+    },
+  },
+  {
+    key: "mining",
+    icon: "Mountain",
+    names: {
+      az: "Mədən sənayesi",
+      en: "Mining industry",
+      ru: "Горнодобывающая промышленность",
+    },
+  },
+  {
+    key: "oilgas",
+    icon: "Fuel",
+    names: {
+      az: "Neft və qaz sənayesi",
+      en: "Oil & gas industry",
+      ru: "Нефтегазовая промышленность",
+    },
+  },
+  {
+    key: "cranes",
+    icon: "Construction",
+    names: {
+      az: "Yükqaldıran kranlar",
+      en: "Overhead cranes",
+      ru: "Мостовые краны",
+    },
+  },
+  {
+    key: "paper",
+    icon: "FileStack",
+    names: {
+      az: "Kağız sənayesi",
+      en: "Paper industry",
+      ru: "Бумажная промышленность",
+    },
+  },
+  {
+    key: "pharma",
+    icon: "Pill",
+    names: {
+      az: "Farmasevtika sənayesi",
+      en: "Pharmaceutical industry",
+      ru: "Фармацевтическая промышленность",
+    },
+  },
+  {
+    key: "railway",
+    icon: "TrainFront",
+    names: {
+      az: "Dəmir yolu sənayesi",
+      en: "Railway industry",
+      ru: "Железнодорожная отрасль",
+    },
+  },
+  {
+    key: "ropeway",
+    icon: "CableCar",
+    names: {
+      az: "Kanat yolu sənayesi",
+      en: "Ropeway industry",
+      ru: "Канатные дороги",
+    },
+  },
+  {
+    key: "rubber",
+    icon: "Recycle",
+    names: {
+      az: "Kauçuk və plastik sənayesi",
+      en: "Rubber and plastics industry",
+      ru: "Резиновая и пластиковая промышленность",
+    },
+  },
+  {
+    key: "steel",
+    icon: "Flame",
+    names: {
+      az: "Polad sənayesi",
+      en: "Steel industry",
+      ru: "Сталелитейная промышленность",
+    },
+  },
+  {
+    key: "textile",
+    icon: "Shirt",
+    names: {
+      az: "Toxuculuq sənayesi",
+      en: "Textile industry",
+      ru: "Текстильная промышленность",
+    },
+  },
+  {
+    key: "windpower",
+    icon: "Wind",
+    names: {
+      az: "Külək enerjisi sənayesi",
+      en: "Wind power industry",
+      ru: "Ветроэнергетика",
+    },
+  },
+  {
+    key: "wiredrawing",
+    icon: "Cable",
+    names: {
+      az: "Məftil çəkmə sənayesi",
+      en: "Wire Drawing Industry",
+      ru: "Волочение проволоки",
+    },
+  },
+  {
+    key: "wood",
+    icon: "TreePine",
+    names: {
+      az: "Odun sənayesi",
+      en: "Wood industry",
+      ru: "Деревообрабатывающая промышленность",
+    },
+  },
 ];

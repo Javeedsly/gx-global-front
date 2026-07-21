@@ -2,13 +2,68 @@
 
 import { useMemo, useState } from "react";
 import Image from "next/image";
+import {
+  Anchor,
+  Atom,
+  Cable,
+  CableCar,
+  Car,
+  Construction,
+  Factory,
+  FileStack,
+  Flame,
+  FlaskConical,
+  Fuel,
+  GlassWater,
+  Hammer,
+  Mountain,
+  Pill,
+  Recycle,
+  Shirt,
+  Tractor,
+  TrainFront,
+  TreePine,
+  UtensilsCrossed,
+  Warehouse,
+  Waves,
+  Wind,
+  type LucideIcon,
+} from "lucide-react";
 
 import {
   brandCategories,
   descTranslations,
+  kluberIndustries,
   products,
   uiTranslations,
 } from "@/lib/productsData";
+
+const KLUBER_ICONS: Record<string, LucideIcon> = {
+  Tractor,
+  Car,
+  Factory,
+  FlaskConical,
+  UtensilsCrossed,
+  GlassWater,
+  Atom,
+  Waves,
+  Warehouse,
+  Anchor,
+  Hammer,
+  Mountain,
+  Fuel,
+  Construction,
+  FileStack,
+  Pill,
+  TrainFront,
+  CableCar,
+  Recycle,
+  Flame,
+  Shirt,
+  Wind,
+  Cable,
+  TreePine,
+};
 
 type UiLanguage = keyof typeof uiTranslations;
 type SortOption = "NEWEST" | "AZ" | "ZA";
@@ -24,6 +79,8 @@ export default function ProductsClient({ lang }: { lang: string }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("ALL");
   const [sortOption, setSortOption] = useState<SortOption>("NEWEST");
+
+  const isKluberView = selectedCategory === "Klüber Lubrication";
 
   const filteredProducts = useMemo(() => {
     const normalizedSearch = searchQuery.trim().toLowerCase();
@@ -131,91 +188,135 @@ export default function ProductsClient({ lang }: { lang: string }) {
         </aside>
 
         <section className="w-full lg:w-3/4" aria-label={t.heroTitle}>
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-            <p className="text-sm text-gray-500 dark:text-gray-400">
-              <span className="font-semibold text-gray-900 dark:text-white">
-                {filteredProducts.length}
-              </span>{" "}
-              {t.productsFound}
-            </p>
+          {isKluberView ? (
+            <div>
+              <div className="mb-6">
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                  {t.kluberIndustriesTitle}
+                </h2>
+                <p className="text-sm text-gray-500 dark:text-gray-400 max-w-2xl">
+                  {t.kluberIndustriesDesc}
+                </p>
+              </div>
 
-            <label className="sr-only" htmlFor="product-sort">
-              {t.sortNewest}
-            </label>
-            <select
-              id="product-sort"
-              value={sortOption}
-              onChange={(event) =>
-                setSortOption(event.target.value as SortOption)
-              }
-              className="w-full sm:w-auto bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-sm rounded-lg focus:ring-blue-500 p-2.5 cursor-pointer"
-            >
-              {[
-                { val: "NEWEST", label: t.sortNewest },
-                { val: "AZ", label: t.sortAZ },
-                { val: "ZA", label: t.sortZA },
-              ].map((option) => (
-                <option key={option.val} value={option.val}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+                {kluberIndustries.map((industry) => {
+                  const IconComponent = KLUBER_ICONS[industry.icon];
+                  const label =
+                    industry.names[currentLang] || industry.names.az;
 
-          {filteredProducts.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredProducts.map((product) => {
-                const descriptionGroup =
-                  descTranslations[
-                    product.descKey as keyof typeof descTranslations
-                  ];
-
-                const description =
-                  descriptionGroup?.[currentLang] ||
-                  descriptionGroup?.az ||
-                  product.name;
-
-                return (
-                  <article
-                    key={product.id}
-                    className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col group"
-                  >
-                    <div className="relative w-full h-56 sm:h-60 bg-gray-50 dark:bg-gray-700/50 p-4 flex items-center justify-center border-b border-gray-100 dark:border-gray-700">
-                      <Image
-                        src={product.image}
-                        alt={product.name}
-                        fill
-                        sizes="(max-width: 640px) 100vw, 33vw"
-                        className="object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-500 ease-out"
-                      />
-                    </div>
-
-                    <div className="p-5 flex flex-col flex-grow">
-                      <p className="text-[11px] font-bold text-blue-600 dark:text-blue-400 mb-2 tracking-wider uppercase">
-                        {product.category}
-                      </p>
-
-                      <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-2 leading-snug">
-                        {product.name}
-                      </h3>
-
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-auto pt-2">
-                        {description}
-                      </p>
-                    </div>
-                  </article>
-                );
-              })}
+                  return (
+                    <article
+                      key={industry.key}
+                      className="group relative overflow-hidden rounded-2xl border border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm hover:shadow-lg transition-all duration-300 cursor-default"
+                    >
+                      <div className="h-28 sm:h-32 flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900 dark:from-gray-700 dark:to-gray-900 group-hover:from-blue-700 group-hover:to-gray-900 transition-colors duration-300">
+                        {IconComponent ? (
+                          <IconComponent
+                            className="w-9 h-9 sm:w-10 sm:h-10 text-yellow-400"
+                            strokeWidth={1.5}
+                          />
+                        ) : null}
+                      </div>
+                      <div className="p-4">
+                        <h3 className="text-sm font-semibold text-gray-800 dark:text-gray-100 leading-snug">
+                          {label}
+                        </h3>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
             </div>
           ) : (
-            <div className="text-center bg-white dark:bg-gray-800 rounded-2xl p-16 border border-gray-100 dark:border-gray-700">
-              <p className="text-gray-500 dark:text-gray-400 text-lg font-medium">
-                {t.noProducts}
-              </p>
-              <p className="text-gray-400 dark:text-gray-500 text-sm mt-1">
-                {t.tryAgain}
-              </p>
-            </div>
+            <>
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  <span className="font-semibold text-gray-900 dark:text-white">
+                    {filteredProducts.length}
+                  </span>{" "}
+                  {t.productsFound}
+                </p>
+
+                <label className="sr-only" htmlFor="product-sort">
+                  {t.sortNewest}
+                </label>
+                <select
+                  id="product-sort"
+                  value={sortOption}
+                  onChange={(event) =>
+                    setSortOption(event.target.value as SortOption)
+                  }
+                  className="w-full sm:w-auto bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-sm rounded-lg focus:ring-blue-500 p-2.5 cursor-pointer"
+                >
+                  {[
+                    { val: "NEWEST", label: t.sortNewest },
+                    { val: "AZ", label: t.sortAZ },
+                    { val: "ZA", label: t.sortZA },
+                  ].map((option) => (
+                    <option key={option.val} value={option.val}>
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {filteredProducts.length > 0 ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {filteredProducts.map((product) => {
+                    const descriptionGroup =
+                      descTranslations[
+                        product.descKey as keyof typeof descTranslations
+                      ];
+
+                    const description =
+                      descriptionGroup?.[currentLang] ||
+                      descriptionGroup?.az ||
+                      product.name;
+
+                    return (
+                      <article
+                        key={product.id}
+                        className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col group"
+                      >
+                        <div className="relative w-full h-56 sm:h-60 bg-gray-50 dark:bg-gray-700/50 p-4 flex items-center justify-center border-b border-gray-100 dark:border-gray-700">
+                          <Image
+                            src={product.image}
+                            alt={product.name}
+                            fill
+                            sizes="(max-width: 640px) 100vw, 33vw"
+                            className="object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-500 ease-out"
+                          />
+                        </div>
+
+                        <div className="p-5 flex flex-col flex-grow">
+                          <p className="text-[11px] font-bold text-blue-600 dark:text-blue-400 mb-2 tracking-wider uppercase">
+                            {product.category}
+                          </p>
+
+                          <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-2 leading-snug">
+                            {product.name}
+                          </h3>
+
+                          <p className="text-xs text-gray-500 dark:text-gray-400 mt-auto pt-2">
+                            {description}
+                          </p>
+                        </div>
+                      </article>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="text-center bg-white dark:bg-gray-800 rounded-2xl p-16 border border-gray-100 dark:border-gray-700">
+                  <p className="text-gray-500 dark:text-gray-400 text-lg font-medium">
+                    {t.noProducts}
+                  </p>
+                  <p className="text-gray-400 dark:text-gray-500 text-sm mt-1">
+                    {t.tryAgain}
+                  </p>
+                </div>
+              )}
+            </>
           )}
         </section>
       </div>
