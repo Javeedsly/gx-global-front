@@ -955,6 +955,7 @@ export const kluberIndustries: KluberIndustry[] = [
   {
     key: "intralogistics",
     icon: "Warehouse",
+    image: "/Speciality_lubricants_for_industrial_automation_1206400879_test_5.avif",
     names: {
       az: "Anbar avtomatlaşdırılması və Intralogistika",
       en: "Intralogistic & Warehouse Automation",
@@ -964,6 +965,7 @@ export const kluberIndustries: KluberIndustry[] = [
   {
     key: "marine",
     icon: "Anchor",
+    image: "/Lubricants_for_maritime-kluber-4.avif",
     names: {
       az: "Dəniz sənayesi",
       en: "Marine industry",
@@ -973,6 +975,7 @@ export const kluberIndustries: KluberIndustry[] = [
   {
     key: "metal",
     icon: "Hammer",
+    image: "/_Lubricants_for_metalworking.avif",
     names: {
       az: "Metal sənayesi",
       en: "Metal industry",
@@ -982,6 +985,7 @@ export const kluberIndustries: KluberIndustry[] = [
   {
     key: "mining",
     icon: "Mountain",
+    image: "/klueber_Lubricants_for_mining_industry.avif",
     names: {
       az: "Mədən sənayesi",
       en: "Mining industry",
@@ -991,6 +995,7 @@ export const kluberIndustries: KluberIndustry[] = [
   {
     key: "oilgas",
     icon: "Fuel",
+    image: "/kluber_lubricants_for_oil_and_gas.avif",
     names: {
       az: "Neft və qaz sənayesi",
       en: "Oil & gas industry",
@@ -1000,6 +1005,7 @@ export const kluberIndustries: KluberIndustry[] = [
   {
     key: "cranes",
     icon: "Construction",
+    image: "/shutterstock_770996572_2.avif",
     names: {
       az: "Yükqaldıran kranlar",
       en: "Overhead cranes",
@@ -1009,91 +1015,11 @@ export const kluberIndustries: KluberIndustry[] = [
   {
     key: "paper",
     icon: "FileStack",
+    image: "/paper-kluber.avif",
     names: {
       az: "Kağız sənayesi",
       en: "Paper industry",
       ru: "Бумажная промышленность",
-    },
-  },
-  {
-    key: "pharma",
-    icon: "Pill",
-    names: {
-      az: "Farmasevtika sənayesi",
-      en: "Pharmaceutical industry",
-      ru: "Фармацевтическая промышленность",
-    },
-  },
-  {
-    key: "railway",
-    icon: "TrainFront",
-    names: {
-      az: "Dəmir yolu sənayesi",
-      en: "Railway industry",
-      ru: "Железнодорожная отрасль",
-    },
-  },
-  {
-    key: "ropeway",
-    icon: "CableCar",
-    names: {
-      az: "Kanat yolu sənayesi",
-      en: "Ropeway industry",
-      ru: "Канатные дороги",
-    },
-  },
-  {
-    key: "rubber",
-    icon: "Recycle",
-    names: {
-      az: "Kauçuk və plastik sənayesi",
-      en: "Rubber and plastics industry",
-      ru: "Резиновая и пластиковая промышленность",
-    },
-  },
-  {
-    key: "steel",
-    icon: "Flame",
-    names: {
-      az: "Polad sənayesi",
-      en: "Steel industry",
-      ru: "Сталелитейная промышленность",
-    },
-  },
-  {
-    key: "textile",
-    icon: "Shirt",
-    names: {
-      az: "Toxuculuq sənayesi",
-      en: "Textile industry",
-      ru: "Текстильная промышленность",
-    },
-  },
-  {
-    key: "windpower",
-    icon: "Wind",
-    names: {
-      az: "Külək enerjisi sənayesi",
-      en: "Wind power industry",
-      ru: "Ветроэнергетика",
-    },
-  },
-  {
-    key: "wiredrawing",
-    icon: "Cable",
-    names: {
-      az: "Məftil çəkmə sənayesi",
-      en: "Wire Drawing Industry",
-      ru: "Волочение проволоки",
-    },
-  },
-  {
-    key: "wood",
-    icon: "TreePine",
-    names: {
-      az: "Odun sənayesi",
-      en: "Wood industry",
-      ru: "Деревообрабатывающая промышленность",
     },
   },
 ];
