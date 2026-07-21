@@ -46,6 +46,11 @@ export const descTranslations = {
     en: "Klüber Lubrication - global leader in high-performance specialty lubricants.",
     ru: "Klüber Lubrication - мировой лидер в области высокоэффективных специальных смазочных материалов.",
   },
+  oks: {
+    az: "OKS - xüsusi təyinatlı yüksək keyfiyyətli sürtkü materialları.",
+    en: "OKS - high-quality specialty lubricants.",
+    ru: "OKS - высококачественные специальные смазочные материалы.",
+  },
 };
 
 export const uiTranslations = {
@@ -839,10 +844,117 @@ export const products = [
     descKey: "yiwuYidaFilters",
   },
 
+  // OKS
+  {
+    id: 99,
+    name: "OKS 30 – Mo\u2093-Active Additive",
+    category: "OKS",
+    image: "/110706_web.jpg",
+    descKey: "oks",
+  },
+  {
+    id: 100,
+    name: "OKS 100 – MoS\u2082 Powder, high degree of purity",
+    category: "OKS",
+    image: "/112354_web.jpg",
+    descKey: "oks",
+  },
+  {
+    id: 101,
+    name: "OKS 111 – MoS\u2082 Powder, microsize, Spray",
+    category: "OKS",
+    image: "/112183_web.jpg",
+    descKey: "oks",
+  },
+  {
+    id: 102,
+    name: "OKS 220 – MoS\u2082 Rapid Paste",
+    category: "OKS",
+    image: "/110582_web.jpg",
+    descKey: "oks",
+  },
+  {
+    id: 103,
+    name: "OKS 235 – Aluminium Paste, Anti-Seize Paste",
+    category: "OKS",
+    image: "/110584_web.jpg",
+    descKey: "oks",
+  },
+  {
+    id: 104,
+    name: "OKS 255 – Ceramic Paste",
+    category: "OKS",
+    image: "/119737_web.jpg",
+    descKey: "oks",
+  },
+  {
+    id: 105,
+    name: "OKS 300 – MoS\u2082 Mineral Oil Concentrate",
+    category: "OKS",
+    image: "/110601_web.jpg",
+    descKey: "oks",
+  },
+  {
+    id: 106,
+    name: "OKS 387 – Graphite High-Temperature Lubricating Oil",
+    category: "OKS",
+    image: "/110613_web.jpg",
+    descKey: "oks",
+  },
+  {
+    id: 107,
+    name: "OKS 464 – Roller Bearing Grease, Electrically conductive",
+    category: "OKS",
+    image: "/113686_web.jpg",
+    descKey: "oks",
+  },
+  {
+    id: 108,
+    name: "OKS 670 – High-Performance Lube Oil, with white solid lubricants",
+    category: "OKS",
+    image: "/110640_web.jpg",
+    descKey: "oks",
+  },
+  {
+    id: 109,
+    name: "OKS 1149 – Silicone Grease, with PTFE",
+    category: "OKS",
+    image: "/116026_web.jpg",
+    descKey: "oks",
+  },
+  {
+    id: 110,
+    name: "OKS 1360 – Silicone Release Agent",
+    category: "OKS",
+    image: "/112168_web.jpg",
+    descKey: "oks",
+  },
+  {
+    id: 111,
+    name: "OKS 1301 – Sliding Film for Plastics and Metals, Wax-based, Spray",
+    category: "OKS",
+    image: "/112177_web.jpg",
+    descKey: "oks",
+  },
+  {
+    id: 112,
+    name: "OKS 1510 – Release Agent, silicone-free",
+    category: "OKS",
+    image: "/103576_web.jpg",
+    descKey: "oks",
+  },
+  {
+    id: 113,
+    name: "OKS 2610 – Universal Cleaner",
+    category: "OKS",
+    image: "/119481_web.jpg",
+    descKey: "oks",
+  },
+
   // Klüber Lubrication
   // TODO: Məhsul siyahısı hazır olanda bura əlavə et, məsələn:
   // {
-  //   id: 99,
+  //   id: 114,
   //   name: "Klüber ...",
   //   category: "Klüber Lubrication",
   //   image: "/kluber-....webp",
@@ -860,6 +972,7 @@ export const brandCategories = [
   "SKF",
   "YIWU YIDA FILTERS",
   "Klüber Lubrication",
+  "OKS",
 ];
 
 // Klüber Lubrication - sənaye sahələri (məhsul kataloqu hazır olana qədər
